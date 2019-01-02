@@ -1,0 +1,8 @@
+<ExtractVariables name="Extract.eIDASRoles">
+    <Source>flow.certInfoMessage</Source>
+    <JSONPayload>
+        <Variable name="custom.eidas.roles">
+            <JSONPath>$.certInfo.rolesofPSP</JSONPath>
+        </Variable>
+    </JSONPayload>
+</ExtractVariables>

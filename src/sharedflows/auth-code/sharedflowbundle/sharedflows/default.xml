@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<SharedFlow name="default">
+    <Step>
+        <Name>Callout.AccessToken</Name>
+        <Condition>request.verb = "POST" AND proxy.pathsuffix MatchesPath "/token" AND request.formparam.grant_type = "authorization_code"</Condition>
+    </Step>
+    <Step>
+        <Name>JS.ExtractExternalToken</Name>
+        <Condition>request.verb = "POST" AND proxy.pathsuffix MatchesPath "/token" AND request.formparam.grant_type = "authorization_code"</Condition>
+    </Step>
+    <Step>
+        <Name>OAuthV2.AuthCode</Name>
+        <Condition>request.verb = "POST" AND proxy.pathsuffix MatchesPath "/token" AND request.formparam.grant_type = "authorization_code"</Condition>
+    </Step>
+    <Step>
+        <Name>OAuthV2.AuthToken</Name>
+        <Condition>request.verb = "POST" AND proxy.pathsuffix MatchesPath "/token" AND request.formparam.grant_type = "authorization_code"</Condition>
+    </Step>
+</SharedFlow>

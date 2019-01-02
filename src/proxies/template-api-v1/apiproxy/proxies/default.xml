@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ProxyEndpoint name="default">
+    <Description/>
+    <FaultRules/>
+    <PreFlow name="PreFlow">
+        <Request>
+            <!-- add Request PreFlow steps here -->
+        </Request>
+        <Response>
+            <!-- add Response PreFlow steps here -->
+        </Response>
+    </PreFlow>
+    <PostFlow name="PostFlow">
+        <Request>
+            <!-- add Request PostFlow steps here -->
+        </Request>
+        <Response>
+            <!-- add Response PostFlow steps here -->
+        </Response>
+    </PostFlow>
+    <Flows/>
+    <HTTPProxyConnection>
+        <BasePath/>
+        <VirtualHost>secure</VirtualHost>
+    </HTTPProxyConnection>
+    <RouteRule name="none">
+    </RouteRule>
+</ProxyEndpoint>

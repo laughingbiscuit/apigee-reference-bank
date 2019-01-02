@@ -1,0 +1,9 @@
+<RaiseFault name="Raise.Unauthorized">
+    <FaultResponse>
+        <Set>
+            <Payload contentType="application/json">{"error":"unauthorized"}</Payload>
+            <StatusCode>401</StatusCode>
+            <ReasonPhrase>Unauthorized</ReasonPhrase>
+        </Set>
+    </FaultResponse>
+</RaiseFault>

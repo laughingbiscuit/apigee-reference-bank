@@ -1,0 +1,20 @@
+{
+  "name": "apigee-reference-bank",
+  "version": "1.0.0",
+  "description": "A reference implementation of Open Banking APIs",
+  "main": "banktool.js",
+  "scripts": {
+    "test": "./node_modules/.bin/cucumber-js test"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "commander": "^2.19.0",
+    "fs-extra": "^7.0.1",
+    "replace-in-file": "^3.4.2"
+  },
+  "devDependencies": {
+    "apickli": "^2.3.0",
+    "cucumber": "^5.0.3"
+  }
+}

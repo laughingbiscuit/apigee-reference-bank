@@ -1,0 +1,9 @@
+<OAuthV2 name="OAuthV2.AuthCode">
+    <Operation>GenerateAuthorizationCode</Operation>
+    <ExternalAuthorization>true</ExternalAuthorization>
+    <ExternalAuthorizationCode>request.formparam.code</ExternalAuthorizationCode>
+    <ResponseType>custom.responseType</ResponseType>
+    <GenerateResponse enabled="false"/>
+    <ClientId>request.formparam.client_id</ClientId>
+    <RedirectUri>request.formparam.redirect_uri</RedirectUri>
+</OAuthV2>
