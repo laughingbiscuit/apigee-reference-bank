@@ -76,8 +76,8 @@ questions:
   and security”
 - All EU Member States must implement the directive by 13 January 2018 (ish..?)
 
-## PSD2 Detail Looks to better support two new types of payment service that
-have entered the market
+## PSD2 Detail 
+Looks to better support two new types of payment service that have entered the market:
 - Payment Initiation Services
 - Account Information Services The directive requires that Account/Payment
   Service Providers expose certain data through Open APIs to be consumed by
@@ -95,13 +95,19 @@ of Open Banking APIs can be found in USA, Jordan, Mongolia, India and Australia.
 
 Standards 
 ---
-- OBIE
+The two most popular standards within Europe are:
+- Open Banking Implementation Entity
+	- Initially funded by the 9 biggest banks in the UK
+	- More opinionated specifications
+	- Redirect-based authentication only
 - Berlin Group
-- STET
+	- Formed of ~40 Banks across the Single Euro Payments Area
+	- Greater flexibility in payload structure 
+	- Redirect, decoupled and embedded authentication supported
 
 ---
 
-Use Cases 
+Propsed Use Cases 
 ---
 - Current Account Comparison Services
 - Personal Finance Management
@@ -109,25 +115,25 @@ Use Cases
 - Online Accounting
 - Fraud Detection
 - Switch Service Demo 
-- Smart Home Flashes Lights on Payday? Darkness when I spend too much money?
-- Smart Car pays for its own fuel? Smart Taxi that notifies when I am near an
-  ATM?
+- Smart Home Integration? Disco lights on payday?
+- Smart Car Integration? Automated fuel payments? 
 
 ---
 
 Beyond Compliance 
 ---
-- Attracting Developers
-- Monetization Opportunities
-- Banks as TPPs
+Whilst initially, banks have been rushing to meet compliance deadlines, many see APIs as a new channel. Three common questions are: 
+- How do we attract developers?
+- How can we monetize our API program?
+- Can we leverage other banks APIs to provide a better customer experience?
+- How can we stand out with innovative APIs?
 
 ---
 
 References 
 ---
-- Payeezy
-- ABN AMRO
-- YBS
-- Nationwide
-- Arab Bank
-
+- [Payeezy](https://developer.payeezy.com/) have an excellent developer experience, meeting the 5-5-5 rules
+- [Nationwide](https://apigee.com/about/blog/digital-business/nationwide-building-trust-apis) have embraced the regulatory change to help build trust with customers
+- [ABN AMRO](https://developer.abnamro.com/) provide additional APIs, including early-access simulations, including Payments through Social Media and Machine Learning Transaction Categorization APIs
+- [Yorkshire Building Society](https://apigee.com/about/blog/digital-business/yorkshire-building-society-group-embracing-open-banking-apigee) are embracing Open Banking using the Apigee Platform
+- [Arab Bank](https://developer.arabbank.com/) have implemented Open Banking APIs to allow a consistent Developer Experience between Europe and Middle Eastern Banking

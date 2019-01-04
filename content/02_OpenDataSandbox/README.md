@@ -1,7 +1,9 @@
 Open Data Sandbox
 ---
 
-For our first APIs, we will build some Open Data Sandboxes. This will allow us to understand the Apigee platform and set up our environment. The three APIs we will build are ATM Location, Branch Location and Product Information.
+For our first APIs, we will build some Open Data Sandboxes. This will allow us to understand the Apigee platform and set up our environment. The three APIs we will build are ATM Location, Branch Location and Product Information. 
+
+These sandboxes can be used as Mocks to allow for parallel development between App, API and Middleware teams. They can also be used by the Developer Portal to allow third party developers to test your APIs.
 
 ---
 
@@ -12,6 +14,7 @@ Requirements:
 - Apigee Edge
 - Node JS
 - Text Editor
+- A HTTP Client such as Postman
 
 ---
 
@@ -93,17 +96,51 @@ In all of the mocking options proposed so far, static responses have been return
 Deploying our Sandbox
 ---
 
-For our Sandbox, we will upload Swagger tools proxies with their corresponding specification.
+Let's build some sandboxes uses Swagger Tools.
+
+To build this mock, we need a Hosted Targets API Proxy and an API Specification. We can generate the code we need by running the following command:
+
+```bash
+./banktool.js generate-sandbox -n atms-sandbox-v1 -s ./specs/atms.json -b /atm-sandbox
+```
+
+If everything has worked correctly, the _target/sandboxes_ directory should now contain a proxy bundle which we can deploy to Apigee using Hosted Targets. Explore the code and then deploy using this command:
+
+```bash
+.target/sandboxes/atms-sandbox-v1/deploy.sh
+```
 
 Trying our Sandbox
 ---
 
+After deploying, your console will display the URL that the proxy has been deployed to. Simply append the API path to this URL and make the request from your REST Client. The URL should look something like this:
+
+```
+https://(organization)-(environment).apigee.net/atm-sandbox/open-banking/v2.2/atms
+```
+
+You should see a successful response!
+
 Protecting our Sandbox
 ---
 
-An example of a check we may perform as part of our sandbox is a Spike Arrest. This will allow us to limit the amount of traffic from a single consumer.
+An example of a check we may perform as part of our sandbox is a Spike Arrest. This will allow us to limit the amount of traffic from a single consumer. You can read about them in the documentation [here](https://docs.apigee.com/api-platform/reference/policies/spike-arrest-policy).
 
-Bonus: Storing our code
----
-While we are here, lets store our code in Git.
+We can leverage shared flows to add this policy to our sandbox using the [Edge Console](https://docs.apigee.com/api-platform/fundamentals/shared-flows) or following commands:
 
+```bash
+./banktool.js generate-shared-flow -n traffic-v1 -d ./src/sharedflows/traffic-mgmt-v1
+./target/shared/traffic-v1/deploy.sh
+./banktool.js attach-shared-flow -a atms-sandbox-v1 -f PreFlow -d Request -s traffic-v1 -n traffic-v1
+.target/sandboxes/atms-sandbox-v1/deploy.sh
+```
+
+By exploring the code, you can see that we have set the limit to 5 requests per second. We can use a performance testing tool to test this:
+
+```bash
+# Use Apache Bench to run a 30 second test with 30 concurrent requests
+ab -t 30 -c 30 https://(organization)-(environment).apigee.net/atm-sandbox/open-banking/v2.2/atms
+```
+Alternatively, we can change the limit to _5pm_ (5 per minute) and test this from our browser.
+
+Complete these steps for ATMs, Branches and Products
