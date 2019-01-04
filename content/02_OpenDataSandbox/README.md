@@ -24,7 +24,8 @@ Mocking in Apigee
 - For this exercise, we would like to connect our API Proxies to a sandbox. This way, we don't have to establish connectivity to any internal services.
 - There are a number of different methods of mocking within Apigee.
 
-## Assign Message
+Assign Message
+---
 
 For very simple mocks, we can create an API Proxy within Apigee that does not have a target. Instead of going to a backend we could use one simple AssignMessage policy to create a mock. For example:
 
@@ -54,7 +55,8 @@ Then use a condition to map API Request Paths to the policies
 
 This method is very quick to implement, however the complexity grows as we add more resources and error cases.
 
-## API Mocker
+API Mocker
+---
 
 API Mocker is a Node JS Library that can be deployed in Apigee. If we have some example responses, we are able to deploy these with a configuration json file to describe the behaviour we want. 
 
@@ -79,13 +81,15 @@ One of the strengths of this framework is the ability to 'switch' responses depe
 
 Aside from using these switch statements, this framework does not perform any request validation. 
 
-## Swagger Tools
+Swagger Tools
+---
 
 It is very likely that we have Swagger files for our APIs. It is possible to leverage these to allow our sandboxes to perform request validation and then return auto-generated responses. Swagger Tools is an example of a framework that allows us this. You can try it online in the API Studio [tool](http://apistudio.io)
 
 By auto-generating sandboxes, we lower the cost of maintenance. You should ensure that (Examples)[https://swagger.io/docs/specification/adding-examples/] are provided in your API Specifications, otherwise you may see dummy data such as `"accountId":"Sample Text"`.
 
-## Dynamic Mocks
+Dynamic Mocks
+---
 
 In all of the mocking options proposed so far, static responses have been returned from the sandbox. If you would like dynamic responses, e.g. updating the /balances response after POSTing to /payments, then persistence is required. For this, the Apigee Cache can be leveraged with the Client ID or IP Address forming part of the Cache Key. This way, balance changes can be stored for a short time and only for a given sandbox developer.
 

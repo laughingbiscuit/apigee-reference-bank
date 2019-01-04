@@ -2,7 +2,7 @@ Feature:
     As a Third Party API Developer
     I want to use Banking APIs
     So that I can build an app
-    
+
     Scenario: I successfully obtain a client credentials access token
         Given I have basic authentication credentials XAsT7MGz9GoGPvpp8UqjnTw0JIcIekUA and CCFG3f0OavXoA1we
         And I set Content-Type header to application/x-www-form-urlencoded
