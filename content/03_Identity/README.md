@@ -31,9 +31,9 @@ PSD2 / Berlin Group
 User Journey
 ---
 
-
 Flow
 ---
+(flow diagram here)
 
 Deploying
 ---
@@ -41,9 +41,25 @@ Deploying
 Trying it out
 ---
 
+Client Credentials
+---
+
+Please reference the test file `Identity-ClientCredentials.feature` to learn how to obtain a client credentials access token. 
+
+
+Authorization Code
+---
+
+Navigate to `https://(org)-(env).apigee.net/mock-iam/v1/authorize?client_id=123456789&redirect_uri=https%3A%2F%2Fexample.com&response_type=code&scope=openid%20accounts` in your browser
+
+Token
+---
+Please reference the test file `Identity-Authorize.feature` to learn how to obtain an access token for a user.
+
 Customizing the login page
 ---
 
+This sample login page is built using Node JS and it hosted in Apigee for demonstrating purposes. In production you will replace this with your own IDP. Explore the Mock IDP in the ./src/mocks/mock-iam-v1
 
 Notes
 ---
