@@ -7,8 +7,8 @@ app.use(bodyParser.urlencoded({
 }))
 app.set('view engine', 'ejs')
 
-//const basepath = '/mock-iam/v2'
-const basepath = ''
+const basepath = '/mock-iam/v1'
+//const basepath = ''
 
 let mockClient = {
     id: '123456789',
