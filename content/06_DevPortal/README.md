@@ -13,8 +13,13 @@ Options
 Installing Drupal 8
 ---
 
+```bash
+./clean && ./start.sh && ./initialSetup.sh
+```
+
 Adding our specifications
 ---
+This command has installed a default drupal setup. By logging in as an admin and navigating to `/spec_publish` we can create docs pages automatically.
 
 Adding a home page
 ---
