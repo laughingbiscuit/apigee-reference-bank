@@ -35,12 +35,3 @@ Agenda
 	- Next Steps
 	- Monetization
 
----
-
-# End Result
-
-
-
----
-
-# Contributing

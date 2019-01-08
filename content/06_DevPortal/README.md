@@ -23,7 +23,9 @@ This command has installed a default drupal setup. By logging in as an admin and
 
 Adding a home page
 ---
+TODO
 
 Styling the portal
 ---
+TODO
 
