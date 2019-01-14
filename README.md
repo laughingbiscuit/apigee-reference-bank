@@ -18,7 +18,7 @@ git clone https://github.com/laughingbiscuit/apigee-reference-bank
 cd apigee-reference bank
 npm install
 ```
-* look around the project - its looks scarier than it is!
+* look around the project - it looks scarier than it is!
 ```bash
 # workshops - which have lots of valuable info
 cd content
@@ -64,7 +64,7 @@ export APIGEE_ENV=xxx
 cd target/shared/*
 ./deploy.sh
 ```
-* deploy the rest of the proxies!
+* deploy the rest of the proxies
 ```bash
 cd target/**
 ./deploy.sh
@@ -78,5 +78,5 @@ cd src/portal
 ```bash
 npm test
 ```
-* If you got this far, you have earnt a coffee. Enjoy!
+* If you made it this far, you have earnt a coffee. Enjoy!
 
