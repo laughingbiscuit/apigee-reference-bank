@@ -18,35 +18,6 @@ git clone https://github.com/laughingbiscuit/apigee-reference-bank
 cd apigee-reference bank
 npm install
 ```
-* look around the project - it looks scarier than it is!
-```bash
-# workshops - which have lots of valuable info
-cd content
-
-# specs - collection of Open API Specifications (OBIE)
-cd specs
-
-# build scripts to build a full OBIE or Berlin Group reference
-cd src/build
-
-# custom java for eIDAS certificate parser - here be dragons
-cd src/java
-
-# mock Identity Provider to demonstrate external OAuth token usage
-cd src/mocks
-
-# Drupal 8 Dev Portal code, Dockerize for your pleasure
-cd src/portal
-
-# A sandbox template which we will use for stubbed backends
-cd src/proxies/sandbox-v1
-
-# An API Proxy template which we will use for our real APIs
-cd src/proxies/template-api-v1
-
-# Reusable flows for API logic like Dynamic Registration, Traffic Management and Token Validation
-cd src/sharedflows
-```
 * build the reference implementation
 ```bash
 npm run obie
@@ -80,3 +51,39 @@ npm test
 ```
 * If you made it this far, you have earnt a coffee. Enjoy!
 
+## Tour of the codebase
+
+```bash
+# workshops - which have lots of valuable info
+cd content
+
+# specs - collection of Open API Specifications (OBIE)
+cd specs
+
+# build scripts to build a full OBIE or Berlin Group reference
+cd src/build
+
+# custom java for eIDAS certificate parser - here be dragons
+cd src/java
+
+# mock Identity Provider to demonstrate external OAuth token usage
+cd src/mocks
+
+# Drupal 8 Dev Portal code, Dockerize for your pleasure
+cd src/portal
+
+# A sandbox template which we will use for stubbed backends
+cd src/proxies/sandbox-v1
+
+# An API Proxy template which we will use for our real APIs
+cd src/proxies/template-api-v1
+
+# Reusable flows for API logic like Dynamic Registration, Traffic Management and Token Validation
+cd src/sharedflows
+
+# Behaviour Driven Development Scripts
+cd tests
+
+# The script that generates our examples for us
+less banktool.js
+```
