@@ -1,6 +1,6 @@
 runtime: node
 runtimeVersion: 8
-application: iam
+application: request-test
 env:
   - name: NODE_ENV
     value: production
