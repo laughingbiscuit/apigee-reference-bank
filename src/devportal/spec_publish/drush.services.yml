@@ -1,0 +1,5 @@
+services:
+  spec_publish.commands:
+    class: \Drupal\spec_publish\Commands\SpecPublishCommands
+    tags:
+      - { name: drush.command }
