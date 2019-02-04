@@ -31,3 +31,11 @@ RUN mkdir -p /var/www/portal/web/sites/default/files
 RUN cp /var/www/portal/web/sites/default/default.settings.php /var/www/portal/web/sites/default/settings.php 
 
 ADD ./api_specification ./web/modules/custom/features/api_specification
+ADD ./spec_publish ./web/modules/spec_publish
+ADD ./specs ./web/private/assets/
+
+WORKDIR /var/www/portal/web
+
+RUN mkdir libraries && curl -sSL https://github.com/swagger-api/swagger-ui/archive/v3.19.4.tar.gz -o swagger.tar.gz && tar -xvzf swagger.tar.gz && rm swagger.tar.gz  && mv swagger-ui-3.19.4 libraries/swagger_ui
+
+WORKDIR /var/www/portal

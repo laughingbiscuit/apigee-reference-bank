@@ -1,1 +1,1 @@
-docker rm -f some-drupal some-mysql  || true
+docker rm -f some-drupal || true
