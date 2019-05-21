@@ -30,6 +30,16 @@ program
                 from: '-n ""',
                 to: '-n "' + opts.name + '"'
             }))
+            .then(() => replace({
+                files: 'target/' + opts.name + '/apiproxy/api-v1.xml',
+                from: '<DisplayName/>',
+                to: '<DisplayName>' + opts.name + '</DisplayName>'
+            }))
+            .then(() => replace({
+                files: 'target/' + opts.name + '/apiproxy/api-v1.xml',
+                from: '<Description/>',
+                to: '<Description>' + opts.name + '</Description>'
+            }))
             .catch((err) => console.error(err))
     })
 
@@ -51,6 +61,16 @@ program
                 files: targetPath + '/apiproxy/proxies/default.xml',
                 from: '<BasePath/>',
                 to: '<BasePath>' + opts.basepath + '</BasePath>'
+            }))
+            .then(() => replace({
+                files: targetPath + '/apiproxy/sandbox-v1.xml',
+                from: '<DisplayName/>',
+                to: '<DisplayName>' + opts.name + '</DisplayName>'
+            }))
+            .then(() => replace({
+                files: targetPath + '/apiproxy/sandbox-v1.xml',
+                from: '<Description/>',
+                to: '<Description>' + opts.name + '</Description>'
             }))
             .then(() => replace({
                 files: targetPath + '/deploy.sh',
