@@ -104,7 +104,7 @@ program
     .option('-a --apiproxy <apiproxy>', 'API Proxy')
     .option('-f --flow <flow>', 'PreFlow or PostFlow')
     .option('-d --direction <direction>', 'Request or Response')
-    .option('-s --shared-flow <sharedflow>', 'Shared flow name to attach')
+    .option('-s --sharedflow <sharedflow>', 'Shared flow name to attach')
     .option('-n --name <name>', 'Policy name')
     .action((opts) => {
         //TODO add validation
@@ -121,7 +121,7 @@ program
             .then(() => replace({
                 files: targetPolicyPath,
                 from: '<SharedFlowBundle/>',
-                to: '<SharedFlowBundle>' + opts.name + '</SharedFlowBundle>'
+                to: '<SharedFlowBundle>' + opts.sharedflow + '</SharedFlowBundle>'
             }))
             .then(() => {
                 const replaceTag = '<!-- add ' + opts.direction + ' ' + opts.flow + ' steps here -->'
