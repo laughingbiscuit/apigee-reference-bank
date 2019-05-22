@@ -30,6 +30,16 @@ program
                 from: '-n ""',
                 to: '-n "' + opts.name + '"'
             }))
+            .then(() => replace({
+                files: 'target/' + opts.name + '/apiproxy/api-v1.xml',
+                from: '<DisplayName/>',
+                to: '<DisplayName>' + opts.name + '</DisplayName>'
+            }))
+            .then(() => replace({
+                files: 'target/' + opts.name + '/apiproxy/api-v1.xml',
+                from: '<Description/>',
+                to: '<Description>' + opts.name + '</Description>'
+            }))
             .catch((err) => console.error(err))
     })
 
@@ -51,6 +61,16 @@ program
                 files: targetPath + '/apiproxy/proxies/default.xml',
                 from: '<BasePath/>',
                 to: '<BasePath>' + opts.basepath + '</BasePath>'
+            }))
+            .then(() => replace({
+                files: targetPath + '/apiproxy/sandbox-v1.xml',
+                from: '<DisplayName/>',
+                to: '<DisplayName>' + opts.name + '</DisplayName>'
+            }))
+            .then(() => replace({
+                files: targetPath + '/apiproxy/sandbox-v1.xml',
+                from: '<Description/>',
+                to: '<Description>' + opts.name + '</Description>'
             }))
             .then(() => replace({
                 files: targetPath + '/deploy.sh',
@@ -84,7 +104,7 @@ program
     .option('-a --apiproxy <apiproxy>', 'API Proxy')
     .option('-f --flow <flow>', 'PreFlow or PostFlow')
     .option('-d --direction <direction>', 'Request or Response')
-    .option('-s --shared-flow <sharedflow>', 'Shared flow name to attach')
+    .option('-s --sharedflow <sharedflow>', 'Shared flow name to attach')
     .option('-n --name <name>', 'Policy name')
     .action((opts) => {
         //TODO add validation
@@ -101,7 +121,7 @@ program
             .then(() => replace({
                 files: targetPolicyPath,
                 from: '<SharedFlowBundle/>',
-                to: '<SharedFlowBundle>' + opts.name + '</SharedFlowBundle>'
+                to: '<SharedFlowBundle>' + opts.sharedflow + '</SharedFlowBundle>'
             }))
             .then(() => {
                 const replaceTag = '<!-- add ' + opts.direction + ' ' + opts.flow + ' steps here -->'

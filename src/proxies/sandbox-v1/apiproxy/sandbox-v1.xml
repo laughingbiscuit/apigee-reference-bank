@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <APIProxy revision="2" name="atm-sandbox-v1">
-    <Basepaths>/sandbox/v1</Basepaths>
+    <Basepaths/>
     <ConfigurationVersion majorVersion="4" minorVersion="0"/>
     <CreatedAt>1542364211219</CreatedAt>
     <CreatedBy>davissean@google.com</CreatedBy>
-    <Description>atm-sandbox-v1</Description>
-    <DisplayName>atm-sandbox-v1</DisplayName>
+    <Description/>
+    <DisplayName/>
     <HostedManifestVersion>SHA-512:6e0ee3e79984e3793840a51c7559f08705ab540b665b32d62b2dcf1d87ebdbbca0a82093faa76ac634b66dfe3115df7b68a7c1a960780ad74cadeecfdac5f054:eu-west-1</HostedManifestVersion>
     <LastModifiedAt>1542364211219</LastModifiedAt>
     <LastModifiedBy>davissean@google.com</LastModifiedBy>
