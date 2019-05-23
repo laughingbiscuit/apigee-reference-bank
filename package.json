@@ -1,22 +1,22 @@
 {
-  "name": "apigee-reference-bank",
+  "name": "apigee-banking",
   "version": "1.0.0",
-  "description": "A reference implementation of Open Banking APIs",
-  "main": "banktool.js",
+  "description": "Apigee Banking Reference Implementation",
   "scripts": {
-    "test": "./node_modules/.bin/cucumber-js test",
-    "obie": "./src/build/obie.sh"
+    "deployAll": "npm run deploySharedFlows && npm run deployProxies",
+    "deployProxies": "for DIR in $(ls apiproxies); do cd apiproxies/$DIR && npm run deploy && cd ../.. ; done",
+    "deploySharedFlows": "for DIR in $(ls sharedflows); do cd sharedflows/$DIR && npm run deploy && cd ../.. ; done",
+    "test": "npx cucumber-js test"
   },
-  "author": "Sean Davis",
+  "keywords": [
+    "apigee",
+    "banking"
+  ],
+  "author": "LaughingBiscuit",
   "license": "NONE",
-  "dependencies": {
-    "commander": "^2.19.0",
-    "fs-extra": "^7.0.1",
-    "replace-in-file": "^3.4.2"
-  },
   "devDependencies": {
-    "apickli": "^2.3.0",
-    "apigeetool": "^0.10.0",
-    "cucumber": "^5.0.3"
+    "apickli": "^2.3.1",
+    "cucumber": "^5.1.0",
+    "puppeteer": "^1.16.0"
   }
 }

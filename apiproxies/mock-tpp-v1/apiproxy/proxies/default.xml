@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ProxyEndpoint name="default">
+    <Description></Description>
+    <FaultRules/>
+    <Flows>
+        <Flow name="JWKS">
+            <Request/>
+            <Response>
+                <Step>
+                    <FaultRules/>
+                    <Name>Shared.JWKS</Name>
+                </Step>
+            </Response>
+            <Condition>request.verb = "GET" and proxy.pathsuffix = "/my_public_keys.jwks"</Condition>
+        </Flow>
+    </Flows>
+    <HTTPProxyConnection>
+        <BasePath>/tpp/v1</BasePath>
+        <Properties/>
+        <VirtualHost>secure</VirtualHost>
+    </HTTPProxyConnection>
+    <RouteRule name="no target"/>
+</ProxyEndpoint>

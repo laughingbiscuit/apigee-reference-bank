@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ServiceCallout async="false" continueOnError="false" enabled="true" name="Callout.RegisterAppExternal">
+    <DisplayName>Callout.RegisterAppExternal</DisplayName>
+    <FaultRules/>
+    <Properties/>
+    <Request clearPayload="false" variable="servicecallout.request">
+        <Set>
+            <Headers>
+                <Header name="Content-Type">application/json</Header>
+            </Headers>
+            <Payload contentType="application/json" variablePrefix="£" variableSuffix="$">
+{
+  "redirect_uris": ["https://httpbin.org/get"],
+  "jwks_uri": "https://£organization.name$-£environment.name$.apigee.net/tpp/v1/my_public_keys.jwks"
+}
+      </Payload>
+        </Set>
+        <IgnoreUnresolvedVariables>false</IgnoreUnresolvedVariables>
+    </Request>
+    <Response>registrationResponse</Response>
+    <HTTPTargetConnection>
+        <Properties/>
+        <URL>https://{organization.name}-{environment.name}.apigee.net/reg</URL>
+    </HTTPTargetConnection>
+</ServiceCallout>

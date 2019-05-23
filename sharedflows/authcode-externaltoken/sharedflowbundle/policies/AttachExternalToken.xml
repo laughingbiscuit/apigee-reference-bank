@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<OAuthV2 async="false" continueOnError="false" enabled="true" name="AttachExternalToken">
+    <DisplayName>AttachExternalToken</DisplayName>
+    <FaultRules/>
+    <Properties/>
+    <Attributes/>
+    <ExternalAccessToken>custom.accessToken</ExternalAccessToken>
+    <ExternalAuthorization>false</ExternalAuthorization>
+    <GrantType>custom.grantType</GrantType>
+    <Operation>GenerateAccessToken</Operation>
+    <PassWord>messageid</PassWord>
+    <GenerateResponse enabled="true">
+        <Format>FORM_PARAM</Format>
+    </GenerateResponse>
+    <ReuseRefreshToken>false</ReuseRefreshToken>
+    <SupportedGrantTypes>
+        <GrantType>password</GrantType>
+    </SupportedGrantTypes>
+    <Tokens/>
+    <UserName>messageid</UserName>
+</OAuthV2>

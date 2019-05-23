@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<APIProxy revision="1" name="bca-sandbox-v1">
+    <Basepaths>/sandbox/v1</Basepaths>
+    <Basepaths>/bca-sandbox</Basepaths>
+    <ConfigurationVersion majorVersion="4" minorVersion="0"/>
+    <CreatedAt>1557477039355</CreatedAt>
+    <CreatedBy>davissean@google.com</CreatedBy>
+    <Description>atm-sandbox-v1</Description>
+    <DisplayName>atm-sandbox-v1</DisplayName>
+    <HostedManifestVersion>SHA-512:092b1c6a7f0c58a4884da01b47c249eff56f98aafa44358f3378ae1ca90d86d81449a93902ce9b818ce52f90b14a33448834dc77b4392362de45a08399963c4a:eu-west-1</HostedManifestVersion>
+    <LastModifiedAt>1557477039355</LastModifiedAt>
+    <LastModifiedBy>davissean@google.com</LastModifiedBy>
+    <ManifestVersion>SHA-512:60d757946bec492ae48eba7220db85ecb5d70745ac151068b7d263b71fd7a812db1bdc00d5805c7d82832706f414166995715ce32a7a91d10169ccbf77532743:eu-west-1</ManifestVersion>
+    <Policies/>
+    <ProxyEndpoints>
+        <ProxyEndpoint>default</ProxyEndpoint>
+    </ProxyEndpoints>
+    <Resources>
+        <Resource>hosted://app.js</Resource>
+        <Resource>hosted://app.yaml</Resource>
+        <Resource>hosted://deploy.sh</Resource>
+        <Resource>hosted://package-lock.json</Resource>
+        <Resource>hosted://package.json</Resource>
+        <Resource>hosted://swagger.json</Resource>
+    </Resources>
+    <Spec></Spec>
+    <TargetServers/>
+    <TargetEndpoints>
+        <TargetEndpoint>default</TargetEndpoint>
+    </TargetEndpoints>
+</APIProxy>

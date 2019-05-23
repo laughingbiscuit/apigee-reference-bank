@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Manifest name="manifest">
+    <Policies>
+        <VersionInfo resourceName="Assign.JWKS" version="SHA-512:ff9fe0df86508b0709398c884a9fbd323a2d4bb17a2104fa1068c81891593287279492408368f685d716be0551d76cede01decf539d6fc4c0153ce514638eae2"/>
+    </Policies>
+    <ProxyEndpoints/>
+    <Resources/>
+    <SharedFlows>
+        <VersionInfo resourceName="default" version="SHA-512:02bf6ae35ccf54f4e884846de8eb745bbb0f39fa69c252f3535e501c9acc268c686f6d1d175f5d05d4b6a3bbf1606045e79f063029d73c62c29640e2b9967de3"/>
+    </SharedFlows>
+    <TargetEndpoints/>
+</Manifest>

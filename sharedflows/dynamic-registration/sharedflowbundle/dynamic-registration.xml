@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<SharedFlowBundle revision="5" name="dynamic-registration">
+    <ConfigurationVersion majorVersion="4" minorVersion="0"/>
+    <CreatedAt>1557483860202</CreatedAt>
+    <CreatedBy>davissean@google.com</CreatedBy>
+    <Description></Description>
+    <DisplayName>Shared-Flow</DisplayName>
+    <LastModifiedAt>1557483860202</LastModifiedAt>
+    <LastModifiedBy>davissean@google.com</LastModifiedBy>
+    <ManifestVersion>SHA-512:e3e7a74413c43bd263ce3c56a01b5598a8e7f815471946fe57d1fcdb6524ba6f9354b0058f1836b00d7e8677c63605b96dd566f7268746adb454557606a101c7:eu-west-1</ManifestVersion>
+    <Policies>
+        <Policy>Assign.Response</Policy>
+        <Policy>Callout.CreateCompany</Policy>
+        <Policy>Callout.CreateCompanyApp</Policy>
+        <Policy>Callout.RegisterAppExternal</Policy>
+        <Policy>Extract.RegisterApp</Policy>
+    </Policies>
+    <Resources/>
+    <Spec></Spec>
+    <subType>SharedFlow</subType>
+    <SharedFlows>
+        <SharedFlow>default</SharedFlow>
+    </SharedFlows>
+</SharedFlowBundle>

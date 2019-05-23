@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<SharedFlow name="default">
+    <Step>
+        <FaultRules/>
+        <Name>DecodeBasicAuth</Name>
+    </Step>
+    <Step>
+        <FaultRules/>
+        <Name>ValidateClient</Name>
+    </Step>
+    <Step>
+        <FaultRules/>
+        <Name>GenerateToken</Name>
+    </Step>
+    <Step>
+        <FaultRules/>
+        <Name>ExtractExternalToken</Name>
+    </Step>
+    <Step>
+        <FaultRules/>
+        <Name>SetOAuthVariables</Name>
+    </Step>
+    <Step>
+        <FaultRules/>
+        <Name>AttachExternalToken</Name>
+    </Step>
+</SharedFlow>

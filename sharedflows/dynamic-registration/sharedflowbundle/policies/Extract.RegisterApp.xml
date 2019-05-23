@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ExtractVariables async="false" continueOnError="false" enabled="true" name="Extract.RegisterApp">
+    <DisplayName>Extract.RegisterApp</DisplayName>
+    <FaultRules/>
+    <Properties/>
+    <IgnoreUnresolvedVariables>false</IgnoreUnresolvedVariables>
+    <JSONPayload>
+        <Variable name="custom.redirectUri">
+            <JSONPath>$.redirect_uris[0]</JSONPath>
+        </Variable>
+        <Variable name="custom.jwksUri">
+            <JSONPath>$.jwks_uri</JSONPath>
+        </Variable>
+        <Variable name="custom.developerEmail">
+            <JSONPath>$.contacts[0]</JSONPath>
+        </Variable>
+        <Variable name="custom.clientName">
+            <JSONPath>$.client_name</JSONPath>
+        </Variable>
+    </JSONPayload>
+    <Source clearPayload="false">request</Source>
+</ExtractVariables>

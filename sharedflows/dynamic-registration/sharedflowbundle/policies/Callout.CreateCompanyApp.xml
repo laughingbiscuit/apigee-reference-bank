@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ServiceCallout async="false" continueOnError="false" enabled="true" name="Callout.CreateCompanyApp">
+    <DisplayName>Callout.CreateCompanyApp</DisplayName>
+    <FaultRules/>
+    <Properties/>
+    <Request clearPayload="false" variable="servicecallout.request">
+        <Set>
+            <Headers>
+                <Header name="Authorization">Basic {mgmtCredentials}</Header>
+            </Headers>
+            <Payload contentType="application/json" variablePrefix="£" variableSuffix="$">
+{
+  "apiProducts": [ "all"],
+  "name" : "£custom.clientName$",
+  "callbackUrl" : "£custom.redirectUri$"
+}
+</Payload>
+            <Verb>POST</Verb>
+        </Set>
+        <IgnoreUnresolvedVariables>false</IgnoreUnresolvedVariables>
+    </Request>
+    <Response>createCompanyAppResponse</Response>
+    <HTTPTargetConnection>
+        <Properties/>
+        <URL>https://api.enterprise.apigee.net/v1/o/{organization.name}/companies/{client.received.start.timestamp}/apps</URL>
+    </HTTPTargetConnection>
+</ServiceCallout>

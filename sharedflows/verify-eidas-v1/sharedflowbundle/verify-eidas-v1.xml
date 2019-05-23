@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<SharedFlowBundle revision="3" name="verify-eidas-v1">
+    <ConfigurationVersion majorVersion="4" minorVersion="0"/>
+    <CreatedAt>1557818438171</CreatedAt>
+    <CreatedBy>davissean@google.com</CreatedBy>
+    <Description></Description>
+    <DisplayName>Shared-Flow</DisplayName>
+    <LastModifiedAt>1557818438171</LastModifiedAt>
+    <LastModifiedBy>davissean@google.com</LastModifiedBy>
+    <ManifestVersion>SHA-512:d453696cb5b3fe5d2bbc135550f84a9796d49c18f6fc48000c360a22404b96e0944d7ee9fb3e5e2c1442b233a1937cdd91a4cfca62f52c5a7a9d215f31d438f7:eu-west-1</ManifestVersion>
+    <Policies>
+        <Policy>JavaCallout.EiDAS-CertificateParse</Policy>
+    </Policies>
+    <Resources>
+        <Resource>java://eidas-certificate-parser-1.0.0.jar</Resource>
+    </Resources>
+    <Spec></Spec>
+    <subType>SharedFlow</subType>
+    <SharedFlows>
+        <SharedFlow>default</SharedFlow>
+    </SharedFlows>
+</SharedFlowBundle>

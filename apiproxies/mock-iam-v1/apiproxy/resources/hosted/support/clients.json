@@ -1,0 +1,9 @@
+[{
+  "client_id": "foo",
+  "client_secret": "bar",
+  "redirect_uris": ["https://httpbin.org/get"]
+},{
+  "client_id": "GPh6StAgj2ecj5WYbHYPNZCTyhK0kUMa",
+  "client_secret": "R5NBMvHcTeQt5vGG",
+  "redirect_uris": ["https://httpbin.org/get"]
+}]

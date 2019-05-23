@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<APIProxy revision="1" name="atm-sandbox-v1">
+    <Basepaths>/sandbox/v1</Basepaths>
+    <Basepaths>/atm-sandbox</Basepaths>
+    <ConfigurationVersion majorVersion="4" minorVersion="0"/>
+    <CreatedAt>1557476997942</CreatedAt>
+    <CreatedBy>davissean@google.com</CreatedBy>
+    <Description>atm-sandbox-v1</Description>
+    <DisplayName>atm-sandbox-v1</DisplayName>
+    <HostedManifestVersion>SHA-512:4010360cb714608492f5b0e2def22d80e58793349946d0ab23c79a216f1baa8843116cf374fdcba89074671c84bb6b93d9be5a879ad44a5df8f3b738806964b7:eu-west-1</HostedManifestVersion>
+    <LastModifiedAt>1557476997942</LastModifiedAt>
+    <LastModifiedBy>davissean@google.com</LastModifiedBy>
+    <ManifestVersion>SHA-512:fa3fae1325dd8ac9779b72e319537ac6b42d3caab2dfb30479d1c05310c9567171965f92b01eaaf5a98977102668a7e433c40408bd226b3a5e6baf8383250fea:eu-west-1</ManifestVersion>
+    <Policies/>
+    <ProxyEndpoints>
+        <ProxyEndpoint>default</ProxyEndpoint>
+    </ProxyEndpoints>
+    <Resources>
+        <Resource>hosted://app.js</Resource>
+        <Resource>hosted://app.yaml</Resource>
+        <Resource>hosted://deploy.sh</Resource>
+        <Resource>hosted://package-lock.json</Resource>
+        <Resource>hosted://package.json</Resource>
+        <Resource>hosted://swagger.json</Resource>
+    </Resources>
+    <Spec></Spec>
+    <TargetServers/>
+    <TargetEndpoints>
+        <TargetEndpoint>default</TargetEndpoint>
+    </TargetEndpoints>
+</APIProxy>

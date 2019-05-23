@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<BasicAuthentication async="false" continueOnError="false" enabled="true" name="DecodeBasicAuth">
+    <DisplayName>DecodeBasicAuth</DisplayName>
+    <FaultRules/>
+    <Properties/>
+    <AssignTo createNew="false"/>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+    <Operation>Decode</Operation>
+    <Password ref="custom.clientSecret"/>
+    <Source>request.header.Authorization</Source>
+    <User ref="custom.clientId"/>
+</BasicAuthentication>

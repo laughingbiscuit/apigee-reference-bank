@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Manifest name="manifest">
+    <Policies>
+        <VersionInfo resourceName="Shared.AuthCode.ExternalToken" version="SHA-512:d9fdeb9965462a4e2ed93a1c03d7c0364ae18f02c514bc647feb4f6c0bd29726b98db7015c90b55a966b3d60ac3f041dcce72decb5fb58e718b3d82181838b9c"/>
+        <VersionInfo resourceName="Shared.ClientCredentials.Token" version="SHA-512:fa8ef32aafbd40f85ab846039de6250a9ed8099e72a0ac4b2023f7d577932b0c51e09f593eaa391748466617f677b6ae04c34b07cb184808c1800b1f52902812"/>
+        <VersionInfo resourceName="Shared.DynamicRegistration" version="SHA-512:9446cdd42b5a2d6adb025361bffca91f03f78e52be48886907dc88cb71eb56f9e4f97526baa072295dd38e8a22b82ce48f3d27eb31192c9fd3d7ebc9a089802c"/>
+        <VersionInfo resourceName="Shared.VerifyEIDAS" version="SHA-512:44a8ed89445f825f9f48f5924eec3aed05dc1084b06fae3e32c50db1eb36b270de0c6100352bf924f4a40104171fb4774ccd8a9c3becb87335ba05b195010e4c"/>
+        <VersionInfo resourceName="add-cors" version="SHA-512:c4f64fdd0d31aa0b9c930bd8f3d887fa26cc487e95dcca58992bbc54ffa0ee095f227ebfcf9fc12d259285a796e47afc18421a7ffb29c92c8788abe66b521b69"/>
+    </Policies>
+    <ProxyEndpoints>
+        <VersionInfo resourceName="default" version="SHA-512:ca4edf0643bb537da3a65eea791fa7c520fb580526a8e31d5cc25334b06ff2c6b4b76c66f540dcc73c43e4504b0fd69ec41b207cddbe4f314a05d0b51226cbbd"/>
+    </ProxyEndpoints>
+    <Resources/>
+    <SharedFlows/>
+    <TargetEndpoints>
+        <VersionInfo resourceName="default" version="SHA-512:ba390ca27fae17423aee97f5cc75bfcc27ab4dea55eefa972cf4be5f56ca6494e6846c3120cb8c270c93b12a54f1d3573ff6f0b8758eb61495011fcd67a74a29"/>
+    </TargetEndpoints>
+</Manifest>

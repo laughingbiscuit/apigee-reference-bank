@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ServiceCallout async="false" continueOnError="true" enabled="true" name="Callout.CreateCompany">
+    <DisplayName>Callout.CreateCompany</DisplayName>
+    <FaultRules/>
+    <Properties/>
+    <Request clearPayload="false" variable="servicecallout.request">
+        <Set>
+            <Headers>
+                <Header name="Authorization">Basic {mgmtCredentials}</Header>
+            </Headers>
+            <Payload contentType="application/json" variablePrefix="£" variableSuffix="$">
+{
+  "name": "£client.received.start.timestamp$",
+  "displayName": "£client.received.start.timestamp$",
+  "attributes": [{
+    "name": "ADMIN_EMAIL",
+    "value": "£custom.developerEmail$"
+  }]
+}
+      </Payload>
+            <Verb>POST</Verb>
+        </Set>
+        <IgnoreUnresolvedVariables>false</IgnoreUnresolvedVariables>
+    </Request>
+    <Response>createCompanyResponse</Response>
+    <HTTPTargetConnection>
+        <Properties/>
+        <URL>https://api.enterprise.apigee.net/v1/o/{organization.name}/companies</URL>
+    </HTTPTargetConnection>
+</ServiceCallout>

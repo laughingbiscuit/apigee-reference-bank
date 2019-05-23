@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ProxyEndpoint name="default">
+    <Description></Description>
+    <FaultRules/>
+    <Flows>
+        <Flow name="Generate Token">
+            <Request>
+                <Step>
+                    <Condition>request.formparam.grant_type = "authorization_code"</Condition>
+                    <FaultRules/>
+                    <Name>Shared.AuthCode.ExternalToken</Name>
+                </Step>
+                <Step>
+                    <Condition>request.formparam.grant_type = "client_credentials"</Condition>
+                    <FaultRules/>
+                    <Name>Shared.ClientCredentials.Token</Name>
+                </Step>
+            </Request>
+            <Response/>
+            <Condition>request.verb = "POST" and proxy.pathsuffix MatchesPath "/token"</Condition>
+        </Flow>
+        <Flow name="Register">
+            <Request/>
+            <Response>
+                <Step>
+                    <FaultRules/>
+                    <Name>Shared.VerifyEIDAS</Name>
+                </Step>
+                <Step>
+                    <FaultRules/>
+                    <Name>Shared.DynamicRegistration</Name>
+                </Step>
+            </Response>
+            <Condition>request.verb = "POST" and proxy.pathsuffix MatchesPath "/connect/register"</Condition>
+        </Flow>
+    </Flows>
+    <PostFlow name="PostFlow">
+        <Request/>
+        <Response/>
+    </PostFlow>
+    <PreFlow name="PreFlow">
+        <Request/>
+        <Response/>
+    </PreFlow>
+    <HTTPProxyConnection>
+        <BasePath>/identity/v1</BasePath>
+        <Properties/>
+        <VirtualHost>secure</VirtualHost>
+    </HTTPProxyConnection>
+    <RouteRule name="no-route"/>
+</ProxyEndpoint>

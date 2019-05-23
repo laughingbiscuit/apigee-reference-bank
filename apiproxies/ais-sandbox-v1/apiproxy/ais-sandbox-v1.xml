@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<APIProxy revision="1" name="ais-sandbox-v1">
+    <Basepaths>/sandbox/v1</Basepaths>
+    <Basepaths>/ais-sandbox</Basepaths>
+    <ConfigurationVersion majorVersion="4" minorVersion="0"/>
+    <CreatedAt>1557476956924</CreatedAt>
+    <CreatedBy>davissean@google.com</CreatedBy>
+    <Description>atm-sandbox-v1</Description>
+    <DisplayName>atm-sandbox-v1</DisplayName>
+    <HostedManifestVersion>SHA-512:b3122f6ba5fbf3da7206d1555f68f752a22707e22dba79909657888c4bd5dfb19eff3c32b6fde1768b2a450a21850daee10a0a04715b7633262c612adfd5a33b:eu-west-1</HostedManifestVersion>
+    <LastModifiedAt>1557476956924</LastModifiedAt>
+    <LastModifiedBy>davissean@google.com</LastModifiedBy>
+    <ManifestVersion>SHA-512:29859c6ff1fad9580a0606b7254f8f4dcc682389f2a5ca8635679785fb7913db77ea0fa792201793622527d0aab7cf9b43ea644f4809e341cd1b9ea01c5d2a0b:eu-west-1</ManifestVersion>
+    <Policies>
+        <Policy>Shared.VerifyAccessToken</Policy>
+    </Policies>
+    <ProxyEndpoints>
+        <ProxyEndpoint>default</ProxyEndpoint>
+    </ProxyEndpoints>
+    <Resources>
+        <Resource>hosted://app.js</Resource>
+        <Resource>hosted://app.yaml</Resource>
+        <Resource>hosted://deploy.sh</Resource>
+        <Resource>hosted://package-lock.json</Resource>
+        <Resource>hosted://package.json</Resource>
+        <Resource>hosted://swagger.json</Resource>
+    </Resources>
+    <Spec></Spec>
+    <TargetServers/>
+    <TargetEndpoints>
+        <TargetEndpoint>default</TargetEndpoint>
+    </TargetEndpoints>
+</APIProxy>

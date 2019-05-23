@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<SharedFlowBundle revision="1" name="authcode-externaltoken">
+    <ConfigurationVersion majorVersion="4" minorVersion="0"/>
+    <CreatedAt>1557476854363</CreatedAt>
+    <CreatedBy>davissean@google.com</CreatedBy>
+    <Description></Description>
+    <DisplayName>Shared-Flow</DisplayName>
+    <LastModifiedAt>1557476854363</LastModifiedAt>
+    <LastModifiedBy>davissean@google.com</LastModifiedBy>
+    <ManifestVersion>SHA-512:c50b4ed1dd6522c918a0e270caf9415b0d859698bc8c94c728bba1b3d0464ee98e4cb43d12f442c2b6ee38014a8cc7ce87f11ba396e1f9f7d51820c8e5f57811:eu-west-1</ManifestVersion>
+    <Policies>
+        <Policy>AttachExternalToken</Policy>
+        <Policy>DecodeBasicAuth</Policy>
+        <Policy>ExtractExternalToken</Policy>
+        <Policy>GenerateToken</Policy>
+        <Policy>SetOAuthVariables</Policy>
+        <Policy>ValidateClient</Policy>
+    </Policies>
+    <Resources/>
+    <Spec></Spec>
+    <subType>SharedFlow</subType>
+    <SharedFlows>
+        <SharedFlow>default</SharedFlow>
+    </SharedFlows>
+</SharedFlowBundle>
