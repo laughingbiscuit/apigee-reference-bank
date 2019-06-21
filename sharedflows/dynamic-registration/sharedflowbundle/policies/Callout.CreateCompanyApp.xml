@@ -6,7 +6,7 @@
     <Request clearPayload="false" variable="servicecallout.request">
         <Set>
             <Headers>
-                <Header name="Authorization">Basic {mgmtCredentials}</Header>
+                <Header name="Authorization">{private.mgmtCredentials}</Header>
             </Headers>
             <Payload contentType="application/json" variablePrefix="£" variableSuffix="$">
 {

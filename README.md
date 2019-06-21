@@ -6,6 +6,12 @@ Around the world, there are a number of different standards for Banking APIs. Th
 
 ## Quick Start
 
+- Create apigee-reference-bank KVM with mgmt creds
+- Create API Products - "OpenData", "AISP", "PISP"
+
+TODO
+- fix company name
+
 ```
 npm install
 npm run deployAll

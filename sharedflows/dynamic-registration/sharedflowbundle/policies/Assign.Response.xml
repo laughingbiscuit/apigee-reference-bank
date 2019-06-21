@@ -4,7 +4,12 @@
     <FaultRules/>
     <Properties/>
     <Set>
-        <Payload contentType="application/json">{createCompanyAppResponse.content}</Payload>
+        <Payload contentType="application/json" variablePrefix="£" variableSuffix="$">
+{
+  "client_id": "£custom.clientId$",
+  "client_secret": "£custom.clientSecret$"
+}
+        </Payload>
     </Set>
     <IgnoreUnresolvedVariables>false</IgnoreUnresolvedVariables>
     <AssignTo type="request" transport="http" createNew="true">response</AssignTo>

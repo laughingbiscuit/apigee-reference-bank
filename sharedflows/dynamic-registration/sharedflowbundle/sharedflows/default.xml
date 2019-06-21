@@ -2,6 +2,10 @@
 <SharedFlow name="default">
     <Step>
         <FaultRules/>
+        <Name>KVM.GetMgmtCredentials</Name>
+    </Step>
+    <Step>
+        <FaultRules/>
         <Name>Extract.RegisterApp</Name>
     </Step>
     <Step>
@@ -13,8 +17,20 @@
         <Name>Callout.RegisterAppExternal</Name>
     </Step>
     <Step>
+        <Name>Extract.ExternalCredentials</Name>
+    </Step>
+    <Step>
         <FaultRules/>
         <Name>Callout.CreateCompanyApp</Name>
+    </Step>
+    <Step>
+        <Name>JS.ExtractProducts</Name>
+    </Step>
+    <Step>
+        <Name>Callout.CreateCredentialPair</Name>
+    </Step>
+    <Step>
+        <Name>Callout.AssociateCredentials</Name>
     </Step>
     <Step>
         <FaultRules/>
