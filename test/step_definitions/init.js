@@ -12,6 +12,8 @@ Before(function() {
   this.apickli = new apickli.Apickli('https',
     org + '-' + env + '.apigee.net')
   this.apickli.fixturesDirectory = './test/fixtures'
+  this.apickli.scenarioVariables.clientId = 'OR252nJ5TGGAbtML5p4BwT3RzIExko0C'
+  this.apickli.scenarioVariables.clientSecret = 'saSJYUVL4WTfThNo'
 })
 
 Given('I provide a valid eidas cert', function(cb) {
