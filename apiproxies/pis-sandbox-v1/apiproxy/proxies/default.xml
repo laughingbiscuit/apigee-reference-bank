@@ -1,8 +1,28 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <ProxyEndpoint name="default">
     <Description></Description>
-    <FaultRules/>
-    <Flows/>
+    <DefaultFaultRule>
+      <Step>
+        <Name>CORS.Headers</Name>
+      </Step>
+    </DefaultFaultRule>
+    <PreFlow>
+      <Response>
+        <Step>
+          <Name>CORS.Headers</Name>
+        </Step>
+      </Response>
+    </PreFlow>
+    <Flows>
+      <Flow name="CORS Preflight">
+        <Request>
+        <Step>
+          <Name>CORS.Options</Name>
+          <Condition>request.verb = "OPTIONS"</Condition>
+        </Step>
+        </Request>
+      </Flow>
+    </Flows>
     <HTTPProxyConnection>
         <BasePath>/pis-sandbox</BasePath>
         <Properties/>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<SharedFlowBundle revision="1" name="cors-options-v1">
+    <ConfigurationVersion majorVersion="4" minorVersion="0"/>
+    <CreatedAt>1561573323782</CreatedAt>
+    <CreatedBy>davissean@google.com</CreatedBy>
+    <Description>undefined</Description>
+    <DisplayName>cors-options-v1</DisplayName>
+    <LastModifiedAt>1561573409301</LastModifiedAt>
+    <LastModifiedBy>davissean@google.com</LastModifiedBy>
+    <ManifestVersion>SHA-512:722ade5449baef7b6625586111727bc166e1dcd397d054a2ea1a6e13c792a4f335188ba2dc0312c1629e15e566eea275b9e8c3144137a4470c9a7f62ab3896a2</ManifestVersion>
+    <Policies>
+        <Policy>RaiseCORSHeaders</Policy>
+    </Policies>
+    <Resources/>
+    <Spec></Spec>
+    <subType>SharedFlow</subType>
+    <SharedFlows>
+        <SharedFlow>default</SharedFlow>
+    </SharedFlows>
+</SharedFlowBundle>

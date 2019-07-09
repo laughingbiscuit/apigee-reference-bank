@@ -1,0 +1,63 @@
+{
+  "Data": {
+    "Initiation": {
+      "InstructionIdentification": "string",
+      "EndToEndIdentification": "string",
+      "LocalInstrument": "string",
+      "InstructedAmount": {
+        "Amount": "0.00",
+        "Currency": "GBP"
+      },
+      "DebtorAccount": {
+        "SchemeName": "string",
+        "Identification": "string",
+        "Name": "string",
+        "SecondaryIdentification": "string"
+      },
+      "CreditorAccount": {
+        "SchemeName": "string",
+        "Identification": "string",
+        "Name": "string",
+        "SecondaryIdentification": "string"
+      },
+      "CreditorPostalAddress": {
+        "AddressType": "Business",
+        "Department": "string",
+        "SubDepartment": "string",
+        "StreetName": "string",
+        "BuildingNumber": "string",
+        "PostCode": "string",
+        "TownName": "string",
+        "CountrySubDivision": "string",
+        "Country": "GB",
+        "AddressLine": [
+          "string"
+        ]
+      },
+      "RemittanceInformation": {
+        "Unstructured": "string",
+        "Reference": "string"
+      }
+    },
+    "Authorisation": {
+      "AuthorisationType": "Any",
+      "CompletionDateTime": "2019-06-26T17:58:44.331Z"
+    }
+  },
+  "Risk": {
+    "PaymentContextCode": "BillPayment",
+    "MerchantCategoryCode": "CAT",
+    "MerchantCustomerIdentification": "string",
+    "DeliveryAddress": {
+      "AddressLine": [
+        "string"
+      ],
+      "StreetName": "string",
+      "BuildingNumber": "string",
+      "PostCode": "string",
+      "TownName": "string",
+      "CountrySubDivision": "string",
+      "Country": "GB"
+    }
+  }
+}

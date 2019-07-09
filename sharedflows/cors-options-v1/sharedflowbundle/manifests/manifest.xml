@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Manifest name="manifest">
+    <Policies>
+        <VersionInfo resourceName="RaiseCORSHeaders" version="SHA-512:f6b1cb86e0eff3e146db35046d47287ac75938a4b9fb408843fab84033f1b6cbd6f5ca0fcf5385f9c0195f7bc35de1cb340a0408579d9c29e59cb42957968f4a"/>
+    </Policies>
+    <ProxyEndpoints/>
+    <Resources/>
+    <SharedFlows>
+        <VersionInfo resourceName="default" version="SHA-512:d5b1fa2c0fb28cfd30accb7f46c2dcb3905b39340fd7a2b3d8661e2035960bbc943cb8432284928ea7cfc1cd26cfd912ff9599afe783cc03412cb9b7937137ee"/>
+    </SharedFlows>
+    <TargetEndpoints/>
+</Manifest>
