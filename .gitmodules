@@ -1,0 +1,4 @@
+[submodule "portal/docker-apigee-drupal-kickstart"]
+	path = portal/docker-apigee-drupal-kickstart
+	url = https://github.com/laughingbiscuit/docker-apigee-drupal-kickstart
+	branch = master
