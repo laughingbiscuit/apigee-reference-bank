@@ -1,0 +1,3 @@
+[submodule "docker-apigee-drupal-kickstart"]
+	path = docker-apigee-drupal-kickstart
+	url = https://github.com/laughingbiscuit/docker-apigee-drupal-kickstart
