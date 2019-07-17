@@ -1,0 +1,5 @@
+services:
+  apigee_banking_content.commands:
+    class: \Drupal\apigee_banking_content\Commands\ApigeeBankingContentCommands
+    tags:
+      - { name: drush.command }

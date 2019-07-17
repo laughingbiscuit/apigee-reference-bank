@@ -1,0 +1,5 @@
+name: Apigee Banking Portal Content
+type: module
+description: Replace the Apigee Kickstart Content with Banking Content
+package: Custom
+core: 8.x
