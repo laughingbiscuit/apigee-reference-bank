@@ -1,4 +1,3 @@
-@Debug
 Feature:
   As a TPP
   I want to access Payment Initiation APIs

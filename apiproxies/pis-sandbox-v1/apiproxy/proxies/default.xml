@@ -3,26 +3,31 @@
     <Description></Description>
     <DefaultFaultRule>
       <Step>
-        <Name>CORS.Headers</Name>
+        <Name>Shared.CORSError</Name>
       </Step>
+      <AlwaysEnforce>true</AlwaysEnforce>
     </DefaultFaultRule>
-    <PreFlow>
+    <Flows/>
+    <PreFlow name="PreFlow">
+        <Request>
+            <Step>
+              <Name>Shared.RaiseCORS</Name>
+              <Condition>request.verb = "OPTIONS"</Condition>
+            </Step>
+            <Step>
+                <FaultRules/>
+                <Name>Shared.VerifyAccessToken</Name>
+            </Step>
+        </Request>
+        <Response/>
+    </PreFlow>
+    <PostFlow>
       <Response>
         <Step>
-          <Name>CORS.Headers</Name>
+          <Name>Shared.CORSHeaders</Name>
         </Step>
       </Response>
-    </PreFlow>
-    <Flows>
-      <Flow name="CORS Preflight">
-        <Request>
-        <Step>
-          <Name>CORS.Options</Name>
-          <Condition>request.verb = "OPTIONS"</Condition>
-        </Step>
-        </Request>
-      </Flow>
-    </Flows>
+    </PostFlow>
     <HTTPProxyConnection>
         <BasePath>/pis-sandbox</BasePath>
         <Properties/>

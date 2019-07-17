@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Manifest name="manifest">
+    <Policies>
+        <VersionInfo resourceName="Assign.CORSHeaders" version="SHA-512:7396bf590e278cb49345eb426f21ee3b3996c6043020c63d56180f887c9853877b48ec75c3abad8de8888a11308a2d200c11907f22f8c5b6e4ed9060e14aa619"/>
+    </Policies>
+    <ProxyEndpoints/>
+    <Resources/>
+    <SharedFlows>
+        <VersionInfo resourceName="default" version="SHA-512:5f6bfa348a6425b5d4cf2c0eebd55f4e6323058b897f76ec0f45ac26e810806a5b18fac78cb39df4ba1efbc7f98e1e834a2f42587c989eb71481462b361dde6c"/>
+    </SharedFlows>
+    <TargetEndpoints/>
+</Manifest>

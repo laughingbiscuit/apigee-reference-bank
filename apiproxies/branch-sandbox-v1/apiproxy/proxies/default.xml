@@ -1,8 +1,29 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <ProxyEndpoint name="default">
     <Description></Description>
-    <FaultRules/>
+    <DefaultFaultRule>
+      <Step>
+        <Name>Shared.CORSError</Name>
+      </Step>
+      <AlwaysEnforce>true</AlwaysEnforce>
+    </DefaultFaultRule>
     <Flows/>
+    <PreFlow name="PreFlow">
+        <Request>
+            <Step>
+              <Name>Shared.RaiseCORS</Name>
+              <Condition>request.verb = "OPTIONS"</Condition>
+            </Step>
+        </Request>
+        <Response/>
+    </PreFlow>
+    <PostFlow>
+      <Response>
+        <Step>
+          <Name>Shared.CORSHeaders</Name>
+        </Step>
+      </Response>
+    </PostFlow>
     <HTTPProxyConnection>
         <BasePath>/branch-sandbox</BasePath>
         <Properties/>

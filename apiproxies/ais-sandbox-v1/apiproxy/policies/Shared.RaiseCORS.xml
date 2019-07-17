@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<FlowCallout async="false" continueOnError="false" enabled="true" name="CORS.Options">
+<FlowCallout async="false" continueOnError="false" enabled="true" name="Shared.RaiseCORS">
+    <Properties/>
     <SharedFlowBundle>cors-options-v1</SharedFlowBundle>
 </FlowCallout>
