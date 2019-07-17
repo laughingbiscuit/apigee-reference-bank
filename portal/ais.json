@@ -1993,7 +1993,8 @@
       "name": "Authorization",
       "type": "string",
       "required": true,
-      "description": "An Authorisation Token as per https://tools.ietf.org/html/rfc6750"
+      "description": "An Authorisation Token as per https://tools.ietf.org/html/rfc6750",
+      "default": "Bearer sampleToken"
     },
     "AccountId": {
       "name": "AccountId",

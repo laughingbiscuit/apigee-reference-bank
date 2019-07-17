@@ -17,6 +17,7 @@
             <Step>
                 <FaultRules/>
                 <Name>Shared.VerifyAccessToken</Name>
+                <Condition>!(environment.name = "test" AND request.header.Authorization = "Bearer sampleToken")</Condition>
             </Step>
         </Request>
         <Response/>
