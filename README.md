@@ -2,5 +2,7 @@
 
 ## Documentation
 
-__[https://laughingbiscuit.github.io/apigee-reference-bank](https://laughingbiscuit.github.io/apigee-reference-bank)__
+![Docs](./docs-src/docs.png)
+
+__[Read the Documentation](https://laughingbiscuit.github.io/apigee-reference-bank)__
 
