@@ -1,8 +1,8 @@
 # Apigee Banking
 
-## Documentation
+## User Guide
 
 ![Docs](./docs-src/docs.png)
 
-__[Read the Documentation](https://laughingbiscuit.github.io/apigee-reference-bank)__
+__[Read the User Guide](https://laughingbiscuit.github.io/apigee-reference-bank)__
 
