@@ -1,4 +1,4 @@
-id: apigee-banking-docs
+id: docs
 
 # Open Banking with Apigee
 
