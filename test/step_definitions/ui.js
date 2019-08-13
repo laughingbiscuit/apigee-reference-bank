@@ -29,9 +29,6 @@ When('I sign in and consent', async function() {
     this.page.waitForNavigation()
   ])
 
-  //fill in consent page
-  await this.page.click('#consent')
-
   //return submit
   return await Promise.all([
     this.page.click('#submit'),
