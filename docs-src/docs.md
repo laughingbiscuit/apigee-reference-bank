@@ -270,6 +270,8 @@ curl -H "Authorization: Bearer $USER_TOKEN" -H "x-fapi-financial-id: 123" https:
 
 Open Banking specifications are a combination of [OAuth 2.0](https://tools.ietf.org/html/rfc6749), [Open ID Connect](https://openid.net/connect/), [FAPI](https://openid.net/wg/fapi/), [eIDAS](https://en.wikipedia.org/wiki/EIDAS) and specific Open Banking API interfaces. Full documentation for these API Flows can be found in the Open Banking [Specifications](https://www.openbanking.org.uk/providers/standards/).
 
+![Auth Flow](auth.png)]
+
 ## Developer Portal
 
 A great way to quickly evaluate a Drupal 8 Developer Portal is to use the [Apigee Kickstart](https://www.drupal.org/project/apigee_devportal_kickstart) module.
