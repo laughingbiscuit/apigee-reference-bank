@@ -11,6 +11,7 @@ const oidc = new Provider('https://' + org + '-test.apigee.net', configuration)
 
 app.set('views', path.join(__dirname, 'views'))
 app.set('view engine', 'ejs')
+app.use(express.static('public'))
 Provider.useRequest()
 
 let server

@@ -1,8 +1,0 @@
-<h1>Login</h1>
-<form id="loginForm" autocomplete="off" action="/interaction/<%= details.uuid %>/login" method="post">
-  <input type="hidden" name="uuid" value="<%= details.uuid %>"/>
-  <input required type="text" name="login" id="login" placeholder="Enter any login" <% if (!details.params.login_hint) { %>autofocus="on"<% } else { %> value="<%= details.params.login_hint %>" <% } %>>
-  <input required type="password" name="password" id="password" placeholder="and password" <% if (details.params.login_hint) { %>autofocus="on"<% } %>>
-
-  <button type="submit" id="submit" class="login login-submit">Sign-in</button>
-</form>
