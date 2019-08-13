@@ -3,15 +3,15 @@
   "format": "html",
   "prefix": "https://storage.googleapis.com",
   "mainga": "UA-49880327-14",
-  "updated": "2019-08-09T17:19:51+01:00",
-  "id": "apigee-banking-docs",
+  "updated": "2019-08-12T11:33:35+01:00",
+  "id": "docs",
   "duration": 0,
   "title": "Open Banking with Apigee",
   "summary": "",
-  "source": "docs.md",
+  "source": "./docs-src/docs.md",
   "theme": "",
   "status": null,
   "category": null,
   "tags": [],
-  "url": "apigee-banking-docs"
+  "url": "docs"
 }

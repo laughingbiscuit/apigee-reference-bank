@@ -9,7 +9,7 @@ module.exports = (app, provider) => {
 
   //check that the application is up
   app.get('/ping', (req, res) => {
-    res.render('ping')
+    res.render('pages/ping')
   })
 
   //get login page
@@ -20,7 +20,7 @@ module.exports = (app, provider) => {
       //validate that some consent id is provided
       console.log(JSON.stringify(details)) 
 
-      return res.render('login', {
+      return res.render('pages/login', {
         details
       })
     } catch (err) {
@@ -52,7 +52,7 @@ module.exports = (app, provider) => {
   app.get('/interaction/:grant/consent', body, async (req, res, next) => {
     try {
       const details = await provider.interactionDetails(req)
-      return res.render('consent', {
+      return res.render('pages/consent', {
         details,
       })
     } catch (err) {
