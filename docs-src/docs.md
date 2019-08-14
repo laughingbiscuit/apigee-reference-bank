@@ -300,6 +300,8 @@ Now that you have met regulatory requirements, it is time to innovate beyond the
 
 As a starting point, you can understand the Digital Maturity of your organization using the [Apigee Compass](http://compass.apigee.com) tool. The recommendations provided by this short questionnaire will help you focus your efforts.
 
+![https://www.youtube.com/watch?v=iAzH_2pwCxk](https://youtube.com)
+
 With the sandboxes you have built, you may also choose to run a hackathon. [Hackathons](https://community.apigee.com/articles/39527/hermes-hackathon-at-leeds-beckett-university-uk.html) with internal staff, students from a local university or external third parties will give you useful feedback on the quality of your solution and how others will invite with your APIs.
 
 Keep us informed on your journey in the future!
