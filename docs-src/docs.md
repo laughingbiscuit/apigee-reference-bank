@@ -1,8 +1,11 @@
-id: docs
+Id: docs
+Analytics Account: UA-145683737-1
 
 # Open Banking with Apigee
 
 ## Open Banking APIs
+
+Find the source on [GitHub](https://github.com/laughingbiscuit/apigee-reference-bank).
 
 TLDR? Here is a great summary from David Andrzejek (Head of Financial Services, Apigee).
 
