@@ -19,15 +19,8 @@
                 <Name>Shared.VerifyAccessToken</Name>
                 <Condition>!(environment.name = "test" AND request.header.Authorization = "Bearer sampleToken")</Condition>
             </Step>
-           <Step>                                                              
-              <Name>ResponseCache.URLKey</Name>                                 
-            </Step>                                                             
         </Request>                                                              
-        <Response>                                                              
-            <Step>                                                              
-              <Name>ResponseCache.URLKey</Name>                                 
-            </Step>                                                             
-        </Response>
+        <Response/>
     </PreFlow>
     <PostFlow>
       <Response>

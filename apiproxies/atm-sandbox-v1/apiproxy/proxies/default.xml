@@ -16,11 +16,13 @@
             </Step>
             <Step>
               <Name>ResponseCache.URLKey</Name>
+              <Condition>request.verb = GET</Condition>
             </Step>
         </Request>
         <Response>
             <Step>
               <Name>ResponseCache.URLKey</Name>
+              <Condition>request.verb = GET</Condition>
             </Step>
         </Response>
     </PreFlow>
