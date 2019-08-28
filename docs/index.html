@@ -263,9 +263,8 @@ export CLIENT_SECRET=xxx
     
       <google-codelab-step label="Developer Portal" duration="0">
         <p>A great way to quickly evaluate a Drupal 8 Developer Portal is to use the <a href="https://www.drupal.org/project/apigee_devportal_kickstart" target="_blank">Apigee Kickstart</a> module.</p>
-<p>Firstly, get the latest submodule:</p>
-<pre><code>git submodule init
-git submodule update
+<p>Firstly, get the Docker Kickstart Project:</p>
+<pre><code>git clone https://github.com/laughingbiscuit/docker-apigee-drupal-kickstart
 </code></pre>
 <p>Next, you can build the docker image and start a container:</p>
 <pre><code>(cd docker-apigee-drupal-kickstart &amp;&amp; ./start.sh)
