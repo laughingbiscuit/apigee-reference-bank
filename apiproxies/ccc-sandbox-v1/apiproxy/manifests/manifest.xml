@@ -1,19 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <Manifest name="manifest">
     <Policies/>
-    <ProxyEndpoints>
-        <VersionInfo resourceName="default" version="SHA-512:3f69ee10f7f5f197cf4afc279b2831cd0fc7969877c2c223b0773ec58bd4d3d50746c9ce818896beb3ebad9854b646ff5ab95243753e27741d3e520840f82b73"/>
-    </ProxyEndpoints>
-    <Resources>
-        <VersionInfo resourceName="hosted://app.js" version="SHA-512:ad391b670f12a40d479ec34eb9d0665de5e75585da914f3444540aa01e7e4691fe8d9a44636df6de2bcd4ba5c37d232a9d44b8de3a774de9f1d9a334f02455ae"/>
-        <VersionInfo resourceName="hosted://app.yaml" version="SHA-512:d81fb6ef1bfbf93b5d85662979694472635f742db99a7061905ba320abe7b14084501a84b2ea42ca801d4ee13432c52ed469bd291f8bfe0d28d31469909e1f12"/>
-        <VersionInfo resourceName="hosted://deploy.sh" version="SHA-512:364421ada5951664ca1124227d1ad5f4b63c775868545470a03105d7e992377cdc24a8de20d59e08c2a03ef80b257847be64bc180b75eb0b66753664ec4cf8cf"/>
-        <VersionInfo resourceName="hosted://package-lock.json" version="SHA-512:7a10544b8c0825a0d63637f6379be4680c61a9b046eab50e2e763bd4c97cd87aee1e207588d7ffa0d98bdd4547f532009cb392a8cf10fb84ffe6e4f2fdaa85d5"/>
-        <VersionInfo resourceName="hosted://package.json" version="SHA-512:6a8b6308e527dba0c71d904bdb28445dfa5a314cdeb4897a8f81f9914b3c150d20230a2cb828a09e78e5eb233b8730f19a55d5b7167fae1b35fae8190f092657"/>
-        <VersionInfo resourceName="hosted://swagger.json" version="SHA-512:6a05a39ca7e8f2d1fda891a88ad1f23140a87f6ded2a7e22a178342eeeaa77f3c9734e359a5dbe59408abfec1b2ae591786ba16735a13347020fc13edad6609b"/>
-    </Resources>
+    <ProxyEndpoints/>
+    <Resources/>
     <SharedFlows/>
-    <TargetEndpoints>
-        <VersionInfo resourceName="default" version="SHA-512:6ea2ed56c36e2349335e6a2c93c31247f048056b0d6310d75d13b0b9878834ee4d02ab89744dec43385f46d66f095072b94bc5546e4357d7dac81063decea192"/>
-    </TargetEndpoints>
+    <TargetEndpoints/>
 </Manifest>

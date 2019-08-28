@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <ProxyEndpoint name="default">
-    <Description></Description>
-    <FaultRules/>
     <Flows>
         <Flow name="JWKS">
-            <Request/>
             <Response>
                 <Step>
                     <FaultRules/>
@@ -16,7 +13,6 @@
     </Flows>
     <HTTPProxyConnection>
         <BasePath>/tpp/v1</BasePath>
-        <Properties/>
         <VirtualHost>secure</VirtualHost>
     </HTTPProxyConnection>
     <RouteRule name="no target"/>

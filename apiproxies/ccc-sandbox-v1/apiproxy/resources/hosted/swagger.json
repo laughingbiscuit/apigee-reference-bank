@@ -1,36 +1,47 @@
 {
   "swagger": "2.0",
   "info": {
-    "version": "v2.2",
+    "version": "v2.3",
     "title": "Open Data API",
     "description": "Latest Swagger specification for OpenData Commercial Credit Card"
   },
   "host": "developer.openbanking.org.uk",
-  "basePath": "/open-banking/v2.2",
-  "schemes": ["https"],
-  "produces": ["application/prs.openbanking.opendata.v2.2+json"],
-  "tags": [{
-    "name": "CCC",
-    "description": "Endpoint for getting Commercial Credit Card data"
-  }],
+  "basePath": "/open-banking/v2.3",
+  "schemes": [
+    "https"
+  ],
+  "produces": [
+    "application/prs.openbanking.opendata.v2.3+json"
+  ],
+  "tags": [
+    {
+      "name": "CCC",
+      "description": "Endpoint for getting Commercial Credit Card data"
+    }
+  ],
   "paths": {
     "/commercial-credit-cards": {
       "get": {
-        "tags": ["CCC"],
+        "tags": [
+          "CCC"
+        ],
         "description": "Gets a list of all `Commerical Credit Card` objects.",
-        "parameters": [{
-          "name": "If-Modified-Since",
-          "type": "string",
-          "description": "Used for conditional request, to retrieve data only if modified since a given date",
-          "in": "header",
-          "required": false
-        }, {
-          "name": "If-None-Match",
-          "type": "string",
-          "description": "Used for conditional request, to retrieve data only if the given Etag value does not match",
-          "in": "header",
-          "required": false
-        }],
+        "parameters": [
+          {
+            "name": "If-Modified-Since",
+            "type": "string",
+            "description": "Used for conditional request, to retrieve data only if modified since a given date",
+            "in": "header",
+            "required": false
+          },
+          {
+            "name": "If-None-Match",
+            "type": "string",
+            "description": "Used for conditional request, to retrieve data only if the given Etag value does not match",
+            "in": "header",
+            "required": false
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful response with a list of `Commercial Credit Card` data",
@@ -76,22 +87,34 @@
                     },
                     "Agreement": {
                       "type": "string",
-                      "enum": ["Use of the APIs and any related data will be subject to the terms of the Open Licence and subject to terms and conditions"]
+                      "enum": [
+                        "Use of the APIs and any related data will be subject to the terms of the Open Licence and subject to terms and conditions"
+                      ]
                     },
                     "License": {
                       "description": "Open Banking License",
                       "type": "string",
                       "format": "uri",
-                      "enum": ["https://www.openbanking.org.uk/open-licence"]
+                      "enum": [
+                        "https://www.openbanking.org.uk/open-licence"
+                      ]
                     },
                     "TermsOfUse": {
                       "description": "Open Banking Terms of Use",
                       "type": "string",
                       "format": "uri",
-                      "enum": ["https://www.openbanking.org.uk/terms"]
+                      "enum": [
+                        "https://www.openbanking.org.uk/terms"
+                      ]
                     }
                   },
-                  "required": ["LastUpdated", "TotalResults", "Agreement", "License", "TermsOfUse"],
+                  "required": [
+                    "LastUpdated",
+                    "TotalResults",
+                    "Agreement",
+                    "License",
+                    "TermsOfUse"
+                  ],
                   "additionalProperties": false
                 },
                 "data": {
@@ -133,7 +156,7 @@
                                     "title": "Identification",
                                     "type": "string",
                                     "minLength": 1,
-                                    "maxLength": 35
+                                    "maxLength": 40
                                   },
                                   "Segment": {
                                     "description": "Market segmentation is a marketing term referring to the aggregating of prospective buyers into groups, or segments, that have common needs and respond similarly to a marketing action. Market segmentation enables companies to target different categories of consumers who perceive the full value of certain products and services differently from one another.\n\nRead more: Market Segmentation http://www.investopedia.com/terms/m/marketsegmentation.asp#ixzz4gfEEalTd \nFollow us: Investopedia on Facebook\n\nWith respect to CCC products, they are segmented in relation to different markets that they wish to focus on.",
@@ -142,9 +165,48 @@
                                     "items": {
                                       "description": "Market segmentation is a marketing term referring to the aggregating of prospective buyers into groups, or segments, that have common needs and respond similarly to a marketing action. Market segmentation enables companies to target different categories of consumers who perceive the full value of certain products and services differently from one another.\n\nRead more: Market Segmentation http://www.investopedia.com/terms/m/marketsegmentation.asp#ixzz4gfEEalTd \nFollow us: Investopedia on Facebook\n\nWith respect to CCC products, they are segmented in relation to different markets that they wish to focus on.",
                                       "type": "string",
-                                      "enum": ["General"]
+                                      "enum": [
+                                        "General",
+                                        "Other"
+                                      ]
                                     },
                                     "minItems": 1
+                                  },
+                                  "OtherSegment": {
+                                    "type": "array",
+                                    "title": "OtherSegment",
+                                    "items": {
+                                      "type": "object",
+                                      "properties": {
+                                        "Code": {
+                                          "description": "The four letter Mnemonic used within an XML file to identify a code",
+                                          "title": "Code",
+                                          "type": "string",
+                                          "pattern": "^\\w{0,4}$",
+                                          "minLength": 0,
+                                          "maxLength": 4
+                                        },
+                                        "Name": {
+                                          "description": "Long name associated with the code",
+                                          "title": "Name",
+                                          "type": "string",
+                                          "minLength": 1,
+                                          "maxLength": 70
+                                        },
+                                        "Description": {
+                                          "description": "Description to describe the purpose of the code",
+                                          "title": "Description",
+                                          "type": "string",
+                                          "minLength": 1,
+                                          "maxLength": 350
+                                        }
+                                      },
+                                      "required": [
+                                        "Name",
+                                        "Description"
+                                      ]
+                                    },
+                                    "additionalProperties": false
                                   },
                                   "CCCMarketingState": {
                                     "description": "The marketing state (promotional or regular) of the CCC Product.",
@@ -172,7 +234,10 @@
                                           "description": "Describes the marketing state (regular or promotional) of the CCC Product",
                                           "title": "MarketingState",
                                           "type": "string",
-                                          "enum": ["Promotional", "Regular"]
+                                          "enum": [
+                                            "Promotional",
+                                            "Regular"
+                                          ]
                                         },
                                         "FirstMarketedDate": {
                                           "description": "Marketing state start date",
@@ -196,7 +261,14 @@
                                           "description": "The unit of period (days, weeks, months etc.) of the promotional length",
                                           "title": "StateTenurePeriod",
                                           "type": "string",
-                                          "enum": ["Day", "Half Year", "Month", "Quarter", "Week", "Year"]
+                                          "enum": [
+                                            "Day",
+                                            "Half Year",
+                                            "Month",
+                                            "Quarter",
+                                            "Week",
+                                            "Year"
+                                          ]
                                         },
                                         "Notes": {
                                           "description": "Free text for adding details for marketing state",
@@ -257,7 +329,12 @@
                                                           "description": "Non repayment fee type code",
                                                           "title": "FeeType",
                                                           "type": "string",
-                                                          "enum": ["LatePayment", "OverCreditLimit", "Other", "ReturnPayment"]
+                                                          "enum": [
+                                                            "LatePayment",
+                                                            "OverCreditLimit",
+                                                            "Other",
+                                                            "ReturnPayment"
+                                                          ]
                                                         },
                                                         "NegotiableIndicator": {
                                                           "description": "Fee/charge which is usually negotiable rather than a fixed amount. Indicates if the Fee/charge is negotiable (Y) or Fixed (N)",
@@ -280,19 +357,44 @@
                                                           "description": "Rate type for Fee/Charge (where it is charged in terms of a rate rather than an amount)",
                                                           "title": "FeeRateType",
                                                           "type": "string",
-                                                          "enum": ["Gross", "Other"]
+                                                          "enum": [
+                                                            "Gross",
+                                                            "Other"
+                                                          ]
                                                         },
                                                         "ApplicationFrequency": {
                                                           "description": "How frequently the fee/charge is applied to the account",
                                                           "title": "ApplicationFrequency",
                                                           "type": "string",
-                                                          "enum": ["Daily", "Flexible", "Fortnightly", "Holiday", "HalfYearly", "Monthly", "Other", "Quarterly", "Weekly", "Yearly"]
+                                                          "enum": [
+                                                            "Daily",
+                                                            "Flexible",
+                                                            "Fortnightly",
+                                                            "Holiday",
+                                                            "HalfYearly",
+                                                            "Monthly",
+                                                            "Other",
+                                                            "Quarterly",
+                                                            "Weekly",
+                                                            "Yearly"
+                                                          ]
                                                         },
                                                         "CalculationFrequency": {
                                                           "description": "How frequently the fee/charge is calculated",
                                                           "title": "CalculationFrequency",
                                                           "type": "string",
-                                                          "enum": ["Daily", "Flexible", "Fortnightly", "Holiday", "HalfYearly", "Monthly", "Other", "Quarterly", "Weekly", "Yearly"]
+                                                          "enum": [
+                                                            "Daily",
+                                                            "Flexible",
+                                                            "Fortnightly",
+                                                            "Holiday",
+                                                            "HalfYearly",
+                                                            "Monthly",
+                                                            "Other",
+                                                            "Quarterly",
+                                                            "Weekly",
+                                                            "Yearly"
+                                                          ]
                                                         },
                                                         "Notes": {
                                                           "description": "Optional additional notes to supplement the fee/charge details.",
@@ -322,7 +424,17 @@
                                                               "description": "Categorisation of fees and charges into standard categories.",
                                                               "title": "FeeCategory",
                                                               "type": "string",
-                                                              "enum": ["CashAdvance", "BalanceTransfer", "Purchase", "Cheque", "Card", "FX", "Penalty", "Servicing", "Other"]
+                                                              "enum": [
+                                                                "CashAdvance",
+                                                                "BalanceTransfer",
+                                                                "Purchase",
+                                                                "Cheque",
+                                                                "Card",
+                                                                "FX",
+                                                                "Penalty",
+                                                                "Servicing",
+                                                                "Other"
+                                                              ]
                                                             },
                                                             "Name": {
                                                               "description": "Long name associated with the code",
@@ -340,7 +452,11 @@
                                                             }
                                                           },
                                                           "additionalProperties": false,
-                                                          "required": ["FeeCategory", "Name", "Description"]
+                                                          "required": [
+                                                            "FeeCategory",
+                                                            "Name",
+                                                            "Description"
+                                                          ]
                                                         },
                                                         "OtherFeeRateType": {
                                                           "description": "Other fee rate type which is not available in the standard code set",
@@ -371,7 +487,10 @@
                                                             }
                                                           },
                                                           "additionalProperties": false,
-                                                          "required": ["Name", "Description"]
+                                                          "required": [
+                                                            "Name",
+                                                            "Description"
+                                                          ]
                                                         },
                                                         "OtherApplicationFrequency": {
                                                           "description": "Other application frequencies not covered in the standard code list",
@@ -402,7 +521,10 @@
                                                             }
                                                           },
                                                           "additionalProperties": false,
-                                                          "required": ["Name", "Description"]
+                                                          "required": [
+                                                            "Name",
+                                                            "Description"
+                                                          ]
                                                         },
                                                         "OtherCalculationFrequency": {
                                                           "description": "Other calculation frequency which is not available in standard code set.",
@@ -433,10 +555,17 @@
                                                             }
                                                           },
                                                           "additionalProperties": false,
-                                                          "required": ["Name", "Description"]
+                                                          "required": [
+                                                            "Name",
+                                                            "Description"
+                                                          ]
                                                         }
                                                       },
-                                                      "required": ["FeeType", "ApplicationFrequency", "CalculationFrequency"]
+                                                      "required": [
+                                                        "FeeType",
+                                                        "ApplicationFrequency",
+                                                        "CalculationFrequency"
+                                                      ]
                                                     },
                                                     "additionalProperties": false,
                                                     "minItems": 1
@@ -456,7 +585,12 @@
                                                           "items": {
                                                             "description": "Fee/charge type which is being capped",
                                                             "type": "string",
-                                                            "enum": ["LatePayment", "OverCreditLimit", "Other", "ReturnPayment"]
+                                                            "enum": [
+                                                              "LatePayment",
+                                                              "OverCreditLimit",
+                                                              "Other",
+                                                              "ReturnPayment"
+                                                            ]
                                                           },
                                                           "minItems": 1
                                                         },
@@ -464,7 +598,10 @@
                                                           "description": "Min Max type",
                                                           "title": "MinMaxType",
                                                           "type": "string",
-                                                          "enum": ["Minimum", "Maximum"]
+                                                          "enum": [
+                                                            "Minimum",
+                                                            "Maximum"
+                                                          ]
                                                         },
                                                         "FeeCapOccurrence": {
                                                           "description": "fee/charges are captured dependent on the number of occurrences rather than capped at a particular amount",
@@ -482,7 +619,14 @@
                                                           "description": "Period e.g. day, week, month etc. for which the fee/charge is capped",
                                                           "title": "CappingPeriod",
                                                           "type": "string",
-                                                          "enum": ["Day", "Half Year", "Month", "Quarter", "Week", "Year"]
+                                                          "enum": [
+                                                            "Day",
+                                                            "Half Year",
+                                                            "Month",
+                                                            "Quarter",
+                                                            "Week",
+                                                            "Year"
+                                                          ]
                                                         },
                                                         "Notes": {
                                                           "description": "Free text for adding  extra details for fee charge cap",
@@ -526,17 +670,25 @@
                                                                 "maxLength": 350
                                                               }
                                                             },
-                                                            "required": ["Name", "Description"]
+                                                            "required": [
+                                                              "Name",
+                                                              "Description"
+                                                            ]
                                                           },
                                                           "additionalProperties": false
                                                         }
                                                       },
-                                                      "required": ["FeeType", "MinMaxType"]
+                                                      "required": [
+                                                        "FeeType",
+                                                        "MinMaxType"
+                                                      ]
                                                     },
                                                     "additionalProperties": false
                                                   }
                                                 },
-                                                "required": ["NonRepaymentFeeChargeDetail"]
+                                                "required": [
+                                                  "NonRepaymentFeeChargeDetail"
+                                                ]
                                               },
                                               "additionalProperties": false
                                             },
@@ -559,11 +711,15 @@
                                                 }
                                               },
                                               "additionalProperties": false,
-                                              "required": ["Notes"]
+                                              "required": [
+                                                "Notes"
+                                              ]
                                             }
                                           },
                                           "additionalProperties": false,
-                                          "required": ["RepaymentAllocation"]
+                                          "required": [
+                                            "RepaymentAllocation"
+                                          ]
                                         },
                                         "Eligibility": {
                                           "description": "Eligibility details for this product i.e. the criteria that an accountholder has to meet in order to be eligible for the CCC product.",
@@ -596,7 +752,14 @@
                                                     "description": "Eligibility type - method by which we group eligibilities for comparison purposes.",
                                                     "title": "Type",
                                                     "type": "string",
-                                                    "enum": ["AnyBusinessCustomer", "BusinessCurrentAccount", "CreditScoring", "OtherFinancialHolding", "Other", "MinimumTurnover"]
+                                                    "enum": [
+                                                      "AnyBusinessCustomer",
+                                                      "BusinessCurrentAccount",
+                                                      "CreditScoring",
+                                                      "OtherFinancialHolding",
+                                                      "Other",
+                                                      "MinimumTurnover"
+                                                    ]
                                                   },
                                                   "Amount": {
                                                     "description": "Any eligibility criteria where an amount is required to be specified e.g. Minimum Age.",
@@ -620,7 +783,16 @@
                                                     "description": "Period for which the other eligibility criteria applies.",
                                                     "title": "Period",
                                                     "type": "string",
-                                                    "enum": ["Daily", "HalfYearly", "Monthly", "Other", "Quarterly", "PerStatementDate", "Weekly", "Yearly"]
+                                                    "enum": [
+                                                      "Daily",
+                                                      "HalfYearly",
+                                                      "Monthly",
+                                                      "Other",
+                                                      "Quarterly",
+                                                      "PerStatementDate",
+                                                      "Weekly",
+                                                      "Yearly"
+                                                    ]
                                                   },
                                                   "Notes": {
                                                     "description": "Optional additional notes to supplement the eligibility conditions.",
@@ -662,10 +834,16 @@
                                                       }
                                                     },
                                                     "additionalProperties": false,
-                                                    "required": ["Name", "Description"]
+                                                    "required": [
+                                                      "Name",
+                                                      "Description"
+                                                    ]
                                                   }
                                                 },
-                                                "required": ["Name", "Type"]
+                                                "required": [
+                                                  "Name",
+                                                  "Type"
+                                                ]
                                               },
                                               "additionalProperties": false
                                             },
@@ -712,7 +890,13 @@
                                                     "description": "Residency type like Tax residency, Owner residency etc.",
                                                     "title": "ResidencyType",
                                                     "type": "string",
-                                                    "enum": ["Incorporated", "Owner", "Other", "Trading", "CompanyTax"]
+                                                    "enum": [
+                                                      "Incorporated",
+                                                      "Owner",
+                                                      "Other",
+                                                      "Trading",
+                                                      "CompanyTax"
+                                                    ]
                                                   },
                                                   "ResidencyIncluded": {
                                                     "description": "Country code for which CCC product is allowed.",
@@ -767,10 +951,15 @@
                                                       }
                                                     },
                                                     "additionalProperties": false,
-                                                    "required": ["Name", "Description"]
+                                                    "required": [
+                                                      "Name",
+                                                      "Description"
+                                                    ]
                                                   }
                                                 },
-                                                "required": ["ResidencyIncluded"]
+                                                "required": [
+                                                  "ResidencyIncluded"
+                                                ]
                                               },
                                               "additionalProperties": false
                                             },
@@ -786,13 +975,24 @@
                                                     "description": "Trading type eligibility for the CCC product",
                                                     "title": "TradingType",
                                                     "type": "string",
-                                                    "enum": ["AnnualReturns", "PreviousCCJSAllowed", "GoodTradingHistory", "Other", "PreviousBankruptcyAllowed", "TradingLength", "Turnover"]
+                                                    "enum": [
+                                                      "AnnualReturns",
+                                                      "PreviousCCJSAllowed",
+                                                      "GoodTradingHistory",
+                                                      "Other",
+                                                      "PreviousBankruptcyAllowed",
+                                                      "TradingLength",
+                                                      "Turnover"
+                                                    ]
                                                   },
                                                   "MinMaxType": {
                                                     "description": "Min Max type",
                                                     "title": "MinMaxType",
                                                     "type": "string",
-                                                    "enum": ["Minimum", "Maximum"]
+                                                    "enum": [
+                                                      "Minimum",
+                                                      "Maximum"
+                                                    ]
                                                   },
                                                   "Amount": {
                                                     "description": "Amount indicating the min max type",
@@ -801,7 +1001,7 @@
                                                     "pattern": "^(-?\\d{1,14}){1}(\\.\\d{1,4}){0,1}$"
                                                   },
                                                   "Indicator": {
-                                                    "description": "Any eligibility criteria where the value can be indicated by a true or false value. e.g. PreviousCCJS is True or False ",
+                                                    "description": "Any eligibility criteria where the value can be indicated by a true or false value. e.g. PreviousCCJS is True or False",
                                                     "title": "Indicator",
                                                     "type": "boolean"
                                                   },
@@ -816,7 +1016,14 @@
                                                     "description": "The unit of period (days, weeks, months etc.)",
                                                     "title": "Period",
                                                     "type": "string",
-                                                    "enum": ["Day", "Half Year", "Month", "Quarter", "Week", "Year"]
+                                                    "enum": [
+                                                      "Day",
+                                                      "Half Year",
+                                                      "Month",
+                                                      "Quarter",
+                                                      "Week",
+                                                      "Year"
+                                                    ]
                                                   },
                                                   "Notes": {
                                                     "description": "Optional additional notes to supplement the TradingHistoryEligibility details",
@@ -858,7 +1065,10 @@
                                                       }
                                                     },
                                                     "additionalProperties": false,
-                                                    "required": ["Name", "Description"]
+                                                    "required": [
+                                                      "Name",
+                                                      "Description"
+                                                    ]
                                                   }
                                                 }
                                               },
@@ -876,7 +1086,18 @@
                                                     "description": "Defines the legal structure of the business to access the CCC product.",
                                                     "title": "LegalStructure",
                                                     "type": "string",
-                                                    "enum": ["CIO", "ClubSociety", "Charity", "Ltd", "LBG", "LLP", "Other", "Partnership", "SoleTrader", "Trust"]
+                                                    "enum": [
+                                                      "CIO",
+                                                      "ClubSociety",
+                                                      "Charity",
+                                                      "Ltd",
+                                                      "LBG",
+                                                      "LLP",
+                                                      "Other",
+                                                      "Partnership",
+                                                      "SoleTrader",
+                                                      "Trust"
+                                                    ]
                                                   },
                                                   "Notes": {
                                                     "description": "Optional additional notes to supplement the LegalStructureEligibility details",
@@ -918,7 +1139,10 @@
                                                       }
                                                     },
                                                     "additionalProperties": false,
-                                                    "required": ["Name", "Description"]
+                                                    "required": [
+                                                      "Name",
+                                                      "Description"
+                                                    ]
                                                   }
                                                 }
                                               },
@@ -936,7 +1160,13 @@
                                                     "description": "Defines the types of officers eligible for the CCC product. Examples are Directors, Owners etc.",
                                                     "title": "OfficerType",
                                                     "type": "string",
-                                                    "enum": ["Director", "Owner", "Other", "Partner", "SignificantControl"]
+                                                    "enum": [
+                                                      "Director",
+                                                      "Owner",
+                                                      "Other",
+                                                      "Partner",
+                                                      "SignificantControl"
+                                                    ]
                                                   },
                                                   "MaxAmount": {
                                                     "description": "Maximum amount of officers (for a particular officer type) required to the CCC product",
@@ -990,7 +1220,10 @@
                                                       }
                                                     },
                                                     "additionalProperties": false,
-                                                    "required": ["Name", "Description"]
+                                                    "required": [
+                                                      "Name",
+                                                      "Description"
+                                                    ]
                                                   }
                                                 }
                                               },
@@ -1031,7 +1264,10 @@
                                                   "description": "Opening Credit Scoring Type (Hard or Soft)",
                                                   "title": "ScoringType",
                                                   "type": "string",
-                                                  "enum": ["Hard", "Soft"]
+                                                  "enum": [
+                                                    "Hard",
+                                                    "Soft"
+                                                  ]
                                                 },
                                                 "Notes": {
                                                   "description": "Optional additional notes to supplement the CreditCheck details",
@@ -1118,7 +1354,10 @@
                                                         "maxLength": 350
                                                       }
                                                     },
-                                                    "required": ["Name", "Description"]
+                                                    "required": [
+                                                      "Name",
+                                                      "Description"
+                                                    ]
                                                   },
                                                   "additionalProperties": false
                                                 },
@@ -1153,7 +1392,10 @@
                                                         "maxLength": 350
                                                       }
                                                     },
-                                                    "required": ["Name", "Description"]
+                                                    "required": [
+                                                      "Name",
+                                                      "Description"
+                                                    ]
                                                   },
                                                   "additionalProperties": false
                                                 }
@@ -1187,7 +1429,17 @@
                                                     "description": "Common types of features & benefits",
                                                     "title": "Type",
                                                     "type": "string",
-                                                    "enum": ["AccountManagement", "CashBack", "CreditReports", "Lifestyle", "MotorBreakdown", "Other", "PaymentHolidays", "SpendLimits", "TravelInsurance"]
+                                                    "enum": [
+                                                      "AccountManagement",
+                                                      "CashBack",
+                                                      "CreditReports",
+                                                      "Lifestyle",
+                                                      "MotorBreakdown",
+                                                      "Other",
+                                                      "PaymentHolidays",
+                                                      "SpendLimits",
+                                                      "TravelInsurance"
+                                                    ]
                                                   },
                                                   "BenefitGroupNominalValue": {
                                                     "description": "BenefitGroupNominalValue is  to allow banks to state what they feel their benefit package is worth",
@@ -1205,13 +1457,31 @@
                                                     "description": "How often is the charge for the feature/benefit group applied to the customer account",
                                                     "title": "ApplicationFrequency",
                                                     "type": "string",
-                                                    "enum": ["Daily", "HalfYearly", "Monthly", "Other", "Quarterly", "PerStatementDate", "Weekly", "Yearly"]
+                                                    "enum": [
+                                                      "Daily",
+                                                      "HalfYearly",
+                                                      "Monthly",
+                                                      "Other",
+                                                      "Quarterly",
+                                                      "PerStatementDate",
+                                                      "Weekly",
+                                                      "Yearly"
+                                                    ]
                                                   },
                                                   "CalculationFrequency": {
                                                     "description": "How often is the charge for the feature/benefit group calculated for the customer account",
                                                     "title": "CalculationFrequency",
                                                     "type": "string",
-                                                    "enum": ["Daily", "HalfYearly", "Monthly", "Other", "Quarterly", "PerStatementDate", "Weekly", "Yearly"]
+                                                    "enum": [
+                                                      "Daily",
+                                                      "HalfYearly",
+                                                      "Monthly",
+                                                      "Other",
+                                                      "Quarterly",
+                                                      "PerStatementDate",
+                                                      "Weekly",
+                                                      "Yearly"
+                                                    ]
                                                   },
                                                   "Notes": {
                                                     "description": "Optional additional notes to supplement the Feature Benefit Group details",
@@ -1253,7 +1523,10 @@
                                                       }
                                                     },
                                                     "additionalProperties": false,
-                                                    "required": ["Name", "Description"]
+                                                    "required": [
+                                                      "Name",
+                                                      "Description"
+                                                    ]
                                                   },
                                                   "OtherApplicationFrequency": {
                                                     "description": "Other application frequency which is not available in the standard code set",
@@ -1284,7 +1557,10 @@
                                                       }
                                                     },
                                                     "additionalProperties": false,
-                                                    "required": ["Name", "Description"]
+                                                    "required": [
+                                                      "Name",
+                                                      "Description"
+                                                    ]
                                                   },
                                                   "OtherCalculationFrequency": {
                                                     "description": "Other calculation frequency which is not available in the standard code set",
@@ -1315,7 +1591,10 @@
                                                       }
                                                     },
                                                     "additionalProperties": false,
-                                                    "required": ["Name", "Description"]
+                                                    "required": [
+                                                      "Name",
+                                                      "Description"
+                                                    ]
                                                   },
                                                   "FeatureBenefitItem": {
                                                     "description": "Detailed features or benefits which may or may not be a part of a feature/benefit group/pack",
@@ -1336,7 +1615,17 @@
                                                           "description": "Feature and Benefit type",
                                                           "title": "Type",
                                                           "type": "string",
-                                                          "enum": ["AccountManagement", "CashBack", "CreditReports", "Lifestyle", "MotorBreakdown", "Other", "PaymentHolidays", "SpendLimits", "TravelInsurance"]
+                                                          "enum": [
+                                                            "AccountManagement",
+                                                            "CashBack",
+                                                            "CreditReports",
+                                                            "Lifestyle",
+                                                            "MotorBreakdown",
+                                                            "Other",
+                                                            "PaymentHolidays",
+                                                            "SpendLimits",
+                                                            "TravelInsurance"
+                                                          ]
                                                         },
                                                         "Name": {
                                                           "description": "Name which can be attached to the feature/benefit",
@@ -1403,7 +1692,10 @@
                                                             }
                                                           },
                                                           "additionalProperties": false,
-                                                          "required": ["Name", "Description"]
+                                                          "required": [
+                                                            "Name",
+                                                            "Description"
+                                                          ]
                                                         },
                                                         "FeatureBenefitEligibility": {
                                                           "description": "Feature and Benefit eligibility",
@@ -1431,7 +1723,14 @@
                                                                 "description": "Method by which we group eligibilities for comparison purposes.",
                                                                 "title": "Type",
                                                                 "type": "string",
-                                                                "enum": ["AnyBusinessCustomer", "BusinessCurrentAccount", "CreditScoring", "OtherFinancialHolding", "Other", "MinimumTurnover"]
+                                                                "enum": [
+                                                                  "AnyBusinessCustomer",
+                                                                  "BusinessCurrentAccount",
+                                                                  "CreditScoring",
+                                                                  "OtherFinancialHolding",
+                                                                  "Other",
+                                                                  "MinimumTurnover"
+                                                                ]
                                                               },
                                                               "Amount": {
                                                                 "description": "Any eligibility criteria where an amount is required to be specified e.g. Minimum Age.",
@@ -1455,7 +1754,14 @@
                                                                 "description": "Period for which the other eligibility criteria applies.",
                                                                 "title": "Period",
                                                                 "type": "string",
-                                                                "enum": ["Day", "Half Year", "Month", "Quarter", "Week", "Year"]
+                                                                "enum": [
+                                                                  "Day",
+                                                                  "Half Year",
+                                                                  "Month",
+                                                                  "Quarter",
+                                                                  "Week",
+                                                                  "Year"
+                                                                ]
                                                               },
                                                               "Notes": {
                                                                 "description": "Optional additional notes to supplement the eligibility conditions.",
@@ -1497,15 +1803,23 @@
                                                                   }
                                                                 },
                                                                 "additionalProperties": false,
-                                                                "required": ["Name", "Description"]
+                                                                "required": [
+                                                                  "Name",
+                                                                  "Description"
+                                                                ]
                                                               }
                                                             },
-                                                            "required": ["Name", "Type"]
+                                                            "required": [
+                                                              "Name",
+                                                              "Type"
+                                                            ]
                                                           },
                                                           "additionalProperties": false
                                                         }
                                                       },
-                                                      "required": ["Type"]
+                                                      "required": [
+                                                        "Type"
+                                                      ]
                                                     },
                                                     "additionalProperties": false
                                                   },
@@ -1535,7 +1849,14 @@
                                                           "description": "Method by which we group eligibilities for comparison purposes.",
                                                           "title": "Type",
                                                           "type": "string",
-                                                          "enum": ["AnyBusinessCustomer", "BusinessCurrentAccount", "CreditScoring", "OtherFinancialHolding", "Other", "MinimumTurnover"]
+                                                          "enum": [
+                                                            "AnyBusinessCustomer",
+                                                            "BusinessCurrentAccount",
+                                                            "CreditScoring",
+                                                            "OtherFinancialHolding",
+                                                            "Other",
+                                                            "MinimumTurnover"
+                                                          ]
                                                         },
                                                         "Amount": {
                                                           "description": "Any eligibility criteria where an amount is required to be specified e.g. Minimum Age.",
@@ -1559,7 +1880,14 @@
                                                           "description": "Period for which the other eligibility criteria applies.",
                                                           "title": "Period",
                                                           "type": "string",
-                                                          "enum": ["Day", "Half Year", "Month", "Quarter", "Week", "Year"]
+                                                          "enum": [
+                                                            "Day",
+                                                            "Half Year",
+                                                            "Month",
+                                                            "Quarter",
+                                                            "Week",
+                                                            "Year"
+                                                          ]
                                                         },
                                                         "Notes": {
                                                           "description": "Optional additional notes to supplement the eligibility conditions.",
@@ -1601,15 +1929,23 @@
                                                             }
                                                           },
                                                           "additionalProperties": false,
-                                                          "required": ["Name", "Description"]
+                                                          "required": [
+                                                            "Name",
+                                                            "Description"
+                                                          ]
                                                         }
                                                       },
-                                                      "required": ["Name", "Type"]
+                                                      "required": [
+                                                        "Name",
+                                                        "Type"
+                                                      ]
                                                     },
                                                     "additionalProperties": false
                                                   }
                                                 },
-                                                "required": ["Name"]
+                                                "required": [
+                                                  "Name"
+                                                ]
                                               },
                                               "additionalProperties": false
                                             },
@@ -1632,7 +1968,17 @@
                                                     "description": "Feature and Benefit type",
                                                     "title": "Type",
                                                     "type": "string",
-                                                    "enum": ["AccountManagement", "CashBack", "CreditReports", "Lifestyle", "MotorBreakdown", "Other", "PaymentHolidays", "SpendLimits", "TravelInsurance"]
+                                                    "enum": [
+                                                      "AccountManagement",
+                                                      "CashBack",
+                                                      "CreditReports",
+                                                      "Lifestyle",
+                                                      "MotorBreakdown",
+                                                      "Other",
+                                                      "PaymentHolidays",
+                                                      "SpendLimits",
+                                                      "TravelInsurance"
+                                                    ]
                                                   },
                                                   "Name": {
                                                     "description": "Name which can be attached to the feature/benefit",
@@ -1699,7 +2045,10 @@
                                                       }
                                                     },
                                                     "additionalProperties": false,
-                                                    "required": ["Name", "Description"]
+                                                    "required": [
+                                                      "Name",
+                                                      "Description"
+                                                    ]
                                                   },
                                                   "FeatureBenefitEligibility": {
                                                     "description": "Feature and Benefit eligibility",
@@ -1727,7 +2076,14 @@
                                                           "description": "Method by which we group eligibilities for comparison purposes.",
                                                           "title": "Type",
                                                           "type": "string",
-                                                          "enum": ["AnyBusinessCustomer", "BusinessCurrentAccount", "CreditScoring", "OtherFinancialHolding", "Other", "MinimumTurnover"]
+                                                          "enum": [
+                                                            "AnyBusinessCustomer",
+                                                            "BusinessCurrentAccount",
+                                                            "CreditScoring",
+                                                            "OtherFinancialHolding",
+                                                            "Other",
+                                                            "MinimumTurnover"
+                                                          ]
                                                         },
                                                         "Amount": {
                                                           "description": "Any eligibility criteria where an amount is required to be specified e.g. Minimum Age.",
@@ -1751,7 +2107,14 @@
                                                           "description": "Period for which the other eligibility criteria applies.",
                                                           "title": "Period",
                                                           "type": "string",
-                                                          "enum": ["Day", "Half Year", "Month", "Quarter", "Week", "Year"]
+                                                          "enum": [
+                                                            "Day",
+                                                            "Half Year",
+                                                            "Month",
+                                                            "Quarter",
+                                                            "Week",
+                                                            "Year"
+                                                          ]
                                                         },
                                                         "Notes": {
                                                           "description": "Optional additional notes to supplement the eligibility conditions.",
@@ -1793,15 +2156,23 @@
                                                             }
                                                           },
                                                           "additionalProperties": false,
-                                                          "required": ["Name", "Description"]
+                                                          "required": [
+                                                            "Name",
+                                                            "Description"
+                                                          ]
                                                         }
                                                       },
-                                                      "required": ["Name", "Type"]
+                                                      "required": [
+                                                        "Name",
+                                                        "Type"
+                                                      ]
                                                     },
                                                     "additionalProperties": false
                                                   }
                                                 },
-                                                "required": ["Type"]
+                                                "required": [
+                                                  "Type"
+                                                ]
                                               },
                                               "additionalProperties": false
                                             }
@@ -1825,13 +2196,37 @@
                                                     "description": "Categorisation of fees and charges into standard categories.",
                                                     "title": "FeeCategory",
                                                     "type": "string",
-                                                    "enum": ["CashAdvance", "BalanceTransfer", "Purchase", "Cheque", "Card", "FX", "Penalty", "Servicing", "Other"]
+                                                    "enum": [
+                                                      "CashAdvance",
+                                                      "BalanceTransfer",
+                                                      "Purchase",
+                                                      "Cheque",
+                                                      "Card",
+                                                      "FX",
+                                                      "Penalty",
+                                                      "Servicing",
+                                                      "Other"
+                                                    ]
                                                   },
                                                   "FeeType": {
                                                     "description": "Fee/Charge Type",
                                                     "title": "FeeType",
                                                     "type": "string",
-                                                    "enum": ["AdditionalCard", "BalanceTransfer", "CashAdvance", "Card", "ChequeIssue", "CashWithdrawal", "EmergencyCard", "ForeignCash", "Handling", "Maintenance", "Other", "Purchase", "Penalty"]
+                                                    "enum": [
+                                                      "AdditionalCard",
+                                                      "BalanceTransfer",
+                                                      "CashAdvance",
+                                                      "Card",
+                                                      "ChequeIssue",
+                                                      "CashWithdrawal",
+                                                      "EmergencyCard",
+                                                      "ForeignCash",
+                                                      "Handling",
+                                                      "Maintenance",
+                                                      "Other",
+                                                      "Purchase",
+                                                      "Penalty"
+                                                    ]
                                                   },
                                                   "NegotiableIndicator": {
                                                     "description": "Fee/charge which is usually negotiable(YES) rather than a fixed(NO) amount",
@@ -1859,19 +2254,44 @@
                                                     "description": "Rate type for Fee/Charge (where it is charged in terms of a rate rather than an amount)",
                                                     "title": "FeeRateType",
                                                     "type": "string",
-                                                    "enum": ["Gross", "Other"]
+                                                    "enum": [
+                                                      "Gross",
+                                                      "Other"
+                                                    ]
                                                   },
                                                   "ApplicationFrequency": {
                                                     "description": "How frequently the fee/charge is applied to the account",
                                                     "title": "ApplicationFrequency",
                                                     "type": "string",
-                                                    "enum": ["Daily", "Flexible", "Fortnightly", "Holiday", "HalfYearly", "Monthly", "Other", "Quarterly", "Weekly", "Yearly"]
+                                                    "enum": [
+                                                      "Daily",
+                                                      "Flexible",
+                                                      "Fortnightly",
+                                                      "Holiday",
+                                                      "HalfYearly",
+                                                      "Monthly",
+                                                      "Other",
+                                                      "Quarterly",
+                                                      "Weekly",
+                                                      "Yearly"
+                                                    ]
                                                   },
                                                   "CalculationFrequency": {
                                                     "description": "How frequently the fee/charge is calculated",
                                                     "title": "CalculationFrequency",
                                                     "type": "string",
-                                                    "enum": ["Daily", "Flexible", "Fortnightly", "Holiday", "HalfYearly", "Monthly", "Other", "Quarterly", "Weekly", "Yearly"]
+                                                    "enum": [
+                                                      "Daily",
+                                                      "Flexible",
+                                                      "Fortnightly",
+                                                      "Holiday",
+                                                      "HalfYearly",
+                                                      "Monthly",
+                                                      "Other",
+                                                      "Quarterly",
+                                                      "Weekly",
+                                                      "Yearly"
+                                                    ]
                                                   },
                                                   "Notes": {
                                                     "description": "Optional additional notes to supplement the fee/charge details.",
@@ -1912,7 +2332,10 @@
                                                       }
                                                     },
                                                     "additionalProperties": false,
-                                                    "required": ["Name", "Description"]
+                                                    "required": [
+                                                      "Name",
+                                                      "Description"
+                                                    ]
                                                   },
                                                   "OtherFeeType": {
                                                     "description": "Other Fee/charge type which is not available in the standard code set",
@@ -1931,7 +2354,17 @@
                                                         "description": "Categorisation of fees and charges into standard categories.",
                                                         "title": "FeeCategory",
                                                         "type": "string",
-                                                        "enum": ["CashAdvance", "BalanceTransfer", "Purchase", "Cheque", "Card", "FX", "Penalty", "Servicing", "Other"]
+                                                        "enum": [
+                                                          "CashAdvance",
+                                                          "BalanceTransfer",
+                                                          "Purchase",
+                                                          "Cheque",
+                                                          "Card",
+                                                          "FX",
+                                                          "Penalty",
+                                                          "Servicing",
+                                                          "Other"
+                                                        ]
                                                       },
                                                       "Name": {
                                                         "description": "Long name associated with the code",
@@ -1949,7 +2382,11 @@
                                                       }
                                                     },
                                                     "additionalProperties": false,
-                                                    "required": ["FeeCategory", "Name", "Description"]
+                                                    "required": [
+                                                      "FeeCategory",
+                                                      "Name",
+                                                      "Description"
+                                                    ]
                                                   },
                                                   "OtherFeeRateType": {
                                                     "description": "Other fee rate type which is not available in the standard code set",
@@ -1980,7 +2417,10 @@
                                                       }
                                                     },
                                                     "additionalProperties": false,
-                                                    "required": ["Name", "Description"]
+                                                    "required": [
+                                                      "Name",
+                                                      "Description"
+                                                    ]
                                                   },
                                                   "OtherApplicationFrequency": {
                                                     "description": "Other application frequencies not covered in the standard code list",
@@ -2011,7 +2451,10 @@
                                                       }
                                                     },
                                                     "additionalProperties": false,
-                                                    "required": ["Name", "Description"]
+                                                    "required": [
+                                                      "Name",
+                                                      "Description"
+                                                    ]
                                                   },
                                                   "OtherCalculationFrequency": {
                                                     "description": "Other calculation frequency which is not available in standard code set.",
@@ -2042,7 +2485,10 @@
                                                       }
                                                     },
                                                     "additionalProperties": false,
-                                                    "required": ["Name", "Description"]
+                                                    "required": [
+                                                      "Name",
+                                                      "Description"
+                                                    ]
                                                   },
                                                   "FeeApplicableRange": {
                                                     "description": "Range or amounts or rates for which the fee/charge applies",
@@ -2077,7 +2523,12 @@
                                                     "additionalProperties": false
                                                   }
                                                 },
-                                                "required": ["FeeCategory", "FeeType", "ApplicationFrequency", "CalculationFrequency"]
+                                                "required": [
+                                                  "FeeCategory",
+                                                  "FeeType",
+                                                  "ApplicationFrequency",
+                                                  "CalculationFrequency"
+                                                ]
                                               },
                                               "additionalProperties": false,
                                               "minItems": 1
@@ -2097,7 +2548,21 @@
                                                     "items": {
                                                       "description": "Fee/charge type which is being capped",
                                                       "type": "string",
-                                                      "enum": ["AdditionalCard", "BalanceTransfer", "CashAdvance", "Card", "ChequeIssue", "CashWithdrawal", "EmergencyCard", "ForeignCash", "Handling", "Maintenance", "Other", "Purchase", "Penalty"]
+                                                      "enum": [
+                                                        "AdditionalCard",
+                                                        "BalanceTransfer",
+                                                        "CashAdvance",
+                                                        "Card",
+                                                        "ChequeIssue",
+                                                        "CashWithdrawal",
+                                                        "EmergencyCard",
+                                                        "ForeignCash",
+                                                        "Handling",
+                                                        "Maintenance",
+                                                        "Other",
+                                                        "Purchase",
+                                                        "Penalty"
+                                                      ]
                                                     },
                                                     "minItems": 1
                                                   },
@@ -2105,7 +2570,10 @@
                                                     "description": "Min Max type",
                                                     "title": "MinMaxType",
                                                     "type": "string",
-                                                    "enum": ["Minimum", "Maximum"]
+                                                    "enum": [
+                                                      "Minimum",
+                                                      "Maximum"
+                                                    ]
                                                   },
                                                   "FeeCapOccurrence": {
                                                     "description": "fee/charges are captured dependent on the number of occurrences rather than capped at a particular amount",
@@ -2123,7 +2591,14 @@
                                                     "description": "Period e.g. day, week, month etc. for which the fee/charge is capped",
                                                     "title": "CappingPeriod",
                                                     "type": "string",
-                                                    "enum": ["Day", "Half Year", "Month", "Quarter", "Week", "Year"]
+                                                    "enum": [
+                                                      "Day",
+                                                      "Half Year",
+                                                      "Month",
+                                                      "Quarter",
+                                                      "Week",
+                                                      "Year"
+                                                    ]
                                                   },
                                                   "Notes": {
                                                     "description": "Free text for adding  extra details for fee charge cap",
@@ -2167,18 +2642,26 @@
                                                           "maxLength": 350
                                                         }
                                                       },
-                                                      "required": ["Name", "Description"]
+                                                      "required": [
+                                                        "Name",
+                                                        "Description"
+                                                      ]
                                                     },
                                                     "additionalProperties": false
                                                   }
                                                 },
-                                                "required": ["FeeType", "MinMaxType"]
+                                                "required": [
+                                                  "FeeType",
+                                                  "MinMaxType"
+                                                ]
                                               },
                                               "additionalProperties": false
                                             }
                                           },
                                           "additionalProperties": false,
-                                          "required": ["FeeChargeDetail"]
+                                          "required": [
+                                            "FeeChargeDetail"
+                                          ]
                                         },
                                         "CoreProduct": {
                                           "description": "CCC core product details.",
@@ -2207,7 +2690,7 @@
                                               "maxLength": 500
                                             },
                                             "MaxDailyCardWithdrawalLimit": {
-                                              "description": "The maximum amount of money that you can withdraw per day (so long as you do not exceed your available credit limit) ",
+                                              "description": "The maximum amount of money that you can withdraw per day (so long as you do not exceed your available credit limit)",
                                               "title": "MaxDailyCardWithdrawalLimit",
                                               "type": "string",
                                               "pattern": "^(-?\\d{1,14}){1}(\\.\\d{1,4}){0,1}$"
@@ -2231,13 +2714,19 @@
                                               "format": "int32"
                                             },
                                             "SalesAccessChannels": {
-                                              "description": "Channels via which a customer can open a CCC. ",
+                                              "description": "Channels via which a customer can open a CCC.",
                                               "title": "SalesAccessChannels",
                                               "type": "array",
                                               "items": {
-                                                "description": "Channels via which a customer can open a CCC. ",
+                                                "description": "Channels via which a customer can open a CCC.",
                                                 "type": "string",
-                                                "enum": ["Branch", "CallCentre", "Post", "Online", "RelationshipManager"]
+                                                "enum": [
+                                                  "Branch",
+                                                  "CallCentre",
+                                                  "Post",
+                                                  "Online",
+                                                  "RelationshipManager"
+                                                ]
                                               },
                                               "minItems": 1
                                             },
@@ -2248,7 +2737,17 @@
                                               "items": {
                                                 "description": "Channels via which customers can access CCC services.",
                                                 "type": "string",
-                                                "enum": ["ATM", "Branch", "CallCentre", "Post", "MobileBankingApp", "Online", "PostOffice", "RelationshipManager", "Text"]
+                                                "enum": [
+                                                  "ATM",
+                                                  "Branch",
+                                                  "CallCentre",
+                                                  "Post",
+                                                  "MobileBankingApp",
+                                                  "Online",
+                                                  "PostOffice",
+                                                  "RelationshipManager",
+                                                  "Text"
+                                                ]
                                               },
                                               "minItems": 1
                                             },
@@ -2259,7 +2758,11 @@
                                               "items": {
                                                 "description": "Operator of Card Scheme",
                                                 "type": "string",
-                                                "enum": ["Mastercard", "Other", "Visa"]
+                                                "enum": [
+                                                  "Mastercard",
+                                                  "Other",
+                                                  "Visa"
+                                                ]
                                               },
                                               "minItems": 1
                                             },
@@ -2278,7 +2781,14 @@
                                               "description": "The unit of period (days, weeks, months etc.) of the Periodic Fee",
                                               "title": "PeriodicFeePeriod",
                                               "type": "string",
-                                              "enum": ["Day", "Half Year", "Month", "Quarter", "Week", "Year"]
+                                              "enum": [
+                                                "Day",
+                                                "Half Year",
+                                                "Month",
+                                                "Quarter",
+                                                "Week",
+                                                "Year"
+                                              ]
                                             },
                                             "APR": {
                                               "description": "Annual Percentage Rate (APR) is a measure that attempts to calculate what percentage of the principal you’ll pay per period (in this case a year), taking every charge – monthly payments over the course of the loan, upfront fees, etc. – into account. For commercial credit cards, this APR is the representative APR which includes any account fees.",
@@ -2328,40 +2838,71 @@
                                                     "maxLength": 350
                                                   }
                                                 },
-                                                "required": ["Name", "Description"]
+                                                "required": [
+                                                  "Name",
+                                                  "Description"
+                                                ]
                                               },
                                               "additionalProperties": false
                                             }
                                           },
                                           "additionalProperties": false,
-                                          "required": ["ProductURL", "TcsAndCsURL", "SalesAccessChannels", "ServicingAccessChannels", "CardScheme", "ContactlessIndicator", "APR"]
+                                          "required": [
+                                            "ProductURL",
+                                            "TcsAndCsURL",
+                                            "SalesAccessChannels",
+                                            "ServicingAccessChannels",
+                                            "CardScheme",
+                                            "ContactlessIndicator",
+                                            "APR"
+                                          ]
                                         }
                                       },
-                                      "required": ["Identification", "MarketingState", "Eligibility", "FeaturesAndBenefits", "OtherFeesCharges", "CoreProduct"]
+                                      "required": [
+                                        "Identification",
+                                        "MarketingState",
+                                        "Eligibility",
+                                        "FeaturesAndBenefits",
+                                        "OtherFeesCharges",
+                                        "CoreProduct"
+                                      ]
                                     },
                                     "additionalProperties": false,
                                     "minItems": 1
                                   }
                                 },
-                                "required": ["Name", "Identification", "Segment", "CCCMarketingState"]
+                                "required": [
+                                  "Name",
+                                  "Identification",
+                                  "Segment",
+                                  "CCCMarketingState"
+                                ]
                               },
                               "additionalProperties": false,
                               "minItems": 1
                             }
                           },
-                          "required": ["BrandName", "CCC"]
+                          "required": [
+                            "BrandName",
+                            "CCC"
+                          ]
                         },
                         "additionalProperties": false,
                         "minItems": 1
                       }
                     },
-                    "required": ["Brand"],
+                    "required": [
+                      "Brand"
+                    ],
                     "description": "Open Banking Commercial Credit Card product data details",
                     "type": "object"
                   }
                 }
               },
-              "required": ["meta", "data"],
+              "required": [
+                "meta",
+                "data"
+              ],
               "additionalProperties": false
             }
           },
@@ -2394,18 +2935,28 @@
               "properties": {
                 "status": {
                   "type": "string",
-                  "enum": ["400"]
+                  "enum": [
+                    "400"
+                  ]
                 },
                 "title": {
                   "type": "string",
-                  "enum": ["Bad request"]
+                  "enum": [
+                    "Bad request"
+                  ]
                 },
                 "description": {
                   "type": "string",
-                  "enum": ["You have sent a request which could not be understood."]
+                  "enum": [
+                    "You have sent a request which could not be understood."
+                  ]
                 }
               },
-              "required": ["status", "title", "description"],
+              "required": [
+                "status",
+                "title",
+                "description"
+              ],
               "additionalProperties": false
             }
           },
@@ -2438,18 +2989,28 @@
               "properties": {
                 "status": {
                   "type": "string",
-                  "enum": ["408"]
+                  "enum": [
+                    "408"
+                  ]
                 },
                 "title": {
                   "type": "string",
-                  "enum": ["Client timeout"]
+                  "enum": [
+                    "Client timeout"
+                  ]
                 },
                 "description": {
                   "type": "string",
-                  "enum": ["Your client has failed to submit a request, and a timeout has occurred."]
+                  "enum": [
+                    "Your client has failed to submit a request, and a timeout has occurred."
+                  ]
                 }
               },
-              "required": ["status", "title", "description"],
+              "required": [
+                "status",
+                "title",
+                "description"
+              ],
               "additionalProperties": false
             }
           },
@@ -2482,18 +3043,28 @@
               "properties": {
                 "status": {
                   "type": "string",
-                  "enum": ["429"]
+                  "enum": [
+                    "429"
+                  ]
                 },
                 "title": {
                   "type": "string",
-                  "enum": ["Too many requests"]
+                  "enum": [
+                    "Too many requests"
+                  ]
                 },
                 "description": {
                   "type": "string",
-                  "enum": ["You have requested this resource too often. Slow down."]
+                  "enum": [
+                    "You have requested this resource too often. Slow down."
+                  ]
                 }
               },
-              "required": ["status", "title", "description"],
+              "required": [
+                "status",
+                "title",
+                "description"
+              ],
               "additionalProperties": false
             }
           },
@@ -2526,18 +3097,28 @@
               "properties": {
                 "status": {
                   "type": "string",
-                  "enum": ["500"]
+                  "enum": [
+                    "500"
+                  ]
                 },
                 "title": {
                   "type": "string",
-                  "enum": ["Internal server error"]
+                  "enum": [
+                    "Internal server error"
+                  ]
                 },
                 "description": {
                   "type": "string",
-                  "enum": ["An error occurred on the server. No further information is available."]
+                  "enum": [
+                    "An error occurred on the server. No further information is available."
+                  ]
                 }
               },
-              "required": ["status", "title", "description"],
+              "required": [
+                "status",
+                "title",
+                "description"
+              ],
               "additionalProperties": false
             }
           },
@@ -2570,18 +3151,28 @@
               "properties": {
                 "status": {
                   "type": "string",
-                  "enum": ["503"]
+                  "enum": [
+                    "503"
+                  ]
                 },
                 "title": {
                   "type": "string",
-                  "enum": ["Service temporarily unavailable"]
+                  "enum": [
+                    "Service temporarily unavailable"
+                  ]
                 },
                 "description": {
                   "type": "string",
-                  "enum": ["The service is temporarily unavailable."]
+                  "enum": [
+                    "The service is temporarily unavailable."
+                  ]
                 }
               },
-              "required": ["status", "title", "description"],
+              "required": [
+                "status",
+                "title",
+                "description"
+              ],
               "additionalProperties": false
             }
           },
@@ -2625,28 +3216,37 @@
                   "type": "string"
                 }
               },
-              "required": ["status", "title", "description"],
+              "required": [
+                "status",
+                "title",
+                "description"
+              ],
               "additionalProperties": false
             }
           }
         }
       },
       "head": {
-        "tags": ["CCC"],
+        "tags": [
+          "CCC"
+        ],
         "description": "Gets header information on the current set of `Commerical Credit Card` data",
-        "parameters": [{
-          "name": "If-Modified-Since",
-          "type": "string",
-          "description": "Used for conditional request, to retrieve data only if modified since a given date",
-          "in": "header",
-          "required": false
-        }, {
-          "name": "If-None-Match",
-          "type": "string",
-          "description": "Used for conditional request, to retrieve data only if the given Etag value does not match",
-          "in": "header",
-          "required": false
-        }],
+        "parameters": [
+          {
+            "name": "If-Modified-Since",
+            "type": "string",
+            "description": "Used for conditional request, to retrieve data only if modified since a given date",
+            "in": "header",
+            "required": false
+          },
+          {
+            "name": "If-None-Match",
+            "type": "string",
+            "description": "Used for conditional request, to retrieve data only if the given Etag value does not match",
+            "in": "header",
+            "required": false
+          }
+        ],
         "responses": {
           "default": {
             "description": "No response",

@@ -1,15 +1,15 @@
 {
   "swagger": "2.0",
   "info": {
-    "version": "v2.2",
+    "version": "v2.3",
     "title": "Open Data API",
     "description": "Latest Swagger specification for OpenData Unsecured SME Loan"
   },
   "host": "developer.openbanking.org.uk",
-  "basePath": "/open-banking/v2.2",
+  "basePath": "/open-banking/v2.3",
   "schemes": ["https"],
-  "produces": ["application/prs.openbanking.opendata.v2.2+json"],
-  "tags": [{
+  "produces": ["application/prs.openbanking.opendata.v2.3+json"],
+  "tags": [ {
     "name": "SME",
     "description": "Endpoint for getting Unsecured SME Loan data"
   }],
@@ -133,7 +133,7 @@
                                     "title": "Identification",
                                     "type": "string",
                                     "minLength": 1,
-                                    "maxLength": 35
+                                    "maxLength": 40
                                   },
                                   "Segment": {
                                     "description": "Market segmentation is a marketing term referring to the aggregating of prospective buyers into groups, or segments, that have common needs and respond similarly to a marketing action. Market segmentation enables companies to target different categories of consumers who perceive the full value of certain products and services differently from one another.\n\nRead more: Market Segmentation http://www.investopedia.com/terms/m/marketsegmentation.asp#ixzz4gfEEalTd \nFollow us: Investopedia on Facebook\n\nWith respect to SME Loan products, they are segmented in relation to different markets that they wish to focus on.",
@@ -148,34 +148,38 @@
                                   },
                                   "OtherSegment": {
                                     "description": "Other segment code which is not available in the standard code set",
-                                    "type": "object",
+                                    "type": "array",
                                     "title": "OtherSegment",
-                                    "properties": {
-                                      "Code": {
-                                        "description": "The four letter Mnemonic used within an XML file to identify a code",
-                                        "title": "Code",
-                                        "type": "string",
-                                        "pattern": "^\\w{0,4}$",
-                                        "minLength": 0,
-                                        "maxLength": 4
+                                    "items": {
+                                      "description": "Other segment code which is not available in the standard code set",
+                                      "type": "object",
+                                      "properties": {
+                                        "Code": {
+                                          "description": "The four letter Mnemonic used within an XML file to identify a code",
+                                          "title": "Code",
+                                          "type": "string",
+                                          "pattern": "^\\w{0,4}$",
+                                          "minLength": 0,
+                                          "maxLength": 4
+                                        },
+                                        "Name": {
+                                          "description": "Long name associated with the code",
+                                          "title": "Name",
+                                          "type": "string",
+                                          "minLength": 1,
+                                          "maxLength": 70
+                                        },
+                                        "Description": {
+                                          "description": "Description to describe the purpose of the code",
+                                          "title": "Description",
+                                          "type": "string",
+                                          "minLength": 1,
+                                          "maxLength": 350
+                                        }
                                       },
-                                      "Name": {
-                                        "description": "Long name associated with the code",
-                                        "title": "Name",
-                                        "type": "string",
-                                        "minLength": 1,
-                                        "maxLength": 70
-                                      },
-                                      "Description": {
-                                        "description": "Description to describe the purpose of the code",
-                                        "title": "Description",
-                                        "type": "string",
-                                        "minLength": 1,
-                                        "maxLength": 350
-                                      }
+                                      "required": ["Name", "Description"]
                                     },
-                                    "additionalProperties": false,
-                                    "required": ["Name", "Description"]
+                                    "additionalProperties": false
                                   },
                                   "SMELoanMarketingState": {
                                     "description": "The marketing state (promotional or regular) of the SME Loan Product.",
@@ -1045,7 +1049,7 @@
                                                 "description": "Repayment type",
                                                 "title": "RepaymentType",
                                                 "type": "string",
-                                                "enum": ["Balloon", "Bullet", "CapitalAndInterest", "CustomSchedule", "EarlyRepayment", "FixedCapitalFullyAmortising", "FixedCapitalWithBullet", "FixedCapitalAndInterestReducingBalance", "InterestOnly", "PrepaymentFee", "RepaymentWithBullet", "StraightLineInterestOnly"]
+                                                "enum": ["Balloon", "Bullet", "CapitalAndInterest", "CustomSchedule", "EarlyRepayment", "FixedCapitalFullyAmortising", "FixedCapitalWithBullet", "FixedCapitalAndInterestReducingBalance", "InterestOnly", "Other", "PrepaymentFee", "RepaymentWithBullet", "StraightLineInterestOnly"]
                                               },
                                               "RepaymentFrequency": {
                                                 "description": "Repayment frequency",
@@ -1720,7 +1724,7 @@
                                                 "type": "object",
                                                 "properties": {
                                                   "TradingType": {
-                                                    "description": "Trading type eligibility for the SME Loan product ",
+                                                    "description": "Trading type eligibility for the SME Loan product",
                                                     "title": "TradingType",
                                                     "type": "string",
                                                     "enum": ["AnnualReturns", "PreviousCCJSAllowed", "GoodTradingHistory", "Other", "PreviousBankruptcyAllowed", "TradingLength", "Turnover"]
@@ -1738,7 +1742,7 @@
                                                     "pattern": "^(-?\\d{1,14}){1}(\\.\\d{1,4}){0,1}$"
                                                   },
                                                   "Indicator": {
-                                                    "description": "Any eligibility criteria where the value can be indicated by a true or false value. e.g. PreviousCCJS is True or False ",
+                                                    "description": "Any eligibility criteria where the value can be indicated by a true or false value. e.g. PreviousCCJS is True or False",
                                                     "title": "Indicator",
                                                     "type": "boolean"
                                                   },
@@ -1750,7 +1754,7 @@
                                                     "maxLength": 500
                                                   },
                                                   "Period": {
-                                                    "description": "The unit of period (days, weeks, months etc.) ",
+                                                    "description": "The unit of period (days, weeks, months etc.)",
                                                     "title": "Period",
                                                     "type": "string",
                                                     "enum": ["Day", "Half Year", "Month", "Quarter", "Week", "Year"]
@@ -2106,11 +2110,11 @@
                                           "title": "FeaturesAndBenefits",
                                           "properties": {
                                             "FeatureBenefitGroup": {
-                                              "description": "FeatureBenefitGroup can be used to group features & benefits in to packages (which may be chargeable at the group level). ",
+                                              "description": "FeatureBenefitGroup can be used to group features & benefits in to packages (which may be chargeable at the group level).",
                                               "type": "array",
                                               "title": "FeatureBenefitGroup",
                                               "items": {
-                                                "description": "FeatureBenefitGroup can be used to group features & benefits in to packages (which may be chargeable at the group level). ",
+                                                "description": "FeatureBenefitGroup can be used to group features & benefits in to packages (which may be chargeable at the group level).",
                                                 "type": "object",
                                                 "properties": {
                                                   "Name": {

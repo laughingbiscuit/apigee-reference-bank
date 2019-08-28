@@ -1,36 +1,47 @@
 {
   "swagger": "2.0",
   "info": {
-    "version": "v2.2",
+    "version": "v2.3",
     "title": "Open Data API",
     "description": "Latest Swagger specification for OpenData Personal Current Account data"
   },
   "host": "developer.openbanking.org.uk",
-  "basePath": "/open-banking/v2.2",
-  "schemes": ["https"],
-  "produces": ["application/prs.openbanking.opendata.v2.2+json"],
-  "tags": [{
-    "name": "PCA",
-    "description": "Endpoint for getting Personal Current Account data"
-  }],
+  "basePath": "/open-banking/v2.3",
+  "schemes": [
+    "https"
+  ],
+  "produces": [
+    "application/prs.openbanking.opendata.v2.3+json"
+  ],
+  "tags": [
+    {
+      "name": "PCA",
+      "description": "Endpoint for getting Personal Current Account data"
+    }
+  ],
   "paths": {
     "/personal-current-accounts": {
       "get": {
-        "tags": ["PCA"],
+        "tags": [
+          "PCA"
+        ],
         "description": "Gets a list of all `Personal Current Account` objects.",
-        "parameters": [{
-          "name": "If-Modified-Since",
-          "type": "string",
-          "description": "Used for conditional request, to retrieve data only if modified since a given date",
-          "in": "header",
-          "required": false
-        }, {
-          "name": "If-None-Match",
-          "type": "string",
-          "description": "Used for conditional request, to retrieve data only if the given Etag value does not match",
-          "in": "header",
-          "required": false
-        }],
+        "parameters": [
+          {
+            "name": "If-Modified-Since",
+            "type": "string",
+            "description": "Used for conditional request, to retrieve data only if modified since a given date",
+            "in": "header",
+            "required": false
+          },
+          {
+            "name": "If-None-Match",
+            "type": "string",
+            "description": "Used for conditional request, to retrieve data only if the given Etag value does not match",
+            "in": "header",
+            "required": false
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful response with a list of `Personal Current Account` data",
@@ -76,22 +87,34 @@
                     },
                     "Agreement": {
                       "type": "string",
-                      "enum": ["Use of the APIs and any related data will be subject to the terms of the Open Licence and subject to terms and conditions"]
+                      "enum": [
+                        "Use of the APIs and any related data will be subject to the terms of the Open Licence and subject to terms and conditions"
+                      ]
                     },
                     "License": {
                       "description": "Open Banking License",
                       "type": "string",
                       "format": "uri",
-                      "enum": ["https://www.openbanking.org.uk/open-licence"]
+                      "enum": [
+                        "https://www.openbanking.org.uk/open-licence"
+                      ]
                     },
                     "TermsOfUse": {
                       "description": "Open Banking Terms of Use",
                       "type": "string",
                       "format": "uri",
-                      "enum": ["https://www.openbanking.org.uk/terms"]
+                      "enum": [
+                        "https://www.openbanking.org.uk/terms"
+                      ]
                     }
                   },
-                  "required": ["LastUpdated", "TotalResults", "Agreement", "License", "TermsOfUse"],
+                  "required": [
+                    "LastUpdated",
+                    "TotalResults",
+                    "Agreement",
+                    "License",
+                    "TermsOfUse"
+                  ],
                   "additionalProperties": false
                 },
                 "data": {
@@ -133,7 +156,7 @@
                                     "title": "Identification",
                                     "type": "string",
                                     "minLength": 1,
-                                    "maxLength": 35
+                                    "maxLength": 40
                                   },
                                   "Segment": {
                                     "description": "Market segmentation is a marketing term referring to the aggregating of prospective buyers into groups, or segments, that have common needs and respond similarly to a marketing action. Market segmentation enables companies to target different categories of consumers who perceive the full value of certain products and services differently from one another.\n\nRead more: Market Segmentation http://www.investopedia.com/terms/m/marketsegmentation.asp#ixzz4gfEEalTd \nFollow us: Investopedia on Facebook\n\nWith respect to PCA products, they are segmented in relation to different markets that they wish to focus on. For example, Basic PCA products target consumers with poor credit history, Reward PCA products target consumers who spend a lot, and Premium products target High Net Worth individuals.",
@@ -142,11 +165,26 @@
                                     "items": {
                                       "description": "Market segmentation is a marketing term referring to the aggregating of prospective buyers into groups, or segments, that have common needs and respond similarly to a marketing action. Market segmentation enables companies to target different categories of consumers who perceive the full value of certain products and services differently from one another.\n\nRead more: Market Segmentation http://www.investopedia.com/terms/m/marketsegmentation.asp#ixzz4gfEEalTd \nFollow us: Investopedia on Facebook\n\nWith respect to PCA products, they are segmented in relation to different markets that they wish to focus on. For example, Basic PCA products target consumers with poor credit history, Reward PCA products target consumers who spend a lot, and Premium products target High Net Worth individuals.",
                                       "type": "string",
-                                      "enum": ["Basic", "BenefitAndReward", "CreditInterest", "Cashback", "General", "Graduate", "Other", "Overdraft", "Packaged", "Premium", "Reward", "Student", "YoungAdult", "Youth"]
+                                      "enum": [
+                                        "Basic",
+                                        "BenefitAndReward",
+                                        "CreditInterest",
+                                        "Cashback",
+                                        "General",
+                                        "Graduate",
+                                        "Other",
+                                        "Overdraft",
+                                        "Packaged",
+                                        "Premium",
+                                        "Reward",
+                                        "Student",
+                                        "YoungAdult",
+                                        "Youth"
+                                      ]
                                     }
                                   },
                                   "OnSaleIndicator": {
-                                    "description": "Indicates that the published product is OnSale(value 1) or Back Book (value 0) ",
+                                    "description": "Indicates that the published product is OnSale(value 1) or Back Book (value 0)",
                                     "title": "OnSaleIndicator",
                                     "type": "boolean"
                                   },
@@ -187,7 +225,10 @@
                                           "description": "Describes the marketing state (regular or promotional) for which the eligibility criteria applies",
                                           "title": "MarketingState",
                                           "type": "string",
-                                          "enum": ["Promotional", "Regular"]
+                                          "enum": [
+                                            "Promotional",
+                                            "Regular"
+                                          ]
                                         },
                                         "FirstMarketedDate": {
                                           "description": "Marketing state start date",
@@ -211,7 +252,15 @@
                                           "description": "The unit of period (days, weeks, months etc.) of the promotional length",
                                           "title": "StateTenurePeriod",
                                           "type": "string",
-                                          "enum": ["Day", "Half Year", "Month", "Quarter", "Week", "AcademicTerm", "Year"]
+                                          "enum": [
+                                            "Day",
+                                            "Half Year",
+                                            "Month",
+                                            "Quarter",
+                                            "Week",
+                                            "AcademicTerm",
+                                            "Year"
+                                          ]
                                         },
                                         "Notes": {
                                           "description": "Free text for adding details for marketing state",
@@ -241,19 +290,28 @@
                                                     "description": "The methodology of how credit interest is paid/applied. It can be:-\n\n1. Banded\nInterest rates are banded. i.e. Increasing rate on whole balance as balance increases.\n\n2. Tiered\nInterest rates are tiered. i.e. increasing rate for each tier as balance increases, but interest paid on tier fixed for that tier and not on whole balance.\n\n3. Whole\nThe same interest rate is applied irrespective of the PCA balance",
                                                     "title": "TierBandMethod",
                                                     "type": "string",
-                                                    "enum": ["Tiered", "Whole"]
+                                                    "enum": [
+                                                      "Tiered",
+                                                      "Whole"
+                                                    ]
                                                   },
                                                   "CalculationMethod": {
                                                     "description": "Methods of calculating interest",
                                                     "title": "CalculationMethod",
                                                     "type": "string",
-                                                    "enum": ["Compound", "SimpleInterest"]
+                                                    "enum": [
+                                                      "Compound",
+                                                      "SimpleInterest"
+                                                    ]
                                                   },
                                                   "Destination": {
                                                     "description": "Describes whether accrued interest is payable only to the PCA or to another bank account",
                                                     "title": "Destination",
                                                     "type": "string",
-                                                    "enum": ["PayAway", "SelfCredit"]
+                                                    "enum": [
+                                                      "PayAway",
+                                                      "SelfCredit"
+                                                    ]
                                                   },
                                                   "Notes": {
                                                     "description": "Optional additional notes to supplement the Tier Band Set details",
@@ -297,25 +355,51 @@
                                                           "description": "How often is credit interest calculated for the account.",
                                                           "title": "CalculationFrequency",
                                                           "type": "string",
-                                                          "enum": ["PerAcademicTerm", "Daily", "HalfYearly", "Monthly", "Other", "Quarterly", "PerStatementDate", "Weekly", "Yearly"]
+                                                          "enum": [
+                                                            "PerAcademicTerm",
+                                                            "Daily",
+                                                            "HalfYearly",
+                                                            "Monthly",
+                                                            "Other",
+                                                            "Quarterly",
+                                                            "PerStatementDate",
+                                                            "Weekly",
+                                                            "Yearly"
+                                                          ]
                                                         },
                                                         "ApplicationFrequency": {
                                                           "description": "How often is interest applied to the PCA for this tier/band i.e. how often the financial institution pays accumulated interest to the customer's PCA.",
                                                           "title": "ApplicationFrequency",
                                                           "type": "string",
-                                                          "enum": ["PerAcademicTerm", "Daily", "HalfYearly", "Monthly", "Other", "Quarterly", "PerStatementDate", "Weekly", "Yearly"]
+                                                          "enum": [
+                                                            "PerAcademicTerm",
+                                                            "Daily",
+                                                            "HalfYearly",
+                                                            "Monthly",
+                                                            "Other",
+                                                            "Quarterly",
+                                                            "PerStatementDate",
+                                                            "Weekly",
+                                                            "Yearly"
+                                                          ]
                                                         },
                                                         "DepositInterestAppliedCoverage": {
                                                           "description": "Amount on which Interest applied.",
                                                           "title": "DepositInterestAppliedCoverage",
                                                           "type": "string",
-                                                          "enum": ["Tiered", "Whole"]
+                                                          "enum": [
+                                                            "Tiered",
+                                                            "Whole"
+                                                          ]
                                                         },
                                                         "FixedVariableInterestRateType": {
                                                           "description": "Type of interest rate, Fixed or Variable",
                                                           "title": "FixedVariableInterestRateType",
                                                           "type": "string",
-                                                          "enum": ["Fixed", "Variable"]
+                                                          "enum": [
+                                                            "Fixed",
+                                                            "Variable"
+                                                          ]
                                                         },
                                                         "AER": {
                                                           "description": "The annual equivalent rate (AER) is interest that is calculated under the assumption that any interest paid is combined with the original balance and the next interest payment will be based on the slightly higher account balance. Overall, this means that interest can be compounded several times in a year depending on the number of times that interest payments are made. \n\nRead more: Annual Equivalent Rate (AER) http://www.investopedia.com/terms/a/aer.asp#ixzz4gfR7IO1A",
@@ -327,7 +411,12 @@
                                                           "description": "Interest rate types, other than AER, which financial institutions may use to describe the annual interest rate payable to the PCA.",
                                                           "title": "BankInterestRateType",
                                                           "type": "string",
-                                                          "enum": ["LinkedBaseRate", "Gross", "Net", "Other"]
+                                                          "enum": [
+                                                            "LinkedBaseRate",
+                                                            "Gross",
+                                                            "Net",
+                                                            "Other"
+                                                          ]
                                                         },
                                                         "BankInterestRate": {
                                                           "description": "Bank Interest for the PCA product",
@@ -375,7 +464,10 @@
                                                             }
                                                           },
                                                           "additionalProperties": false,
-                                                          "required": ["Name", "Description"]
+                                                          "required": [
+                                                            "Name",
+                                                            "Description"
+                                                          ]
                                                         },
                                                         "OtherApplicationFrequency": {
                                                           "description": "Other application frequencies that are not available in the standard code list",
@@ -406,7 +498,10 @@
                                                             }
                                                           },
                                                           "additionalProperties": false,
-                                                          "required": ["Name", "Description"]
+                                                          "required": [
+                                                            "Name",
+                                                            "Description"
+                                                          ]
                                                         },
                                                         "OtherCalculationFrequency": {
                                                           "description": "Other calculation frequency which is not available in the standard code set.",
@@ -437,10 +532,19 @@
                                                             }
                                                           },
                                                           "additionalProperties": false,
-                                                          "required": ["Name", "Description"]
+                                                          "required": [
+                                                            "Name",
+                                                            "Description"
+                                                          ]
                                                         }
                                                       },
-                                                      "required": ["TierValueMinimum", "CalculationFrequency", "ApplicationFrequency", "FixedVariableInterestRateType", "AER"]
+                                                      "required": [
+                                                        "TierValueMinimum",
+                                                        "CalculationFrequency",
+                                                        "ApplicationFrequency",
+                                                        "FixedVariableInterestRateType",
+                                                        "AER"
+                                                      ]
                                                     },
                                                     "additionalProperties": false,
                                                     "minItems": 1
@@ -471,7 +575,20 @@
                                                           "description": "Eligibility type - method by which we group eligibilities for comparison purposes.",
                                                           "title": "Type",
                                                           "type": "string",
-                                                          "enum": ["DirectDebits", "ExistingCustomers", "MinimumOperatingBalance", "MinimumDeposit", "NewCustomersOnly", "PreviousBankruptcyAllowed", "Other", "StudentsOnly", "SoleStudentAccount", "SoleUkAccount", "SwitchersOnly", "UCASFulltimeTwoYears"]
+                                                          "enum": [
+                                                            "DirectDebits",
+                                                            "ExistingCustomers",
+                                                            "MinimumOperatingBalance",
+                                                            "MinimumDeposit",
+                                                            "NewCustomersOnly",
+                                                            "PreviousBankruptcyAllowed",
+                                                            "Other",
+                                                            "StudentsOnly",
+                                                            "SoleStudentAccount",
+                                                            "SoleUkAccount",
+                                                            "SwitchersOnly",
+                                                            "UCASFulltimeTwoYears"
+                                                          ]
                                                         },
                                                         "Amount": {
                                                           "description": "Any eligibility criteria where an amount is required to be specified e.g. Minimum Age.",
@@ -495,7 +612,15 @@
                                                           "description": "Period for which the other eligibility criteria applies.",
                                                           "title": "Period",
                                                           "type": "string",
-                                                          "enum": ["Day", "Half Year", "Month", "Quarter", "Week", "AcademicTerm", "Year"]
+                                                          "enum": [
+                                                            "Day",
+                                                            "Half Year",
+                                                            "Month",
+                                                            "Quarter",
+                                                            "Week",
+                                                            "AcademicTerm",
+                                                            "Year"
+                                                          ]
                                                         },
                                                         "Notes": {
                                                           "description": "Optional additional notes to supplement the eligibility conditions.",
@@ -537,22 +662,33 @@
                                                             }
                                                           },
                                                           "additionalProperties": false,
-                                                          "required": ["Name", "Description"]
+                                                          "required": [
+                                                            "Name",
+                                                            "Description"
+                                                          ]
                                                         }
                                                       },
-                                                      "required": ["Name", "Type"]
+                                                      "required": [
+                                                        "Name",
+                                                        "Type"
+                                                      ]
                                                     },
                                                     "additionalProperties": false
                                                   }
                                                 },
-                                                "required": ["TierBandMethod", "TierBand"]
+                                                "required": [
+                                                  "TierBandMethod",
+                                                  "TierBand"
+                                                ]
                                               },
                                               "additionalProperties": false,
                                               "minItems": 1
                                             }
                                           },
                                           "additionalProperties": false,
-                                          "required": ["TierBandSet"]
+                                          "required": [
+                                            "TierBandSet"
+                                          ]
                                         },
                                         "Overdraft": {
                                           "description": "Borrowing details",
@@ -589,13 +725,20 @@
                                                     "description": "The methodology of how overdraft is charged. It can be:\n'Whole'  Where the same charge/rate is applied to the entirety of the overdraft balance (where charges are applicable). \n'Tiered' Where different charges/rates are applied dependent on overdraft maximum and minimum balance amount tiers defined by the lending financial organisation\n'Banded' Where different charges/rates are applied dependent on overdraft maximum and minimum balance amount bands defined by a government organisation.",
                                                     "title": "TierBandMethod",
                                                     "type": "string",
-                                                    "enum": ["Tiered", "Whole"]
+                                                    "enum": [
+                                                      "Tiered",
+                                                      "Whole"
+                                                    ]
                                                   },
                                                   "OverdraftType": {
                                                     "description": "An overdraft can either be 'committed' which means that the facility cannot be withdrawn without reasonable notification before it's agreed end date, or 'on demand' which means that the financial institution can demand repayment at any point in time.",
                                                     "title": "OverdraftType",
                                                     "type": "string",
-                                                    "enum": ["Committed", "OnDemand", "Other"]
+                                                    "enum": [
+                                                      "Committed",
+                                                      "OnDemand",
+                                                      "Other"
+                                                    ]
                                                   },
                                                   "Identification": {
                                                     "description": "Unique and unambiguous identification of a  Tier Band for a overdraft product.",
@@ -663,7 +806,10 @@
                                                           "description": "Interest charged on whole amount or tiered/banded",
                                                           "title": "OverdraftInterestChargingCoverage",
                                                           "type": "string",
-                                                          "enum": ["Tiered", "Whole"]
+                                                          "enum": [
+                                                            "Tiered",
+                                                            "Whole"
+                                                          ]
                                                         },
                                                         "BankGuaranteedIndicator": {
                                                           "description": "Indicates that a bank provides the overdraft limit up to TierValueMIn to all customers automatically",
@@ -710,7 +856,20 @@
                                                                       "items": {
                                                                         "description": "Overdraft fee type",
                                                                         "type": "string",
-                                                                        "enum": ["ArrangedOverdraft", "EmergencyBorrowing", "BorrowingItem", "OverdraftRenewal", "AnnualReview", "OverdraftSetup", "Surcharge", "TempOverdraft", "UnauthorisedBorrowing", "UnauthorisedPaidTrans", "Other", "UnauthorisedUnpaidTrans"]
+                                                                        "enum": [
+                                                                          "ArrangedOverdraft",
+                                                                          "EmergencyBorrowing",
+                                                                          "BorrowingItem",
+                                                                          "OverdraftRenewal",
+                                                                          "AnnualReview",
+                                                                          "OverdraftSetup",
+                                                                          "Surcharge",
+                                                                          "TempOverdraft",
+                                                                          "UnauthorisedBorrowing",
+                                                                          "UnauthorisedPaidTrans",
+                                                                          "Other",
+                                                                          "UnauthorisedUnpaidTrans"
+                                                                        ]
                                                                       },
                                                                       "minItems": 1
                                                                     },
@@ -723,7 +882,10 @@
                                                                       "description": "Indicates that this is the minimum/ maximum fee/charge that can be applied by the financial institution",
                                                                       "title": "MinMaxType",
                                                                       "type": "string",
-                                                                      "enum": ["Minimum", "Maximum"]
+                                                                      "enum": [
+                                                                        "Minimum",
+                                                                        "Maximum"
+                                                                      ]
                                                                     },
                                                                     "FeeCapOccurrence": {
                                                                       "description": "fee/charges are captured dependent on the number of occurrences rather than capped at a particular amount",
@@ -741,7 +903,15 @@
                                                                       "description": "Period e.g. day, week, month etc. for which the fee/charge is capped",
                                                                       "title": "CappingPeriod",
                                                                       "type": "string",
-                                                                      "enum": ["Day", "Half Year", "Month", "Quarter", "Week", "AcademicTerm", "Year"]
+                                                                      "enum": [
+                                                                        "Day",
+                                                                        "Half Year",
+                                                                        "Month",
+                                                                        "Quarter",
+                                                                        "Week",
+                                                                        "AcademicTerm",
+                                                                        "Year"
+                                                                      ]
                                                                     },
                                                                     "Notes": {
                                                                       "description": "Notes related to Overdraft fee charge cap",
@@ -785,12 +955,18 @@
                                                                             "maxLength": 350
                                                                           }
                                                                         },
-                                                                        "required": ["Name", "Description"]
+                                                                        "required": [
+                                                                          "Name",
+                                                                          "Description"
+                                                                        ]
                                                                       },
                                                                       "additionalProperties": false
                                                                     }
                                                                   },
-                                                                  "required": ["FeeType", "MinMaxType"]
+                                                                  "required": [
+                                                                    "FeeType",
+                                                                    "MinMaxType"
+                                                                  ]
                                                                 },
                                                                 "additionalProperties": false
                                                               },
@@ -806,7 +982,20 @@
                                                                       "description": "Overdraft fee type",
                                                                       "title": "FeeType",
                                                                       "type": "string",
-                                                                      "enum": ["ArrangedOverdraft", "EmergencyBorrowing", "BorrowingItem", "OverdraftRenewal", "AnnualReview", "OverdraftSetup", "Surcharge", "TempOverdraft", "UnauthorisedBorrowing", "UnauthorisedPaidTrans", "Other", "UnauthorisedUnpaidTrans"]
+                                                                      "enum": [
+                                                                        "ArrangedOverdraft",
+                                                                        "EmergencyBorrowing",
+                                                                        "BorrowingItem",
+                                                                        "OverdraftRenewal",
+                                                                        "AnnualReview",
+                                                                        "OverdraftSetup",
+                                                                        "Surcharge",
+                                                                        "TempOverdraft",
+                                                                        "UnauthorisedBorrowing",
+                                                                        "UnauthorisedPaidTrans",
+                                                                        "Other",
+                                                                        "UnauthorisedUnpaidTrans"
+                                                                      ]
                                                                     },
                                                                     "OverdraftControlIndicator": {
                                                                       "description": "Specifies for the overdraft control feature/benefit",
@@ -835,19 +1024,66 @@
                                                                       "description": "Rate type for overdraft fee/charge (where it is charged in terms of a rate rather than an amount)",
                                                                       "title": "FeeRateType",
                                                                       "type": "string",
-                                                                      "enum": ["LinkedBaseRate", "Gross", "Net", "Other"]
+                                                                      "enum": [
+                                                                        "LinkedBaseRate",
+                                                                        "Gross",
+                                                                        "Net",
+                                                                        "Other"
+                                                                      ]
                                                                     },
                                                                     "ApplicationFrequency": {
                                                                       "description": "Frequency at which the overdraft charge is applied to the account",
                                                                       "title": "ApplicationFrequency",
                                                                       "type": "string",
-                                                                      "enum": ["AccountClosing", "AccountOpening", "AcademicTerm", "ChargingPeriod", "Daily", "PerItem", "Monthly", "OnAccountAnniversary", "Other", "PerHour", "PerOccurrence", "PerSheet", "PerTransaction", "PerTransactionAmount", "PerTransactionPercentage", "Quarterly", "SixMonthly", "StatementMonthly", "Weekly", "Yearly"]
+                                                                      "enum": [
+                                                                        "AccountClosing",
+                                                                        "AccountOpening",
+                                                                        "AcademicTerm",
+                                                                        "ChargingPeriod",
+                                                                        "Daily",
+                                                                        "PerItem",
+                                                                        "Monthly",
+                                                                        "OnAccountAnniversary",
+                                                                        "Other",
+                                                                        "PerHour",
+                                                                        "PerOccurrence",
+                                                                        "PerSheet",
+                                                                        "PerTransaction",
+                                                                        "PerTransactionAmount",
+                                                                        "PerTransactionPercentage",
+                                                                        "Quarterly",
+                                                                        "SixMonthly",
+                                                                        "StatementMonthly",
+                                                                        "Weekly",
+                                                                        "Yearly"
+                                                                      ]
                                                                     },
                                                                     "CalculationFrequency": {
                                                                       "description": "How often is the overdraft fee/charge calculated for the account.",
                                                                       "title": "CalculationFrequency",
                                                                       "type": "string",
-                                                                      "enum": ["AccountClosing", "AccountOpening", "AcademicTerm", "ChargingPeriod", "Daily", "PerItem", "Monthly", "OnAccountAnniversary", "Other", "PerHour", "PerOccurrence", "PerSheet", "PerTransaction", "PerTransactionAmount", "PerTransactionPercentage", "Quarterly", "SixMonthly", "StatementMonthly", "Weekly", "Yearly"]
+                                                                      "enum": [
+                                                                        "AccountClosing",
+                                                                        "AccountOpening",
+                                                                        "AcademicTerm",
+                                                                        "ChargingPeriod",
+                                                                        "Daily",
+                                                                        "PerItem",
+                                                                        "Monthly",
+                                                                        "OnAccountAnniversary",
+                                                                        "Other",
+                                                                        "PerHour",
+                                                                        "PerOccurrence",
+                                                                        "PerSheet",
+                                                                        "PerTransaction",
+                                                                        "PerTransactionAmount",
+                                                                        "PerTransactionPercentage",
+                                                                        "Quarterly",
+                                                                        "SixMonthly",
+                                                                        "StatementMonthly",
+                                                                        "Weekly",
+                                                                        "Yearly"
+                                                                      ]
                                                                     },
                                                                     "Notes": {
                                                                       "description": "Free text for capturing any other info related to Overdraft Fees Charge Details",
@@ -872,7 +1108,20 @@
                                                                           "items": {
                                                                             "description": "Overdraft fee type",
                                                                             "type": "string",
-                                                                            "enum": ["ArrangedOverdraft", "EmergencyBorrowing", "BorrowingItem", "OverdraftRenewal", "AnnualReview", "OverdraftSetup", "Surcharge", "TempOverdraft", "UnauthorisedBorrowing", "UnauthorisedPaidTrans", "Other", "UnauthorisedUnpaidTrans"]
+                                                                            "enum": [
+                                                                              "ArrangedOverdraft",
+                                                                              "EmergencyBorrowing",
+                                                                              "BorrowingItem",
+                                                                              "OverdraftRenewal",
+                                                                              "AnnualReview",
+                                                                              "OverdraftSetup",
+                                                                              "Surcharge",
+                                                                              "TempOverdraft",
+                                                                              "UnauthorisedBorrowing",
+                                                                              "UnauthorisedPaidTrans",
+                                                                              "Other",
+                                                                              "UnauthorisedUnpaidTrans"
+                                                                            ]
                                                                           },
                                                                           "minItems": 1
                                                                         },
@@ -885,7 +1134,10 @@
                                                                           "description": "Indicates that this is the minimum/ maximum fee/charge that can be applied by the financial institution",
                                                                           "title": "MinMaxType",
                                                                           "type": "string",
-                                                                          "enum": ["Minimum", "Maximum"]
+                                                                          "enum": [
+                                                                            "Minimum",
+                                                                            "Maximum"
+                                                                          ]
                                                                         },
                                                                         "FeeCapOccurrence": {
                                                                           "description": "fee/charges are captured dependent on the number of occurrences rather than capped at a particular amount",
@@ -903,7 +1155,15 @@
                                                                           "description": "Period e.g. day, week, month etc. for which the fee/charge is capped",
                                                                           "title": "CappingPeriod",
                                                                           "type": "string",
-                                                                          "enum": ["Day", "Half Year", "Month", "Quarter", "Week", "AcademicTerm", "Year"]
+                                                                          "enum": [
+                                                                            "Day",
+                                                                            "Half Year",
+                                                                            "Month",
+                                                                            "Quarter",
+                                                                            "Week",
+                                                                            "AcademicTerm",
+                                                                            "Year"
+                                                                          ]
                                                                         },
                                                                         "Notes": {
                                                                           "description": "Notes related to Overdraft fee charge cap",
@@ -947,13 +1207,19 @@
                                                                                 "maxLength": 350
                                                                               }
                                                                             },
-                                                                            "required": ["Name", "Description"]
+                                                                            "required": [
+                                                                              "Name",
+                                                                              "Description"
+                                                                            ]
                                                                           },
                                                                           "additionalProperties": false
                                                                         }
                                                                       },
                                                                       "additionalProperties": false,
-                                                                      "required": ["FeeType", "MinMaxType"]
+                                                                      "required": [
+                                                                        "FeeType",
+                                                                        "MinMaxType"
+                                                                      ]
                                                                     },
                                                                     "OtherFeeType": {
                                                                       "description": "Other Fee type which is not available in the standard code set",
@@ -984,7 +1250,10 @@
                                                                         }
                                                                       },
                                                                       "additionalProperties": false,
-                                                                      "required": ["Name", "Description"]
+                                                                      "required": [
+                                                                        "Name",
+                                                                        "Description"
+                                                                      ]
                                                                     },
                                                                     "OtherFeeRateType": {
                                                                       "description": "Other fee rate type code which is not available in the standard code set",
@@ -1015,7 +1284,10 @@
                                                                         }
                                                                       },
                                                                       "additionalProperties": false,
-                                                                      "required": ["Name", "Description"]
+                                                                      "required": [
+                                                                        "Name",
+                                                                        "Description"
+                                                                      ]
                                                                     },
                                                                     "OtherApplicationFrequency": {
                                                                       "description": "Other application frequencies that are not available in the standard code list",
@@ -1046,7 +1318,10 @@
                                                                         }
                                                                       },
                                                                       "additionalProperties": false,
-                                                                      "required": ["Name", "Description"]
+                                                                      "required": [
+                                                                        "Name",
+                                                                        "Description"
+                                                                      ]
                                                                     },
                                                                     "OtherCalculationFrequency": {
                                                                       "description": "Other calculation frequency which is not available in the standard code set.",
@@ -1077,21 +1352,32 @@
                                                                         }
                                                                       },
                                                                       "additionalProperties": false,
-                                                                      "required": ["Name", "Description"]
+                                                                      "required": [
+                                                                        "Name",
+                                                                        "Description"
+                                                                      ]
                                                                     }
                                                                   },
-                                                                  "required": ["FeeType", "ApplicationFrequency", "CalculationFrequency"]
+                                                                  "required": [
+                                                                    "FeeType",
+                                                                    "ApplicationFrequency",
+                                                                    "CalculationFrequency"
+                                                                  ]
                                                                 },
                                                                 "additionalProperties": false,
                                                                 "minItems": 1
                                                               }
                                                             },
-                                                            "required": ["OverdraftFeeChargeDetail"]
+                                                            "required": [
+                                                              "OverdraftFeeChargeDetail"
+                                                            ]
                                                           },
                                                           "additionalProperties": false
                                                         }
                                                       },
-                                                      "required": ["TierValueMin"]
+                                                      "required": [
+                                                        "TierValueMin"
+                                                      ]
                                                     },
                                                     "additionalProperties": false,
                                                     "minItems": 1
@@ -1119,7 +1405,20 @@
                                                                 "items": {
                                                                   "description": "Overdraft fee type",
                                                                   "type": "string",
-                                                                  "enum": ["ArrangedOverdraft", "EmergencyBorrowing", "BorrowingItem", "OverdraftRenewal", "AnnualReview", "OverdraftSetup", "Surcharge", "TempOverdraft", "UnauthorisedBorrowing", "UnauthorisedPaidTrans", "Other", "UnauthorisedUnpaidTrans"]
+                                                                  "enum": [
+                                                                    "ArrangedOverdraft",
+                                                                    "EmergencyBorrowing",
+                                                                    "BorrowingItem",
+                                                                    "OverdraftRenewal",
+                                                                    "AnnualReview",
+                                                                    "OverdraftSetup",
+                                                                    "Surcharge",
+                                                                    "TempOverdraft",
+                                                                    "UnauthorisedBorrowing",
+                                                                    "UnauthorisedPaidTrans",
+                                                                    "Other",
+                                                                    "UnauthorisedUnpaidTrans"
+                                                                  ]
                                                                 },
                                                                 "minItems": 1
                                                               },
@@ -1132,7 +1431,10 @@
                                                                 "description": "Indicates that this is the minimum/ maximum fee/charge that can be applied by the financial institution",
                                                                 "title": "MinMaxType",
                                                                 "type": "string",
-                                                                "enum": ["Minimum", "Maximum"]
+                                                                "enum": [
+                                                                  "Minimum",
+                                                                  "Maximum"
+                                                                ]
                                                               },
                                                               "FeeCapOccurrence": {
                                                                 "description": "fee/charges are captured dependent on the number of occurrences rather than capped at a particular amount",
@@ -1150,7 +1452,15 @@
                                                                 "description": "Period e.g. day, week, month etc. for which the fee/charge is capped",
                                                                 "title": "CappingPeriod",
                                                                 "type": "string",
-                                                                "enum": ["Day", "Half Year", "Month", "Quarter", "Week", "AcademicTerm", "Year"]
+                                                                "enum": [
+                                                                  "Day",
+                                                                  "Half Year",
+                                                                  "Month",
+                                                                  "Quarter",
+                                                                  "Week",
+                                                                  "AcademicTerm",
+                                                                  "Year"
+                                                                ]
                                                               },
                                                               "Notes": {
                                                                 "description": "Notes related to Overdraft fee charge cap",
@@ -1194,12 +1504,18 @@
                                                                       "maxLength": 350
                                                                     }
                                                                   },
-                                                                  "required": ["Name", "Description"]
+                                                                  "required": [
+                                                                    "Name",
+                                                                    "Description"
+                                                                  ]
                                                                 },
                                                                 "additionalProperties": false
                                                               }
                                                             },
-                                                            "required": ["FeeType", "MinMaxType"]
+                                                            "required": [
+                                                              "FeeType",
+                                                              "MinMaxType"
+                                                            ]
                                                           },
                                                           "additionalProperties": false
                                                         },
@@ -1215,7 +1531,20 @@
                                                                 "description": "Overdraft fee type",
                                                                 "title": "FeeType",
                                                                 "type": "string",
-                                                                "enum": ["ArrangedOverdraft", "EmergencyBorrowing", "BorrowingItem", "OverdraftRenewal", "AnnualReview", "OverdraftSetup", "Surcharge", "TempOverdraft", "UnauthorisedBorrowing", "UnauthorisedPaidTrans", "Other", "UnauthorisedUnpaidTrans"]
+                                                                "enum": [
+                                                                  "ArrangedOverdraft",
+                                                                  "EmergencyBorrowing",
+                                                                  "BorrowingItem",
+                                                                  "OverdraftRenewal",
+                                                                  "AnnualReview",
+                                                                  "OverdraftSetup",
+                                                                  "Surcharge",
+                                                                  "TempOverdraft",
+                                                                  "UnauthorisedBorrowing",
+                                                                  "UnauthorisedPaidTrans",
+                                                                  "Other",
+                                                                  "UnauthorisedUnpaidTrans"
+                                                                ]
                                                               },
                                                               "OverdraftControlIndicator": {
                                                                 "description": "Specifies for the overdraft control feature/benefit",
@@ -1244,19 +1573,66 @@
                                                                 "description": "Rate type for overdraft fee/charge (where it is charged in terms of a rate rather than an amount)",
                                                                 "title": "FeeRateType",
                                                                 "type": "string",
-                                                                "enum": ["LinkedBaseRate", "Gross", "Net", "Other"]
+                                                                "enum": [
+                                                                  "LinkedBaseRate",
+                                                                  "Gross",
+                                                                  "Net",
+                                                                  "Other"
+                                                                ]
                                                               },
                                                               "ApplicationFrequency": {
                                                                 "description": "Frequency at which the overdraft charge is applied to the account",
                                                                 "title": "ApplicationFrequency",
                                                                 "type": "string",
-                                                                "enum": ["AccountClosing", "AccountOpening", "AcademicTerm", "ChargingPeriod", "Daily", "PerItem", "Monthly", "OnAccountAnniversary", "Other", "PerHour", "PerOccurrence", "PerSheet", "PerTransaction", "PerTransactionAmount", "PerTransactionPercentage", "Quarterly", "SixMonthly", "StatementMonthly", "Weekly", "Yearly"]
+                                                                "enum": [
+                                                                  "AccountClosing",
+                                                                  "AccountOpening",
+                                                                  "AcademicTerm",
+                                                                  "ChargingPeriod",
+                                                                  "Daily",
+                                                                  "PerItem",
+                                                                  "Monthly",
+                                                                  "OnAccountAnniversary",
+                                                                  "Other",
+                                                                  "PerHour",
+                                                                  "PerOccurrence",
+                                                                  "PerSheet",
+                                                                  "PerTransaction",
+                                                                  "PerTransactionAmount",
+                                                                  "PerTransactionPercentage",
+                                                                  "Quarterly",
+                                                                  "SixMonthly",
+                                                                  "StatementMonthly",
+                                                                  "Weekly",
+                                                                  "Yearly"
+                                                                ]
                                                               },
                                                               "CalculationFrequency": {
                                                                 "description": "How often is the overdraft fee/charge calculated for the account.",
                                                                 "title": "CalculationFrequency",
                                                                 "type": "string",
-                                                                "enum": ["AccountClosing", "AccountOpening", "AcademicTerm", "ChargingPeriod", "Daily", "PerItem", "Monthly", "OnAccountAnniversary", "Other", "PerHour", "PerOccurrence", "PerSheet", "PerTransaction", "PerTransactionAmount", "PerTransactionPercentage", "Quarterly", "SixMonthly", "StatementMonthly", "Weekly", "Yearly"]
+                                                                "enum": [
+                                                                  "AccountClosing",
+                                                                  "AccountOpening",
+                                                                  "AcademicTerm",
+                                                                  "ChargingPeriod",
+                                                                  "Daily",
+                                                                  "PerItem",
+                                                                  "Monthly",
+                                                                  "OnAccountAnniversary",
+                                                                  "Other",
+                                                                  "PerHour",
+                                                                  "PerOccurrence",
+                                                                  "PerSheet",
+                                                                  "PerTransaction",
+                                                                  "PerTransactionAmount",
+                                                                  "PerTransactionPercentage",
+                                                                  "Quarterly",
+                                                                  "SixMonthly",
+                                                                  "StatementMonthly",
+                                                                  "Weekly",
+                                                                  "Yearly"
+                                                                ]
                                                               },
                                                               "Notes": {
                                                                 "description": "Free text for capturing any other info related to Overdraft Fees Charge Details",
@@ -1281,7 +1657,20 @@
                                                                     "items": {
                                                                       "description": "Overdraft fee type",
                                                                       "type": "string",
-                                                                      "enum": ["ArrangedOverdraft", "EmergencyBorrowing", "BorrowingItem", "OverdraftRenewal", "AnnualReview", "OverdraftSetup", "Surcharge", "TempOverdraft", "UnauthorisedBorrowing", "UnauthorisedPaidTrans", "Other", "UnauthorisedUnpaidTrans"]
+                                                                      "enum": [
+                                                                        "ArrangedOverdraft",
+                                                                        "EmergencyBorrowing",
+                                                                        "BorrowingItem",
+                                                                        "OverdraftRenewal",
+                                                                        "AnnualReview",
+                                                                        "OverdraftSetup",
+                                                                        "Surcharge",
+                                                                        "TempOverdraft",
+                                                                        "UnauthorisedBorrowing",
+                                                                        "UnauthorisedPaidTrans",
+                                                                        "Other",
+                                                                        "UnauthorisedUnpaidTrans"
+                                                                      ]
                                                                     },
                                                                     "minItems": 1
                                                                   },
@@ -1294,7 +1683,10 @@
                                                                     "description": "Indicates that this is the minimum/ maximum fee/charge that can be applied by the financial institution",
                                                                     "title": "MinMaxType",
                                                                     "type": "string",
-                                                                    "enum": ["Minimum", "Maximum"]
+                                                                    "enum": [
+                                                                      "Minimum",
+                                                                      "Maximum"
+                                                                    ]
                                                                   },
                                                                   "FeeCapOccurrence": {
                                                                     "description": "fee/charges are captured dependent on the number of occurrences rather than capped at a particular amount",
@@ -1312,7 +1704,15 @@
                                                                     "description": "Period e.g. day, week, month etc. for which the fee/charge is capped",
                                                                     "title": "CappingPeriod",
                                                                     "type": "string",
-                                                                    "enum": ["Day", "Half Year", "Month", "Quarter", "Week", "AcademicTerm", "Year"]
+                                                                    "enum": [
+                                                                      "Day",
+                                                                      "Half Year",
+                                                                      "Month",
+                                                                      "Quarter",
+                                                                      "Week",
+                                                                      "AcademicTerm",
+                                                                      "Year"
+                                                                    ]
                                                                   },
                                                                   "Notes": {
                                                                     "description": "Notes related to Overdraft fee charge cap",
@@ -1356,13 +1756,19 @@
                                                                           "maxLength": 350
                                                                         }
                                                                       },
-                                                                      "required": ["Name", "Description"]
+                                                                      "required": [
+                                                                        "Name",
+                                                                        "Description"
+                                                                      ]
                                                                     },
                                                                     "additionalProperties": false
                                                                   }
                                                                 },
                                                                 "additionalProperties": false,
-                                                                "required": ["FeeType", "MinMaxType"]
+                                                                "required": [
+                                                                  "FeeType",
+                                                                  "MinMaxType"
+                                                                ]
                                                               },
                                                               "OtherFeeType": {
                                                                 "description": "Other Fee type which is not available in the standard code set",
@@ -1393,7 +1799,10 @@
                                                                   }
                                                                 },
                                                                 "additionalProperties": false,
-                                                                "required": ["Name", "Description"]
+                                                                "required": [
+                                                                  "Name",
+                                                                  "Description"
+                                                                ]
                                                               },
                                                               "OtherFeeRateType": {
                                                                 "description": "Other fee rate type code which is not available in the standard code set",
@@ -1424,7 +1833,10 @@
                                                                   }
                                                                 },
                                                                 "additionalProperties": false,
-                                                                "required": ["Name", "Description"]
+                                                                "required": [
+                                                                  "Name",
+                                                                  "Description"
+                                                                ]
                                                               },
                                                               "OtherApplicationFrequency": {
                                                                 "description": "Other application frequencies that are not available in the standard code list",
@@ -1455,7 +1867,10 @@
                                                                   }
                                                                 },
                                                                 "additionalProperties": false,
-                                                                "required": ["Name", "Description"]
+                                                                "required": [
+                                                                  "Name",
+                                                                  "Description"
+                                                                ]
                                                               },
                                                               "OtherCalculationFrequency": {
                                                                 "description": "Other calculation frequency which is not available in the standard code set.",
@@ -1486,28 +1901,42 @@
                                                                   }
                                                                 },
                                                                 "additionalProperties": false,
-                                                                "required": ["Name", "Description"]
+                                                                "required": [
+                                                                  "Name",
+                                                                  "Description"
+                                                                ]
                                                               }
                                                             },
-                                                            "required": ["FeeType", "ApplicationFrequency", "CalculationFrequency"]
+                                                            "required": [
+                                                              "FeeType",
+                                                              "ApplicationFrequency",
+                                                              "CalculationFrequency"
+                                                            ]
                                                           },
                                                           "additionalProperties": false,
                                                           "minItems": 1
                                                         }
                                                       },
-                                                      "required": ["OverdraftFeeChargeDetail"]
+                                                      "required": [
+                                                        "OverdraftFeeChargeDetail"
+                                                      ]
                                                     },
                                                     "additionalProperties": false
                                                   }
                                                 },
-                                                "required": ["TierBandMethod", "OverdraftTierBand"]
+                                                "required": [
+                                                  "TierBandMethod",
+                                                  "OverdraftTierBand"
+                                                ]
                                               },
                                               "additionalProperties": false,
                                               "minItems": 1
                                             }
                                           },
                                           "additionalProperties": false,
-                                          "required": ["OverdraftTierBandSet"]
+                                          "required": [
+                                            "OverdraftTierBandSet"
+                                          ]
                                         },
                                         "Eligibility": {
                                           "description": "Eligibility details for this product i.e. the criteria that an accountholder has to meet in order to be eligible for the PCA product.",
@@ -1540,7 +1969,20 @@
                                                     "description": "Eligibility type - method by which we group eligibilities for comparison purposes.",
                                                     "title": "Type",
                                                     "type": "string",
-                                                    "enum": ["DirectDebits", "ExistingCustomers", "MinimumOperatingBalance", "MinimumDeposit", "NewCustomersOnly", "PreviousBankruptcyAllowed", "Other", "StudentsOnly", "SoleStudentAccount", "SoleUkAccount", "SwitchersOnly", "UCASFulltimeTwoYears"]
+                                                    "enum": [
+                                                      "DirectDebits",
+                                                      "ExistingCustomers",
+                                                      "MinimumOperatingBalance",
+                                                      "MinimumDeposit",
+                                                      "NewCustomersOnly",
+                                                      "PreviousBankruptcyAllowed",
+                                                      "Other",
+                                                      "StudentsOnly",
+                                                      "SoleStudentAccount",
+                                                      "SoleUkAccount",
+                                                      "SwitchersOnly",
+                                                      "UCASFulltimeTwoYears"
+                                                    ]
                                                   },
                                                   "Amount": {
                                                     "description": "Any eligibility criteria where an amount is required to be specified e.g. Minimum Age.",
@@ -1564,7 +2006,15 @@
                                                     "description": "Period for which the other eligibility criteria applies.",
                                                     "title": "Period",
                                                     "type": "string",
-                                                    "enum": ["Day", "Half Year", "Month", "Quarter", "Week", "AcademicTerm", "Year"]
+                                                    "enum": [
+                                                      "Day",
+                                                      "Half Year",
+                                                      "Month",
+                                                      "Quarter",
+                                                      "Week",
+                                                      "AcademicTerm",
+                                                      "Year"
+                                                    ]
                                                   },
                                                   "Notes": {
                                                     "description": "Optional additional notes to supplement the eligibility conditions.",
@@ -1606,10 +2056,16 @@
                                                       }
                                                     },
                                                     "additionalProperties": false,
-                                                    "required": ["Name", "Description"]
+                                                    "required": [
+                                                      "Name",
+                                                      "Description"
+                                                    ]
                                                   }
                                                 },
-                                                "required": ["Name", "Type"]
+                                                "required": [
+                                                  "Name",
+                                                  "Type"
+                                                ]
                                               },
                                               "additionalProperties": false
                                             },
@@ -1646,73 +2102,85 @@
                                             },
                                             "ResidencyEligibility": {
                                               "description": "Countries in which an accountholder can reside and, therefore, be eligible to open an account",
-                                              "type": "object",
+                                              "type": "array",
                                               "title": "ResidencyEligibility",
-                                              "properties": {
-                                                "ResidencyType": {
-                                                  "description": "Residency type like Tax residency, Owner residency etc.",
-                                                  "title": "ResidencyType",
-                                                  "type": "string",
-                                                  "enum": ["Householder", "Other"]
-                                                },
-                                                "ResidencyIncluded": {
-                                                  "description": "Country code for which PCA product is allowed.",
-                                                  "title": "ResidencyIncluded",
-                                                  "type": "array",
-                                                  "items": {
-                                                    "description": "CodeMnemonic",
+                                              "items": {
+                                                "description": "Countries in which an accountholder can reside and, therefore, be eligible to open an account",
+                                                "type": "object",
+                                                "properties": {
+                                                  "ResidencyType": {
+                                                    "description": "Residency type like Tax residency, Owner residency etc.",
+                                                    "title": "ResidencyType",
                                                     "type": "string",
-                                                    "pattern": "^\\w{0,4}$",
-                                                    "minLength": 0,
-                                                    "maxLength": 4
+                                                    "enum": [
+                                                      "Householder",
+                                                      "Other"
+                                                    ]
                                                   },
-                                                  "minItems": 1
-                                                },
-                                                "Notes": {
-                                                  "description": "Optional additional notes to supplement the ResidencyEligibility details",
-                                                  "title": "Notes",
-                                                  "type": "array",
-                                                  "items": {
-                                                    "description": "maxLength 2000 text",
-                                                    "type": "string",
-                                                    "minLength": 1,
-                                                    "maxLength": 2000
-                                                  }
-                                                },
-                                                "OtherResidencyType": {
-                                                  "description": "Other residency type which is not available in standard code list.",
-                                                  "type": "object",
-                                                  "title": "OtherResidencyType",
-                                                  "properties": {
-                                                    "Code": {
-                                                      "description": "The four letter Mnemonic used within an XML file to identify a code",
-                                                      "title": "Code",
+                                                  "ResidencyIncluded": {
+                                                    "description": "Country code for which PCA product is allowed.",
+                                                    "title": "ResidencyIncluded",
+                                                    "type": "array",
+                                                    "items": {
+                                                      "description": "CodeMnemonic",
                                                       "type": "string",
                                                       "pattern": "^\\w{0,4}$",
                                                       "minLength": 0,
                                                       "maxLength": 4
                                                     },
-                                                    "Name": {
-                                                      "description": "Long name associated with the code",
-                                                      "title": "Name",
+                                                    "minItems": 1
+                                                  },
+                                                  "Notes": {
+                                                    "description": "Optional additional notes to supplement the ResidencyEligibility details",
+                                                    "title": "Notes",
+                                                    "type": "array",
+                                                    "items": {
+                                                      "description": "maxLength 2000 text",
                                                       "type": "string",
                                                       "minLength": 1,
-                                                      "maxLength": 70
-                                                    },
-                                                    "Description": {
-                                                      "description": "Description to describe the purpose of the code",
-                                                      "title": "Description",
-                                                      "type": "string",
-                                                      "minLength": 1,
-                                                      "maxLength": 350
+                                                      "maxLength": 2000
                                                     }
                                                   },
-                                                  "additionalProperties": false,
-                                                  "required": ["Name", "Description"]
-                                                }
+                                                  "OtherResidencyType": {
+                                                    "description": "Other residency type which is not available in standard code list.",
+                                                    "type": "object",
+                                                    "title": "OtherResidencyType",
+                                                    "properties": {
+                                                      "Code": {
+                                                        "description": "The four letter Mnemonic used within an XML file to identify a code",
+                                                        "title": "Code",
+                                                        "type": "string",
+                                                        "pattern": "^\\w{0,4}$",
+                                                        "minLength": 0,
+                                                        "maxLength": 4
+                                                      },
+                                                      "Name": {
+                                                        "description": "Long name associated with the code",
+                                                        "title": "Name",
+                                                        "type": "string",
+                                                        "minLength": 1,
+                                                        "maxLength": 70
+                                                      },
+                                                      "Description": {
+                                                        "description": "Description to describe the purpose of the code",
+                                                        "title": "Description",
+                                                        "type": "string",
+                                                        "minLength": 1,
+                                                        "maxLength": 350
+                                                      }
+                                                    },
+                                                    "additionalProperties": false,
+                                                    "required": [
+                                                      "Name",
+                                                      "Description"
+                                                    ]
+                                                  }
+                                                },
+                                                "required": [
+                                                  "ResidencyIncluded"
+                                                ]
                                               },
-                                              "additionalProperties": false,
-                                              "required": ["ResidencyIncluded"]
+                                              "additionalProperties": false
                                             },
                                             "CreditCheck": {
                                               "description": "Credit check criteria that the account holder will need to meet to take out the PCA product",
@@ -1723,7 +2191,10 @@
                                                   "description": "Opening Credit Scoring Type (Hard or Soft)",
                                                   "title": "ScoringType",
                                                   "type": "string",
-                                                  "enum": ["Hard", "Soft"]
+                                                  "enum": [
+                                                    "Hard",
+                                                    "Soft"
+                                                  ]
                                                 },
                                                 "Notes": {
                                                   "description": "Optional additional notes to supplement the CreditCheck details",
@@ -1792,7 +2263,27 @@
                                                     "description": "Common types of features & benefits",
                                                     "title": "Type",
                                                     "type": "string",
-                                                    "enum": ["AccountManagement", "AccountOpeningOrSwitching Incentive", "Cashback", "Entertainment", "HomeInsurance", "HomeProtection", "InternationalPaymentSupport", "Lifestyle", "MotorBreakdown", "OverdraftControl", "Other", "PremiumService", "PreferentialRates", "PassiveSaving", "RelationshipManager", "Rewards", "TechnologyInsurance", "TravelInsurance", "Travel"]
+                                                    "enum": [
+                                                      "AccountManagement",
+                                                      "AccountOpeningOrSwitching Incentive",
+                                                      "Cashback",
+                                                      "Entertainment",
+                                                      "HomeInsurance",
+                                                      "HomeProtection",
+                                                      "InternationalPaymentSupport",
+                                                      "Lifestyle",
+                                                      "MotorBreakdown",
+                                                      "OverdraftControl",
+                                                      "Other",
+                                                      "PremiumService",
+                                                      "PreferentialRates",
+                                                      "PassiveSaving",
+                                                      "RelationshipManager",
+                                                      "Rewards",
+                                                      "TechnologyInsurance",
+                                                      "TravelInsurance",
+                                                      "Travel"
+                                                    ]
                                                   },
                                                   "BenefitGroupNominalValue": {
                                                     "description": "BenefitGroupNominalValue is  to allow banks to state what they feel their benefit package is worth",
@@ -1810,13 +2301,33 @@
                                                     "description": "How often is the charge for the feature/benefit group applied to the customer account",
                                                     "title": "ApplicationFrequency",
                                                     "type": "string",
-                                                    "enum": ["PerAcademicTerm", "Daily", "HalfYearly", "Monthly", "Other", "Quarterly", "PerStatementDate", "Weekly", "Yearly"]
+                                                    "enum": [
+                                                      "PerAcademicTerm",
+                                                      "Daily",
+                                                      "HalfYearly",
+                                                      "Monthly",
+                                                      "Other",
+                                                      "Quarterly",
+                                                      "PerStatementDate",
+                                                      "Weekly",
+                                                      "Yearly"
+                                                    ]
                                                   },
                                                   "CalculationFrequency": {
                                                     "description": "How often is the charge for the feature/benefit group calculated for the customer account",
                                                     "title": "CalculationFrequency",
                                                     "type": "string",
-                                                    "enum": ["PerAcademicTerm", "Daily", "HalfYearly", "Monthly", "Other", "Quarterly", "PerStatementDate", "Weekly", "Yearly"]
+                                                    "enum": [
+                                                      "PerAcademicTerm",
+                                                      "Daily",
+                                                      "HalfYearly",
+                                                      "Monthly",
+                                                      "Other",
+                                                      "Quarterly",
+                                                      "PerStatementDate",
+                                                      "Weekly",
+                                                      "Yearly"
+                                                    ]
                                                   },
                                                   "Notes": {
                                                     "description": "Optional additional notes to supplement the Feature Benefit Group details",
@@ -1858,7 +2369,10 @@
                                                       }
                                                     },
                                                     "additionalProperties": false,
-                                                    "required": ["Name", "Description"]
+                                                    "required": [
+                                                      "Name",
+                                                      "Description"
+                                                    ]
                                                   },
                                                   "OtherCalculationFrequency": {
                                                     "description": "Other calculation frequency which is not available in the standard code set",
@@ -1889,7 +2403,10 @@
                                                       }
                                                     },
                                                     "additionalProperties": false,
-                                                    "required": ["Name", "Description"]
+                                                    "required": [
+                                                      "Name",
+                                                      "Description"
+                                                    ]
                                                   },
                                                   "OtherType": {
                                                     "description": "Other common types of features & benefits which are not available in the standard code set",
@@ -1920,7 +2437,10 @@
                                                       }
                                                     },
                                                     "additionalProperties": false,
-                                                    "required": ["Name", "Description"]
+                                                    "required": [
+                                                      "Name",
+                                                      "Description"
+                                                    ]
                                                   },
                                                   "FeatureBenefitItem": {
                                                     "description": "Detailed features or benefits which may or may not be a part of a feature/benefit group/pack",
@@ -1941,7 +2461,27 @@
                                                           "description": "Common types of features & benefits",
                                                           "title": "Type",
                                                           "type": "string",
-                                                          "enum": ["AccountManagement", "AccountOpeningOrSwitching Incentive", "Cashback", "Entertainment", "HomeInsurance", "HomeProtection", "InternationalPaymentSupport", "Lifestyle", "MotorBreakdown", "OverdraftControl", "Other", "PremiumService", "PreferentialRates", "PassiveSaving", "RelationshipManager", "Rewards", "TechnologyInsurance", "TravelInsurance", "Travel"]
+                                                          "enum": [
+                                                            "AccountManagement",
+                                                            "AccountOpeningOrSwitching Incentive",
+                                                            "Cashback",
+                                                            "Entertainment",
+                                                            "HomeInsurance",
+                                                            "HomeProtection",
+                                                            "InternationalPaymentSupport",
+                                                            "Lifestyle",
+                                                            "MotorBreakdown",
+                                                            "OverdraftControl",
+                                                            "Other",
+                                                            "PremiumService",
+                                                            "PreferentialRates",
+                                                            "PassiveSaving",
+                                                            "RelationshipManager",
+                                                            "Rewards",
+                                                            "TechnologyInsurance",
+                                                            "TravelInsurance",
+                                                            "Travel"
+                                                          ]
                                                         },
                                                         "Name": {
                                                           "description": "Name which can be attached to the feature/benefit",
@@ -2008,7 +2548,10 @@
                                                             }
                                                           },
                                                           "additionalProperties": false,
-                                                          "required": ["Name", "Description"]
+                                                          "required": [
+                                                            "Name",
+                                                            "Description"
+                                                          ]
                                                         },
                                                         "FeatureBenefitEligibility": {
                                                           "description": "Feature and Benefit eligibility",
@@ -2036,7 +2579,20 @@
                                                                 "description": "Eligibility type - method by which we group eligibilities for comparison purposes.",
                                                                 "title": "Type",
                                                                 "type": "string",
-                                                                "enum": ["DirectDebits", "ExistingCustomers", "MinimumOperatingBalance", "MinimumDeposit", "NewCustomersOnly", "PreviousBankruptcyAllowed", "Other", "StudentsOnly", "SoleStudentAccount", "SoleUkAccount", "SwitchersOnly", "UCASFulltimeTwoYears"]
+                                                                "enum": [
+                                                                  "DirectDebits",
+                                                                  "ExistingCustomers",
+                                                                  "MinimumOperatingBalance",
+                                                                  "MinimumDeposit",
+                                                                  "NewCustomersOnly",
+                                                                  "PreviousBankruptcyAllowed",
+                                                                  "Other",
+                                                                  "StudentsOnly",
+                                                                  "SoleStudentAccount",
+                                                                  "SoleUkAccount",
+                                                                  "SwitchersOnly",
+                                                                  "UCASFulltimeTwoYears"
+                                                                ]
                                                               },
                                                               "Amount": {
                                                                 "description": "Any eligibility criteria where an amount is required to be specified e.g. Minimum Age.",
@@ -2060,7 +2616,15 @@
                                                                 "description": "Period for which the other eligibility criteria applies.",
                                                                 "title": "Period",
                                                                 "type": "string",
-                                                                "enum": ["Day", "Half Year", "Month", "Quarter", "Week", "AcademicTerm", "Year"]
+                                                                "enum": [
+                                                                  "Day",
+                                                                  "Half Year",
+                                                                  "Month",
+                                                                  "Quarter",
+                                                                  "Week",
+                                                                  "AcademicTerm",
+                                                                  "Year"
+                                                                ]
                                                               },
                                                               "Notes": {
                                                                 "description": "Optional additional notes to supplement the eligibility conditions.",
@@ -2102,15 +2666,23 @@
                                                                   }
                                                                 },
                                                                 "additionalProperties": false,
-                                                                "required": ["Name", "Description"]
+                                                                "required": [
+                                                                  "Name",
+                                                                  "Description"
+                                                                ]
                                                               }
                                                             },
-                                                            "required": ["Name", "Type"]
+                                                            "required": [
+                                                              "Name",
+                                                              "Type"
+                                                            ]
                                                           },
                                                           "additionalProperties": false
                                                         }
                                                       },
-                                                      "required": ["Type"]
+                                                      "required": [
+                                                        "Type"
+                                                      ]
                                                     },
                                                     "additionalProperties": false
                                                   },
@@ -2140,7 +2712,20 @@
                                                           "description": "Eligibility type - method by which we group eligibilities for comparison purposes.",
                                                           "title": "Type",
                                                           "type": "string",
-                                                          "enum": ["DirectDebits", "ExistingCustomers", "MinimumOperatingBalance", "MinimumDeposit", "NewCustomersOnly", "PreviousBankruptcyAllowed", "Other", "StudentsOnly", "SoleStudentAccount", "SoleUkAccount", "SwitchersOnly", "UCASFulltimeTwoYears"]
+                                                          "enum": [
+                                                            "DirectDebits",
+                                                            "ExistingCustomers",
+                                                            "MinimumOperatingBalance",
+                                                            "MinimumDeposit",
+                                                            "NewCustomersOnly",
+                                                            "PreviousBankruptcyAllowed",
+                                                            "Other",
+                                                            "StudentsOnly",
+                                                            "SoleStudentAccount",
+                                                            "SoleUkAccount",
+                                                            "SwitchersOnly",
+                                                            "UCASFulltimeTwoYears"
+                                                          ]
                                                         },
                                                         "Amount": {
                                                           "description": "Any eligibility criteria where an amount is required to be specified e.g. Minimum Age.",
@@ -2164,7 +2749,15 @@
                                                           "description": "Period for which the other eligibility criteria applies.",
                                                           "title": "Period",
                                                           "type": "string",
-                                                          "enum": ["Day", "Half Year", "Month", "Quarter", "Week", "AcademicTerm", "Year"]
+                                                          "enum": [
+                                                            "Day",
+                                                            "Half Year",
+                                                            "Month",
+                                                            "Quarter",
+                                                            "Week",
+                                                            "AcademicTerm",
+                                                            "Year"
+                                                          ]
                                                         },
                                                         "Notes": {
                                                           "description": "Optional additional notes to supplement the eligibility conditions.",
@@ -2206,15 +2799,23 @@
                                                             }
                                                           },
                                                           "additionalProperties": false,
-                                                          "required": ["Name", "Description"]
+                                                          "required": [
+                                                            "Name",
+                                                            "Description"
+                                                          ]
                                                         }
                                                       },
-                                                      "required": ["Name", "Type"]
+                                                      "required": [
+                                                        "Name",
+                                                        "Type"
+                                                      ]
                                                     },
                                                     "additionalProperties": false
                                                   }
                                                 },
-                                                "required": ["Name"]
+                                                "required": [
+                                                  "Name"
+                                                ]
                                               },
                                               "additionalProperties": false
                                             },
@@ -2237,7 +2838,27 @@
                                                     "description": "Common types of features & benefits",
                                                     "title": "Type",
                                                     "type": "string",
-                                                    "enum": ["AccountManagement", "AccountOpeningOrSwitching Incentive", "Cashback", "Entertainment", "HomeInsurance", "HomeProtection", "InternationalPaymentSupport", "Lifestyle", "MotorBreakdown", "OverdraftControl", "Other", "PremiumService", "PreferentialRates", "PassiveSaving", "RelationshipManager", "Rewards", "TechnologyInsurance", "TravelInsurance", "Travel"]
+                                                    "enum": [
+                                                      "AccountManagement",
+                                                      "AccountOpeningOrSwitching Incentive",
+                                                      "Cashback",
+                                                      "Entertainment",
+                                                      "HomeInsurance",
+                                                      "HomeProtection",
+                                                      "InternationalPaymentSupport",
+                                                      "Lifestyle",
+                                                      "MotorBreakdown",
+                                                      "OverdraftControl",
+                                                      "Other",
+                                                      "PremiumService",
+                                                      "PreferentialRates",
+                                                      "PassiveSaving",
+                                                      "RelationshipManager",
+                                                      "Rewards",
+                                                      "TechnologyInsurance",
+                                                      "TravelInsurance",
+                                                      "Travel"
+                                                    ]
                                                   },
                                                   "Name": {
                                                     "description": "Name which can be attached to the feature/benefit",
@@ -2304,7 +2925,10 @@
                                                       }
                                                     },
                                                     "additionalProperties": false,
-                                                    "required": ["Name", "Description"]
+                                                    "required": [
+                                                      "Name",
+                                                      "Description"
+                                                    ]
                                                   },
                                                   "FeatureBenefitEligibility": {
                                                     "description": "Feature and Benefit eligibility",
@@ -2332,7 +2956,20 @@
                                                           "description": "Eligibility type - method by which we group eligibilities for comparison purposes.",
                                                           "title": "Type",
                                                           "type": "string",
-                                                          "enum": ["DirectDebits", "ExistingCustomers", "MinimumOperatingBalance", "MinimumDeposit", "NewCustomersOnly", "PreviousBankruptcyAllowed", "Other", "StudentsOnly", "SoleStudentAccount", "SoleUkAccount", "SwitchersOnly", "UCASFulltimeTwoYears"]
+                                                          "enum": [
+                                                            "DirectDebits",
+                                                            "ExistingCustomers",
+                                                            "MinimumOperatingBalance",
+                                                            "MinimumDeposit",
+                                                            "NewCustomersOnly",
+                                                            "PreviousBankruptcyAllowed",
+                                                            "Other",
+                                                            "StudentsOnly",
+                                                            "SoleStudentAccount",
+                                                            "SoleUkAccount",
+                                                            "SwitchersOnly",
+                                                            "UCASFulltimeTwoYears"
+                                                          ]
                                                         },
                                                         "Amount": {
                                                           "description": "Any eligibility criteria where an amount is required to be specified e.g. Minimum Age.",
@@ -2356,7 +2993,15 @@
                                                           "description": "Period for which the other eligibility criteria applies.",
                                                           "title": "Period",
                                                           "type": "string",
-                                                          "enum": ["Day", "Half Year", "Month", "Quarter", "Week", "AcademicTerm", "Year"]
+                                                          "enum": [
+                                                            "Day",
+                                                            "Half Year",
+                                                            "Month",
+                                                            "Quarter",
+                                                            "Week",
+                                                            "AcademicTerm",
+                                                            "Year"
+                                                          ]
                                                         },
                                                         "Notes": {
                                                           "description": "Optional additional notes to supplement the eligibility conditions.",
@@ -2398,15 +3043,23 @@
                                                             }
                                                           },
                                                           "additionalProperties": false,
-                                                          "required": ["Name", "Description"]
+                                                          "required": [
+                                                            "Name",
+                                                            "Description"
+                                                          ]
                                                         }
                                                       },
-                                                      "required": ["Name", "Type"]
+                                                      "required": [
+                                                        "Name",
+                                                        "Type"
+                                                      ]
                                                     },
                                                     "additionalProperties": false
                                                   }
                                                 },
-                                                "required": ["Type"]
+                                                "required": [
+                                                  "Type"
+                                                ]
                                               },
                                               "additionalProperties": false
                                             },
@@ -2422,18 +3075,39 @@
                                                     "description": "Card Type available e.g. Debit",
                                                     "title": "Type",
                                                     "type": "string",
-                                                    "enum": ["CashCard", "DebitCard", "Other", "POCACard", "PrepaidDebitCard"]
+                                                    "enum": [
+                                                      "CashCard",
+                                                      "DebitCard",
+                                                      "Other",
+                                                      "POCACard",
+                                                      "PrepaidDebitCard"
+                                                    ]
                                                   },
                                                   "Scheme": {
                                                     "description": "Operator of Card Scheme e.g. Visa",
                                                     "title": "Scheme",
-                                                    "type": "string",
-                                                    "enum": ["MasterCard", "Other", "Visa"]
+                                                    "type": "array",
+                                                    "items": {
+                                                      "description": "Operator of Card Scheme e.g. Visa",
+                                                      "type": "string",
+                                                      "enum": [
+                                                        "MasterCard",
+                                                        "Other",
+                                                        "Visa"
+                                                      ]
+                                                    },
+                                                    "minItems": 1
                                                   },
                                                   "ContactlessIndicator": {
                                                     "description": "Indicates if the card can be used for contactless payments(Yes) or not(No).",
                                                     "title": "ContactlessIndicator",
                                                     "type": "boolean"
+                                                  },
+                                                  "MaxDailyCardWithdrawalLimit": {
+                                                    "description": "Maximum daily cash withdrawal limit on the card.",
+                                                    "title": "MaxDailyCardWithdrawalLimit",
+                                                    "type": "string",
+                                                    "pattern": "^(-?\\d{1,14}){1}(\\.\\d{1,4}){0,1}$"
                                                   },
                                                   "Notes": {
                                                     "description": "Optional additional notes to supplement the Card details",
@@ -2475,7 +3149,10 @@
                                                       }
                                                     },
                                                     "additionalProperties": false,
-                                                    "required": ["Name", "Description"]
+                                                    "required": [
+                                                      "Name",
+                                                      "Description"
+                                                    ]
                                                   },
                                                   "OtherScheme": {
                                                     "description": "Operator of a card scheme which is not available in the standard scheme code list",
@@ -2506,10 +3183,17 @@
                                                       }
                                                     },
                                                     "additionalProperties": false,
-                                                    "required": ["Name", "Description"]
+                                                    "required": [
+                                                      "Name",
+                                                      "Description"
+                                                    ]
                                                   }
                                                 },
-                                                "required": ["Type", "Scheme", "ContactlessIndicator"]
+                                                "required": [
+                                                  "Type",
+                                                  "Scheme",
+                                                  "ContactlessIndicator"
+                                                ]
                                               },
                                               "additionalProperties": false
                                             },
@@ -2525,7 +3209,17 @@
                                                     "description": "Mobile applications that the PCA product will support",
                                                     "title": "Type",
                                                     "type": "string",
-                                                    "enum": ["AndroidPay", "ApplePay", "GooglePay", "IssuerMobileApp", "MobileBankingApp", "Other", "PayM", "SamsungPay", "VodafoneWallet"]
+                                                    "enum": [
+                                                      "AndroidPay",
+                                                      "ApplePay",
+                                                      "GooglePay",
+                                                      "IssuerMobileApp",
+                                                      "MobileBankingApp",
+                                                      "Other",
+                                                      "PayM",
+                                                      "SamsungPay",
+                                                      "VodafoneWallet"
+                                                    ]
                                                   },
                                                   "Notes": {
                                                     "description": "Free text for adding any extra information for MobileWallet.",
@@ -2567,10 +3261,15 @@
                                                       }
                                                     },
                                                     "additionalProperties": false,
-                                                    "required": ["Name", "Description"]
+                                                    "required": [
+                                                      "Name",
+                                                      "Description"
+                                                    ]
                                                   }
                                                 },
-                                                "required": ["Type"]
+                                                "required": [
+                                                  "Type"
+                                                ]
                                               },
                                               "additionalProperties": false
                                             }
@@ -2594,13 +3293,149 @@
                                                     "description": "Categorisation of fees and charges into standard categories.",
                                                     "title": "FeeCategory",
                                                     "type": "string",
-                                                    "enum": ["AUTO", "ATM", "BankersDrafts", "Card", "Cheque", "CounterServices", "Foreign", "FX", "International", "Investigation", "Legal", "NightSafe", "Online", "Other", "PaymentScheme", "Report", "Safekeeping", "Servicing", "Transaction"]
+                                                    "enum": [
+                                                      "AUTO",
+                                                      "ATM",
+                                                      "BankersDrafts",
+                                                      "CashCentre",
+                                                      "Card",
+                                                      "Cheque",
+                                                      "CounterServices",
+                                                      "Foreign",
+                                                      "FX",
+                                                      "International",
+                                                      "Investigation",
+                                                      "Legal",
+                                                      "NightSafe",
+                                                      "Online",
+                                                      "Other",
+                                                      "PaymentScheme",
+                                                      "Report",
+                                                      "Safekeeping",
+                                                      "Servicing",
+                                                      "Transaction"
+                                                    ]
                                                   },
                                                   "FeeType": {
                                                     "description": "Fee/Charge Type",
                                                     "title": "FeeType",
                                                     "type": "string",
-                                                    "enum": ["ReportCertBalance", "ATMAbroadConVisaDebit", "ATMConGroupATM", "ATMAbroad", "ATMForeignCashDebCard", "ATMAbroadGoldVisaDebit", "ATMNonSterlingWithdrawal", "ATMAbroadVisaDebit", "CHAPSOutBranch", "CHAPSCancellation", "CHAPSIn", "CHAPSOutInterBank", "CHAPSInterBank", "CHAPSOutPost", "CHAPSOutInterBranch", "CHAPSOut", "CHAPSOutOnline", "CardCardReplacement", "DraftsCounter", "DraftsBankers", "DraftsCancellation", "CardGuaranteed", "DraftsIntlPayableAbroad", "DraftsLostStolen", "CardPersonalisedCard", "DraftsIntlStoppedCancelled", "EmergencyLending", "FPSInBranch", "LegalCourtOrder", "IntlPayFXPaymentIn", "IntlPayForeignPaymentInUKAcc", "IntlPayForeignCharge", "IntlPayForeignInternet", "IntlPayFXPaymentOut", "IntlPayFXPaymentOutIR", "IntlPayPurchaseNonSterling", "IntlPayPaymentTracing", "IntlPayTransNonSterling", "IntlPayTransRateNonSterling", "IntlPayWorldpayPayment", "InvPayBankDetailsWrong", "InvPayForeignBCNR", "InvPayForeignRecall", "InvPayStandingOrdUnpaid", "SafeKeepingEnvelope", "SafeKeepingInspection", "SafeKeepingLargeItem", "SafeKeepingParcel", "NightSafeNightSafePaidIn", "OverdraftReview", "ChqBookTheftLossAllStopped", "ChqCopy", "ChqDraftSterling", "ChqOutIssued", "ChqSpecialChqPresentation", "ChqSpecialChqClearance", "ChqStopped", "ChqDraftFX", "ChqForeignCourier", "ChqGiftCheque", "ChqForeign", "ChqChequePhotocopy", "ChqChequeRetrieval", "ChqSpecialPresentationCount", "ChqSpecialPresentationPTT", "ChqUnpaidCharge", "ChqUnpaidTransIn", "ChqUnpaidTransOut", "ChqUnpaidCheque", "ReportCertInterestDuplicate", "ReportCertInterest", "ReportReference", "ReportReferralItem", "ReportStatementCopyRegular", "ReportStatusEnquiry", "ReportStatementFrequent", "ReportStatementCopy1", "SEPAIn", "SEPAEuro", "SEPAOut", "TransCreditTransferUKDifferent", "TransCredit", "TransCreditTransfer", "TransBuyForeignWithGBP", "TransSWIFTOutUKForeign", "TransPOSSaleForeign", "TransReturnPayment", "TransTransferExGroup", "TransSWIFTOutNonEEASterling", "AutoAutomatedEntries", "OnlineReplacementCardReader", "OnlineUrgentPayment", "ForeignChqSent", "ForeignFXInwardsCust", "ForeignFXOutwards", "ForeignPurchase", "ForeignChqDraft", "ServiceCAccountFee", "ServiceCAccountFeeMonthly", "ServiceCOther", "CounterCashOut", "CounterForeignNoteHandling", "CounterForeignCashOut", "CounterCashFeeRate", "Other"]
+                                                    "enum": [
+                                                      "CashCentreCoinHandling",
+                                                      "CashCentreCashX",
+                                                      "CashCentreCashFeePercent",
+                                                      "CashCentreCashFeeRate",
+                                                      "CashCentreNotesLodged",
+                                                      "CashCentreNotesOut",
+                                                      "CashCentreCashIn",
+                                                      "CashCentreCashOut",
+                                                      "ReportCertBalance",
+                                                      "ATMAbroadConVisaDebit",
+                                                      "ATMConGroupATM",
+                                                      "ATMAbroad",
+                                                      "ATMForeignCashDebCard",
+                                                      "ATMAbroadGoldVisaDebit",
+                                                      "ATMNonSterlingWithdrawal",
+                                                      "ATMAbroadVisaDebit",
+                                                      "CHAPSOutBranch",
+                                                      "CHAPSCancellation",
+                                                      "CHAPSIn",
+                                                      "CHAPSOutInterBank",
+                                                      "CHAPSInterBank",
+                                                      "CHAPSOutPost",
+                                                      "CHAPSOutInterBranch",
+                                                      "CHAPSOut",
+                                                      "CHAPSOutOnline",
+                                                      "CardCardReplacement",
+                                                      "DraftsCounter",
+                                                      "DraftsBankers",
+                                                      "DraftsCancellation",
+                                                      "CardGuaranteed",
+                                                      "DraftsIntlPayableAbroad",
+                                                      "DraftsLostStolen",
+                                                      "CardPersonalisedCard",
+                                                      "DraftsIntlStoppedCancelled",
+                                                      "EmergencyLending",
+                                                      "FPSInBranch",
+                                                      "LegalCourtOrder",
+                                                      "IntlPayFXPaymentIn",
+                                                      "IntlPayForeignPaymentInUKAcc",
+                                                      "IntlPayForeignCharge",
+                                                      "IntlPayForeignInternet",
+                                                      "IntlPayFXPaymentOut",
+                                                      "IntlPayFXPaymentOutIR",
+                                                      "IntlPayPurchaseNonSterling",
+                                                      "IntlPayPaymentTracing",
+                                                      "IntlPayTransNonSterling",
+                                                      "IntlPayTransRateNonSterling",
+                                                      "IntlPayWorldpayPayment",
+                                                      "InvPayBankDetailsWrong",
+                                                      "InvPayForeignBCNR",
+                                                      "InvPayForeignRecall",
+                                                      "InvPayStandingOrdUnpaid",
+                                                      "SafeKeepingEnvelope",
+                                                      "SafeKeepingInspection",
+                                                      "SafeKeepingLargeItem",
+                                                      "SafeKeepingParcel",
+                                                      "NightSafeNightSafePaidIn",
+                                                      "OverdraftReview",
+                                                      "ChqBookTheftLossAllStopped",
+                                                      "ChqCopy",
+                                                      "ChqDraftSterling",
+                                                      "ChqOutIssued",
+                                                      "ChqSpecialChqPresentation",
+                                                      "ChqSpecialChqClearance",
+                                                      "ChqStopped",
+                                                      "ChqinCashCentre",
+                                                      "ChqDraftFX",
+                                                      "ChqForeignCourier",
+                                                      "ChqGiftCheque",
+                                                      "ChqForeign",
+                                                      "ChqChequePhotocopy",
+                                                      "ChqChequeRetrieval",
+                                                      "ChqSpecialPresentationCount",
+                                                      "ChqSpecialPresentationPTT",
+                                                      "ChqUnpaidCharge",
+                                                      "ChqUnpaidTransIn",
+                                                      "ChqUnpaidTransOut",
+                                                      "ChqUnpaidCheque",
+                                                      "ReportCertInterestDuplicate",
+                                                      "ReportCertInterest",
+                                                      "ReportReference",
+                                                      "ReportReferralItem",
+                                                      "ReportStatementCopyRegular",
+                                                      "ReportStatusEnquiry",
+                                                      "ReportStatementFrequent",
+                                                      "ReportStatementCopy1",
+                                                      "SEPAIn",
+                                                      "SEPAEuro",
+                                                      "SEPAOut",
+                                                      "TransCreditTransferUKDifferent",
+                                                      "TransCredit",
+                                                      "TransCreditTransfer",
+                                                      "TransBuyForeignWithGBP",
+                                                      "TransSWIFTOutUKForeign",
+                                                      "TransPOSSaleForeign",
+                                                      "TransReturnPayment",
+                                                      "TransTransferExGroup",
+                                                      "TransSWIFTOutNonEEASterling",
+                                                      "AutoAutomatedEntries",
+                                                      "OnlineReplacementCardReader",
+                                                      "OnlineUrgentPayment",
+                                                      "ForeignChqSent",
+                                                      "ForeignFXInwardsCust",
+                                                      "ForeignFXOutwards",
+                                                      "ForeignPurchase",
+                                                      "ForeignChqDraft",
+                                                      "ServiceCAccountFee",
+                                                      "ServiceCAccountFeeMonthly",
+                                                      "ServiceCOther",
+                                                      "CounterCashOut",
+                                                      "CounterForeignNoteHandling",
+                                                      "CounterForeignCashOut",
+                                                      "CounterCashFeeRate",
+                                                      "Other"
+                                                    ]
                                                   },
                                                   "FeeAmount": {
                                                     "description": "Fee Amount charged for a fee/charge (where it is charged in terms of an amount rather than a rate)",
@@ -2618,19 +3453,66 @@
                                                     "description": "Rate type for Fee/Charge (where it is charged in terms of a rate rather than an amount)",
                                                     "title": "FeeRateType",
                                                     "type": "string",
-                                                    "enum": ["LinkedBaseRate", "Gross", "Net", "Other"]
+                                                    "enum": [
+                                                      "LinkedBaseRate",
+                                                      "Gross",
+                                                      "Net",
+                                                      "Other"
+                                                    ]
                                                   },
                                                   "ApplicationFrequency": {
                                                     "description": "How frequently the fee/charge is applied to the account",
                                                     "title": "ApplicationFrequency",
                                                     "type": "string",
-                                                    "enum": ["AccountClosing", "AccountOpening", "AcademicTerm", "ChargingPeriod", "Daily", "PerItem", "Monthly", "OnAccountAnniversary", "Other", "PerHour", "PerOccurrence", "PerSheet", "PerTransaction", "PerTransactionAmount", "PerTransactionPercentage", "Quarterly", "SixMonthly", "StatementMonthly", "Weekly", "Yearly"]
+                                                    "enum": [
+                                                      "AccountClosing",
+                                                      "AccountOpening",
+                                                      "AcademicTerm",
+                                                      "ChargingPeriod",
+                                                      "Daily",
+                                                      "PerItem",
+                                                      "Monthly",
+                                                      "OnAccountAnniversary",
+                                                      "Other",
+                                                      "PerHour",
+                                                      "PerOccurrence",
+                                                      "PerSheet",
+                                                      "PerTransaction",
+                                                      "PerTransactionAmount",
+                                                      "PerTransactionPercentage",
+                                                      "Quarterly",
+                                                      "SixMonthly",
+                                                      "StatementMonthly",
+                                                      "Weekly",
+                                                      "Yearly"
+                                                    ]
                                                   },
                                                   "CalculationFrequency": {
                                                     "description": "How frequently the fee/charge is calculated",
                                                     "title": "CalculationFrequency",
                                                     "type": "string",
-                                                    "enum": ["AccountClosing", "AccountOpening", "AcademicTerm", "ChargingPeriod", "Daily", "PerItem", "Monthly", "OnAccountAnniversary", "Other", "PerHour", "PerOccurrence", "PerSheet", "PerTransaction", "PerTransactionAmount", "PerTransactionPercentage", "Quarterly", "SixMonthly", "StatementMonthly", "Weekly", "Yearly"]
+                                                    "enum": [
+                                                      "AccountClosing",
+                                                      "AccountOpening",
+                                                      "AcademicTerm",
+                                                      "ChargingPeriod",
+                                                      "Daily",
+                                                      "PerItem",
+                                                      "Monthly",
+                                                      "OnAccountAnniversary",
+                                                      "Other",
+                                                      "PerHour",
+                                                      "PerOccurrence",
+                                                      "PerSheet",
+                                                      "PerTransaction",
+                                                      "PerTransactionAmount",
+                                                      "PerTransactionPercentage",
+                                                      "Quarterly",
+                                                      "SixMonthly",
+                                                      "StatementMonthly",
+                                                      "Weekly",
+                                                      "Yearly"
+                                                    ]
                                                   },
                                                   "Notes": {
                                                     "description": "Optional additional notes to supplement the fee/charge details.",
@@ -2671,7 +3553,10 @@
                                                       }
                                                     },
                                                     "additionalProperties": false,
-                                                    "required": ["Name", "Description"]
+                                                    "required": [
+                                                      "Name",
+                                                      "Description"
+                                                    ]
                                                   },
                                                   "OtherFeeType": {
                                                     "description": "Other Fee/charge type which is not available in the standard code set",
@@ -2690,7 +3575,28 @@
                                                         "description": "Categorisation of fees and charges into standard categories.",
                                                         "title": "FeeCategory",
                                                         "type": "string",
-                                                        "enum": ["AUTO", "ATM", "BankersDrafts", "Card", "Cheque", "CounterServices", "Foreign", "FX", "International", "Investigation", "Legal", "NightSafe", "Online", "Other", "PaymentScheme", "Report", "Safekeeping", "Servicing", "Transaction"]
+                                                        "enum": [
+                                                          "AUTO",
+                                                          "ATM",
+                                                          "BankersDrafts",
+                                                          "CashCentre",
+                                                          "Card",
+                                                          "Cheque",
+                                                          "CounterServices",
+                                                          "Foreign",
+                                                          "FX",
+                                                          "International",
+                                                          "Investigation",
+                                                          "Legal",
+                                                          "NightSafe",
+                                                          "Online",
+                                                          "Other",
+                                                          "PaymentScheme",
+                                                          "Report",
+                                                          "Safekeeping",
+                                                          "Servicing",
+                                                          "Transaction"
+                                                        ]
                                                       },
                                                       "Name": {
                                                         "description": "Long name associated with the code",
@@ -2708,7 +3614,11 @@
                                                       }
                                                     },
                                                     "additionalProperties": false,
-                                                    "required": ["FeeCategory", "Name", "Description"]
+                                                    "required": [
+                                                      "FeeCategory",
+                                                      "Name",
+                                                      "Description"
+                                                    ]
                                                   },
                                                   "OtherFeeRateType": {
                                                     "description": "Other fee rate type which is not available in the standard code set",
@@ -2739,7 +3649,10 @@
                                                       }
                                                     },
                                                     "additionalProperties": false,
-                                                    "required": ["Name", "Description"]
+                                                    "required": [
+                                                      "Name",
+                                                      "Description"
+                                                    ]
                                                   },
                                                   "OtherApplicationFrequency": {
                                                     "description": "Other application frequencies not covered in the standard code list",
@@ -2770,7 +3683,10 @@
                                                       }
                                                     },
                                                     "additionalProperties": false,
-                                                    "required": ["Name", "Description"]
+                                                    "required": [
+                                                      "Name",
+                                                      "Description"
+                                                    ]
                                                   },
                                                   "OtherCalculationFrequency": {
                                                     "description": "Other calculation frequency which is not available in standard code set.",
@@ -2801,7 +3717,10 @@
                                                       }
                                                     },
                                                     "additionalProperties": false,
-                                                    "required": ["Name", "Description"]
+                                                    "required": [
+                                                      "Name",
+                                                      "Description"
+                                                    ]
                                                   },
                                                   "FeeApplicableRange": {
                                                     "description": "Range or amounts or rates for which the fee/charge applies",
@@ -2836,7 +3755,12 @@
                                                     "additionalProperties": false
                                                   }
                                                 },
-                                                "required": ["FeeCategory", "FeeType", "ApplicationFrequency", "CalculationFrequency"]
+                                                "required": [
+                                                  "FeeCategory",
+                                                  "FeeType",
+                                                  "ApplicationFrequency",
+                                                  "CalculationFrequency"
+                                                ]
                                               },
                                               "additionalProperties": false,
                                               "minItems": 1
@@ -2856,7 +3780,122 @@
                                                     "items": {
                                                       "description": "Fee/charge type which is being capped",
                                                       "type": "string",
-                                                      "enum": ["ReportCertBalance", "ATMAbroadConVisaDebit", "ATMConGroupATM", "ATMAbroad", "ATMForeignCashDebCard", "ATMAbroadGoldVisaDebit", "ATMNonSterlingWithdrawal", "ATMAbroadVisaDebit", "CHAPSOutBranch", "CHAPSCancellation", "CHAPSIn", "CHAPSOutInterBank", "CHAPSInterBank", "CHAPSOutPost", "CHAPSOutInterBranch", "CHAPSOut", "CHAPSOutOnline", "CardCardReplacement", "DraftsCounter", "DraftsBankers", "DraftsCancellation", "CardGuaranteed", "DraftsIntlPayableAbroad", "DraftsLostStolen", "CardPersonalisedCard", "DraftsIntlStoppedCancelled", "EmergencyLending", "FPSInBranch", "LegalCourtOrder", "IntlPayFXPaymentIn", "IntlPayForeignPaymentInUKAcc", "IntlPayForeignCharge", "IntlPayForeignInternet", "IntlPayFXPaymentOut", "IntlPayFXPaymentOutIR", "IntlPayPurchaseNonSterling", "IntlPayPaymentTracing", "IntlPayTransNonSterling", "IntlPayTransRateNonSterling", "IntlPayWorldpayPayment", "InvPayBankDetailsWrong", "InvPayForeignBCNR", "InvPayForeignRecall", "InvPayStandingOrdUnpaid", "SafeKeepingEnvelope", "SafeKeepingInspection", "SafeKeepingLargeItem", "SafeKeepingParcel", "NightSafeNightSafePaidIn", "OverdraftReview", "ChqBookTheftLossAllStopped", "ChqCopy", "ChqDraftSterling", "ChqOutIssued", "ChqSpecialChqPresentation", "ChqSpecialChqClearance", "ChqStopped", "ChqDraftFX", "ChqForeignCourier", "ChqGiftCheque", "ChqForeign", "ChqChequePhotocopy", "ChqChequeRetrieval", "ChqSpecialPresentationCount", "ChqSpecialPresentationPTT", "ChqUnpaidCharge", "ChqUnpaidTransIn", "ChqUnpaidTransOut", "ChqUnpaidCheque", "ReportCertInterestDuplicate", "ReportCertInterest", "ReportReference", "ReportReferralItem", "ReportStatementCopyRegular", "ReportStatusEnquiry", "ReportStatementFrequent", "ReportStatementCopy1", "SEPAIn", "SEPAEuro", "SEPAOut", "TransCreditTransferUKDifferent", "TransCredit", "TransCreditTransfer", "TransBuyForeignWithGBP", "TransSWIFTOutUKForeign", "TransPOSSaleForeign", "TransReturnPayment", "TransTransferExGroup", "TransSWIFTOutNonEEASterling", "AutoAutomatedEntries", "OnlineReplacementCardReader", "OnlineUrgentPayment", "ForeignChqSent", "ForeignFXInwardsCust", "ForeignFXOutwards", "ForeignPurchase", "ForeignChqDraft", "ServiceCAccountFee", "ServiceCAccountFeeMonthly", "ServiceCOther", "CounterCashOut", "CounterForeignNoteHandling", "CounterForeignCashOut", "CounterCashFeeRate", "Other"]
+                                                      "enum": [
+                                                        "CashCentreCoinHandling",
+                                                        "CashCentreCashX",
+                                                        "CashCentreCashFeePercent",
+                                                        "CashCentreCashFeeRate",
+                                                        "CashCentreNotesLodged",
+                                                        "CashCentreNotesOut",
+                                                        "CashCentreCashIn",
+                                                        "CashCentreCashOut",
+                                                        "ReportCertBalance",
+                                                        "ATMAbroadConVisaDebit",
+                                                        "ATMConGroupATM",
+                                                        "ATMAbroad",
+                                                        "ATMForeignCashDebCard",
+                                                        "ATMAbroadGoldVisaDebit",
+                                                        "ATMNonSterlingWithdrawal",
+                                                        "ATMAbroadVisaDebit",
+                                                        "CHAPSOutBranch",
+                                                        "CHAPSCancellation",
+                                                        "CHAPSIn",
+                                                        "CHAPSOutInterBank",
+                                                        "CHAPSInterBank",
+                                                        "CHAPSOutPost",
+                                                        "CHAPSOutInterBranch",
+                                                        "CHAPSOut",
+                                                        "CHAPSOutOnline",
+                                                        "CardCardReplacement",
+                                                        "DraftsCounter",
+                                                        "DraftsBankers",
+                                                        "DraftsCancellation",
+                                                        "CardGuaranteed",
+                                                        "DraftsIntlPayableAbroad",
+                                                        "DraftsLostStolen",
+                                                        "CardPersonalisedCard",
+                                                        "DraftsIntlStoppedCancelled",
+                                                        "EmergencyLending",
+                                                        "FPSInBranch",
+                                                        "LegalCourtOrder",
+                                                        "IntlPayFXPaymentIn",
+                                                        "IntlPayForeignPaymentInUKAcc",
+                                                        "IntlPayForeignCharge",
+                                                        "IntlPayForeignInternet",
+                                                        "IntlPayFXPaymentOut",
+                                                        "IntlPayFXPaymentOutIR",
+                                                        "IntlPayPurchaseNonSterling",
+                                                        "IntlPayPaymentTracing",
+                                                        "IntlPayTransNonSterling",
+                                                        "IntlPayTransRateNonSterling",
+                                                        "IntlPayWorldpayPayment",
+                                                        "InvPayBankDetailsWrong",
+                                                        "InvPayForeignBCNR",
+                                                        "InvPayForeignRecall",
+                                                        "InvPayStandingOrdUnpaid",
+                                                        "SafeKeepingEnvelope",
+                                                        "SafeKeepingInspection",
+                                                        "SafeKeepingLargeItem",
+                                                        "SafeKeepingParcel",
+                                                        "NightSafeNightSafePaidIn",
+                                                        "OverdraftReview",
+                                                        "ChqBookTheftLossAllStopped",
+                                                        "ChqCopy",
+                                                        "ChqDraftSterling",
+                                                        "ChqOutIssued",
+                                                        "ChqSpecialChqPresentation",
+                                                        "ChqSpecialChqClearance",
+                                                        "ChqStopped",
+                                                        "ChqinCashCentre",
+                                                        "ChqDraftFX",
+                                                        "ChqForeignCourier",
+                                                        "ChqGiftCheque",
+                                                        "ChqForeign",
+                                                        "ChqChequePhotocopy",
+                                                        "ChqChequeRetrieval",
+                                                        "ChqSpecialPresentationCount",
+                                                        "ChqSpecialPresentationPTT",
+                                                        "ChqUnpaidCharge",
+                                                        "ChqUnpaidTransIn",
+                                                        "ChqUnpaidTransOut",
+                                                        "ChqUnpaidCheque",
+                                                        "ReportCertInterestDuplicate",
+                                                        "ReportCertInterest",
+                                                        "ReportReference",
+                                                        "ReportReferralItem",
+                                                        "ReportStatementCopyRegular",
+                                                        "ReportStatusEnquiry",
+                                                        "ReportStatementFrequent",
+                                                        "ReportStatementCopy1",
+                                                        "SEPAIn",
+                                                        "SEPAEuro",
+                                                        "SEPAOut",
+                                                        "TransCreditTransferUKDifferent",
+                                                        "TransCredit",
+                                                        "TransCreditTransfer",
+                                                        "TransBuyForeignWithGBP",
+                                                        "TransSWIFTOutUKForeign",
+                                                        "TransPOSSaleForeign",
+                                                        "TransReturnPayment",
+                                                        "TransTransferExGroup",
+                                                        "TransSWIFTOutNonEEASterling",
+                                                        "AutoAutomatedEntries",
+                                                        "OnlineReplacementCardReader",
+                                                        "OnlineUrgentPayment",
+                                                        "ForeignChqSent",
+                                                        "ForeignFXInwardsCust",
+                                                        "ForeignFXOutwards",
+                                                        "ForeignPurchase",
+                                                        "ForeignChqDraft",
+                                                        "ServiceCAccountFee",
+                                                        "ServiceCAccountFeeMonthly",
+                                                        "ServiceCOther",
+                                                        "CounterCashOut",
+                                                        "CounterForeignNoteHandling",
+                                                        "CounterForeignCashOut",
+                                                        "CounterCashFeeRate",
+                                                        "Other"
+                                                      ]
                                                     },
                                                     "minItems": 1
                                                   },
@@ -2864,7 +3903,10 @@
                                                     "description": "Indicates that this is the minimum/ maximum fee/charge that can be applied by the financial institution",
                                                     "title": "MinMaxType",
                                                     "type": "string",
-                                                    "enum": ["Minimum", "Maximum"]
+                                                    "enum": [
+                                                      "Minimum",
+                                                      "Maximum"
+                                                    ]
                                                   },
                                                   "FeeCapOccurrence": {
                                                     "description": "fee/charges are captured dependent on the number of occurrences rather than capped at a particular amount",
@@ -2882,7 +3924,15 @@
                                                     "description": "Period e.g. day, week, month etc. for which the fee/charge is capped",
                                                     "title": "CappingPeriod",
                                                     "type": "string",
-                                                    "enum": ["Day", "Half Year", "Month", "Quarter", "Week", "AcademicTerm", "Year"]
+                                                    "enum": [
+                                                      "Day",
+                                                      "Half Year",
+                                                      "Month",
+                                                      "Quarter",
+                                                      "Week",
+                                                      "AcademicTerm",
+                                                      "Year"
+                                                    ]
                                                   },
                                                   "Notes": {
                                                     "description": "Free text for adding  extra details for fee charge cap",
@@ -2926,18 +3976,26 @@
                                                           "maxLength": 350
                                                         }
                                                       },
-                                                      "required": ["Name", "Description"]
+                                                      "required": [
+                                                        "Name",
+                                                        "Description"
+                                                      ]
                                                     },
                                                     "additionalProperties": false
                                                   }
                                                 },
-                                                "required": ["FeeType", "MinMaxType"]
+                                                "required": [
+                                                  "FeeType",
+                                                  "MinMaxType"
+                                                ]
                                               },
                                               "additionalProperties": false
                                             }
                                           },
                                           "additionalProperties": false,
-                                          "required": ["FeeChargeDetail"]
+                                          "required": [
+                                            "FeeChargeDetail"
+                                          ]
                                         },
                                         "CoreProduct": {
                                           "description": "Core feature of the PCA product which can be associated to a particular Marketing State",
@@ -2972,7 +4030,13 @@
                                               "items": {
                                                 "description": "Channels through which a customer can open an account.",
                                                 "type": "string",
-                                                "enum": ["Branch", "CallCentre", "Post", "Online", "RelationshipManager"]
+                                                "enum": [
+                                                  "Branch",
+                                                  "CallCentre",
+                                                  "Post",
+                                                  "Online",
+                                                  "RelationshipManager"
+                                                ]
                                               }
                                             },
                                             "ServicingAccessChannels": {
@@ -2982,7 +4046,17 @@
                                               "items": {
                                                 "description": "Methods by which a customer can access the services associated to the PCA product",
                                                 "type": "string",
-                                                "enum": ["ATM", "Branch", "CallCentre", "Post", "MobileBankingApp", "Online", "PostOffice", "RelationshipManager", "Text"]
+                                                "enum": [
+                                                  "ATM",
+                                                  "Branch",
+                                                  "CallCentre",
+                                                  "Post",
+                                                  "MobileBankingApp",
+                                                  "Online",
+                                                  "PostOffice",
+                                                  "RelationshipManager",
+                                                  "Text"
+                                                ]
                                               }
                                             },
                                             "MonthlyMaximumCharge": {
@@ -2995,31 +4069,82 @@
                                           "additionalProperties": false
                                         }
                                       },
-                                      "required": ["Identification", "MarketingState"]
+                                      "required": [
+                                        "Identification",
+                                        "MarketingState"
+                                      ]
                                     },
                                     "additionalProperties": false,
                                     "minItems": 1
+                                  },
+                                  "OtherSegment": {
+                                    "type": "array",
+                                    "title": "OtherSegment",
+                                    "items": {
+                                      "type": "object",
+                                      "properties": {
+                                        "Code": {
+                                          "description": "The four letter Mnemonic used within an XML file to identify a code",
+                                          "title": "Code",
+                                          "type": "string",
+                                          "pattern": "^\\w{0,4}$",
+                                          "minLength": 0,
+                                          "maxLength": 4
+                                        },
+                                        "Name": {
+                                          "description": "Long name associated with the code",
+                                          "title": "Name",
+                                          "type": "string",
+                                          "minLength": 1,
+                                          "maxLength": 70
+                                        },
+                                        "Description": {
+                                          "description": "Description to describe the purpose of the code",
+                                          "title": "Description",
+                                          "type": "string",
+                                          "minLength": 1,
+                                          "maxLength": 350
+                                        }
+                                      },
+                                      "required": [
+                                        "Name",
+                                        "Description"
+                                      ]
+                                    },
+                                    "additionalProperties": false
                                   }
                                 },
-                                "required": ["Name", "Identification", "PCAMarketingState"]
+                                "required": [
+                                  "Name",
+                                  "Identification",
+                                  "PCAMarketingState"
+                                ]
                               },
                               "additionalProperties": false,
                               "minItems": 1
                             }
                           },
-                          "required": ["BrandName", "PCA"]
+                          "required": [
+                            "BrandName",
+                            "PCA"
+                          ]
                         },
                         "additionalProperties": false,
                         "minItems": 1
                       }
                     },
-                    "required": ["Brand"],
+                    "required": [
+                      "Brand"
+                    ],
                     "description": "Open Banking Personal Current Account product data details",
                     "type": "object"
                   }
                 }
               },
-              "required": ["meta", "data"],
+              "required": [
+                "meta",
+                "data"
+              ],
               "additionalProperties": false
             }
           },
@@ -3052,18 +4177,28 @@
               "properties": {
                 "status": {
                   "type": "string",
-                  "enum": ["400"]
+                  "enum": [
+                    "400"
+                  ]
                 },
                 "title": {
                   "type": "string",
-                  "enum": ["Bad request"]
+                  "enum": [
+                    "Bad request"
+                  ]
                 },
                 "description": {
                   "type": "string",
-                  "enum": ["You have sent a request which could not be understood."]
+                  "enum": [
+                    "You have sent a request which could not be understood."
+                  ]
                 }
               },
-              "required": ["status", "title", "description"],
+              "required": [
+                "status",
+                "title",
+                "description"
+              ],
               "additionalProperties": false
             }
           },
@@ -3096,18 +4231,28 @@
               "properties": {
                 "status": {
                   "type": "string",
-                  "enum": ["408"]
+                  "enum": [
+                    "408"
+                  ]
                 },
                 "title": {
                   "type": "string",
-                  "enum": ["Client timeout"]
+                  "enum": [
+                    "Client timeout"
+                  ]
                 },
                 "description": {
                   "type": "string",
-                  "enum": ["Your client has failed to submit a request, and a timeout has occurred."]
+                  "enum": [
+                    "Your client has failed to submit a request, and a timeout has occurred."
+                  ]
                 }
               },
-              "required": ["status", "title", "description"],
+              "required": [
+                "status",
+                "title",
+                "description"
+              ],
               "additionalProperties": false
             }
           },
@@ -3140,18 +4285,28 @@
               "properties": {
                 "status": {
                   "type": "string",
-                  "enum": ["429"]
+                  "enum": [
+                    "429"
+                  ]
                 },
                 "title": {
                   "type": "string",
-                  "enum": ["Too many requests"]
+                  "enum": [
+                    "Too many requests"
+                  ]
                 },
                 "description": {
                   "type": "string",
-                  "enum": ["You have requested this resource too often. Slow down."]
+                  "enum": [
+                    "You have requested this resource too often. Slow down."
+                  ]
                 }
               },
-              "required": ["status", "title", "description"],
+              "required": [
+                "status",
+                "title",
+                "description"
+              ],
               "additionalProperties": false
             }
           },
@@ -3184,18 +4339,28 @@
               "properties": {
                 "status": {
                   "type": "string",
-                  "enum": ["500"]
+                  "enum": [
+                    "500"
+                  ]
                 },
                 "title": {
                   "type": "string",
-                  "enum": ["Internal server error"]
+                  "enum": [
+                    "Internal server error"
+                  ]
                 },
                 "description": {
                   "type": "string",
-                  "enum": ["An error occurred on the server. No further information is available."]
+                  "enum": [
+                    "An error occurred on the server. No further information is available."
+                  ]
                 }
               },
-              "required": ["status", "title", "description"],
+              "required": [
+                "status",
+                "title",
+                "description"
+              ],
               "additionalProperties": false
             }
           },
@@ -3228,18 +4393,28 @@
               "properties": {
                 "status": {
                   "type": "string",
-                  "enum": ["503"]
+                  "enum": [
+                    "503"
+                  ]
                 },
                 "title": {
                   "type": "string",
-                  "enum": ["Service temporarily unavailable"]
+                  "enum": [
+                    "Service temporarily unavailable"
+                  ]
                 },
                 "description": {
                   "type": "string",
-                  "enum": ["The service is temporarily unavailable."]
+                  "enum": [
+                    "The service is temporarily unavailable."
+                  ]
                 }
               },
-              "required": ["status", "title", "description"],
+              "required": [
+                "status",
+                "title",
+                "description"
+              ],
               "additionalProperties": false
             }
           },
@@ -3283,28 +4458,37 @@
                   "type": "string"
                 }
               },
-              "required": ["status", "title", "description"],
+              "required": [
+                "status",
+                "title",
+                "description"
+              ],
               "additionalProperties": false
             }
           }
         }
       },
       "head": {
-        "tags": ["PCA"],
+        "tags": [
+          "PCA"
+        ],
         "description": "Gets header information on the current set of `Personal Current Account` data",
-        "parameters": [{
-          "name": "If-Modified-Since",
-          "type": "string",
-          "description": "Used for conditional request, to retrieve data only if modified since a given date",
-          "in": "header",
-          "required": false
-        }, {
-          "name": "If-None-Match",
-          "type": "string",
-          "description": "Used for conditional request, to retrieve data only if the given Etag value does not match",
-          "in": "header",
-          "required": false
-        }],
+        "parameters": [
+          {
+            "name": "If-Modified-Since",
+            "type": "string",
+            "description": "Used for conditional request, to retrieve data only if modified since a given date",
+            "in": "header",
+            "required": false
+          },
+          {
+            "name": "If-None-Match",
+            "type": "string",
+            "description": "Used for conditional request, to retrieve data only if the given Etag value does not match",
+            "in": "header",
+            "required": false
+          }
+        ],
         "responses": {
           "default": {
             "description": "No response",

@@ -1,8 +1,0 @@
-<ResponseCache name="ResponseCache.URLKey">
-    <CacheKey>
-        <KeyFragment ref="request.uri"/>
-    </CacheKey>
-    <ExpirySettings>
-        <TimeoutInSec>86400</TimeoutInSec>
-    </ExpirySettings>
-</ResponseCache>

@@ -279,10 +279,9 @@ Open Banking specifications are a combination of [OAuth 2.0](https://tools.ietf.
 
 A great way to quickly evaluate a Drupal 8 Developer Portal is to use the [Apigee Kickstart](https://www.drupal.org/project/apigee_devportal_kickstart) module.
 
-Firstly, get the latest submodule:
+Firstly, get the Docker Kickstart Project:
 ```
-git submodule init
-git submodule update
+git clone https://github.com/laughingbiscuit/docker-apigee-drupal-kickstart
 ```
 
 Next, you can build the docker image and start a container:

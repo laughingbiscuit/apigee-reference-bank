@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <ProxyEndpoint name="default">
-    <Description></Description>
     <DefaultFaultRule>
       <Step>
         <Name>Shared.CORSError</Name>
       </Step>
       <AlwaysEnforce>true</AlwaysEnforce>
     </DefaultFaultRule>
-    <Flows/>
     <PreFlow name="PreFlow">
         <Request>
             <Step>
@@ -16,13 +14,13 @@
             </Step>
            <Step>                                                              
               <Name>ResponseCache.URLKey</Name>                                 
-              <Condition>request.verb = GET</Condition>
+              <Condition>request.verb = "GET"</Condition>
             </Step>                                                             
         </Request>                                                              
         <Response>                                                              
             <Step>                                                              
               <Name>ResponseCache.URLKey</Name>                                 
-              <Condition>request.verb = GET</Condition>
+              <Condition>request.verb = "GET"</Condition>
             </Step>                                                             
         </Response>
     </PreFlow>
@@ -35,7 +33,6 @@
     </PostFlow>
     <HTTPProxyConnection>
         <BasePath>/bca-sandbox</BasePath>
-        <Properties/>
         <VirtualHost>secure</VirtualHost>
     </HTTPProxyConnection>
     <RouteRule name="sandbox">

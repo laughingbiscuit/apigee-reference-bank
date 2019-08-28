@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <ProxyEndpoint name="default">
-    <Description></Description>
     <DefaultFaultRule>
       <Step>
         <Name>Shared.CORSError</Name>
       </Step>
       <AlwaysEnforce>true</AlwaysEnforce>
     </DefaultFaultRule>
-    <Flows/>
     <PreFlow name="PreFlow">
         <Request>
             <Step>
@@ -15,12 +13,10 @@
               <Condition>request.verb = "OPTIONS"</Condition>
             </Step>
             <Step>
-                <FaultRules/>
                 <Name>Shared.VerifyAccessToken</Name>
                 <Condition>!(environment.name = "test" AND request.header.Authorization = "Bearer sampleToken")</Condition>
             </Step>
         </Request>
-        <Response/>
     </PreFlow>
     <PostFlow>
       <Response>
@@ -31,7 +27,6 @@
     </PostFlow>
     <HTTPProxyConnection>
         <BasePath>/ais-sandbox</BasePath>
-        <Properties/>
         <VirtualHost>secure</VirtualHost>
     </HTTPProxyConnection>
     <RouteRule name="sandbox">

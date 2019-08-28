@@ -1,21 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <Manifest name="manifest">
-    <Policies>
-        <VersionInfo resourceName="Shared.VerifyAccessToken" version="SHA-512:359d34221a08eebc10d685d541933c06d4a721d3875f223c6f80dbdd7e486fa26eb76673f8313ec777b1e12b15aba71d5d69c807592f270dac068747be363fb7"/>
-    </Policies>
-    <ProxyEndpoints>
-        <VersionInfo resourceName="default" version="SHA-512:8070a5154221ed20b4864706655fb8682d262d63b3772d0534b1abd7183eba3c816b27ee21919ddd0f636b5a0c50f1ae5cc6bcd74c514d67a15c781f2c2fa994"/>
-    </ProxyEndpoints>
-    <Resources>
-        <VersionInfo resourceName="hosted://app.js" version="SHA-512:ad391b670f12a40d479ec34eb9d0665de5e75585da914f3444540aa01e7e4691fe8d9a44636df6de2bcd4ba5c37d232a9d44b8de3a774de9f1d9a334f02455ae"/>
-        <VersionInfo resourceName="hosted://app.yaml" version="SHA-512:d81fb6ef1bfbf93b5d85662979694472635f742db99a7061905ba320abe7b14084501a84b2ea42ca801d4ee13432c52ed469bd291f8bfe0d28d31469909e1f12"/>
-        <VersionInfo resourceName="hosted://deploy.sh" version="SHA-512:364421ada5951664ca1124227d1ad5f4b63c775868545470a03105d7e992377cdc24a8de20d59e08c2a03ef80b257847be64bc180b75eb0b66753664ec4cf8cf"/>
-        <VersionInfo resourceName="hosted://package-lock.json" version="SHA-512:7a10544b8c0825a0d63637f6379be4680c61a9b046eab50e2e763bd4c97cd87aee1e207588d7ffa0d98bdd4547f532009cb392a8cf10fb84ffe6e4f2fdaa85d5"/>
-        <VersionInfo resourceName="hosted://package.json" version="SHA-512:6a8b6308e527dba0c71d904bdb28445dfa5a314cdeb4897a8f81f9914b3c150d20230a2cb828a09e78e5eb233b8730f19a55d5b7167fae1b35fae8190f092657"/>
-        <VersionInfo resourceName="hosted://swagger.json" version="SHA-512:28e8479ad7854cf9ffe204f4dec522f8ada29bbada9d41e38864786e24bf4f020ba54df61bdee8839f4075474972aa7c76e6746cdb3314a74799927aea07b5b0"/>
-    </Resources>
+    <Policies/>
+    <ProxyEndpoints/>
+    <Resources/>
     <SharedFlows/>
-    <TargetEndpoints>
-        <VersionInfo resourceName="default" version="SHA-512:6ea2ed56c36e2349335e6a2c93c31247f048056b0d6310d75d13b0b9878834ee4d02ab89744dec43385f46d66f095072b94bc5546e4357d7dac81063decea192"/>
-    </TargetEndpoints>
+    <TargetEndpoints/>
 </Manifest>

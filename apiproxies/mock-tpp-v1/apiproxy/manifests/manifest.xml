@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <Manifest name="manifest">
-    <Policies>
-        <VersionInfo resourceName="Shared.JWKS" version="SHA-512:1274537a60437d351ef841ef4ec197c151bad1df2c089fba9781b656d22758fab0da289996a380fcfe06442138d7200a633bacdd11214e46d5c9777f3abd53a7"/>
-        <VersionInfo resourceName="add-cors" version="SHA-512:c4f64fdd0d31aa0b9c930bd8f3d887fa26cc487e95dcca58992bbc54ffa0ee095f227ebfcf9fc12d259285a796e47afc18421a7ffb29c92c8788abe66b521b69"/>
-    </Policies>
-    <ProxyEndpoints>
-        <VersionInfo resourceName="default" version="SHA-512:aa462f47a55fea1281e2fd5466db03ea84b0c3066620ef081febfd7d6058e4f5aa1315bd313e7c5ffa161b34e12b0f379b35abaa170d295170bd02765e6de374"/>
-    </ProxyEndpoints>
+    <Policies/>
+    <ProxyEndpoints/>
     <Resources/>
     <SharedFlows/>
     <TargetEndpoints/>

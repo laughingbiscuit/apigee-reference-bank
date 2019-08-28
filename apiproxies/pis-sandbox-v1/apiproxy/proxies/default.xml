@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <ProxyEndpoint name="default">
-    <Description></Description>
     <DefaultFaultRule>
       <Step>
         <Name>Shared.CORSError</Name>
@@ -15,12 +14,10 @@
               <Condition>request.verb = "OPTIONS"</Condition>
             </Step>
             <Step>
-                <FaultRules/>
                 <Name>Shared.VerifyAccessToken</Name>
                 <Condition>!(environment.name = "test" AND request.header.Authorization = "Bearer sampleToken")</Condition>
             </Step>
         </Request>                                                              
-        <Response/>
     </PreFlow>
     <PostFlow>
       <Response>
@@ -31,7 +28,6 @@
     </PostFlow>
     <HTTPProxyConnection>
         <BasePath>/pis-sandbox</BasePath>
-        <Properties/>
         <VirtualHost>secure</VirtualHost>
     </HTTPProxyConnection>
     <RouteRule name="sandbox">

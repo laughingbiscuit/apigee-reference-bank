@@ -26,3 +26,7 @@ You can then use the following commands to generate and serve the docs locally.
 npm run generateDocs
 npm run serveDocs
 ```
+
+## Disclaimer
+
+This is not an officially supported Google Product.

@@ -3,7 +3,7 @@
     <Policies/>
     <ProxyEndpoints/>
     <Resources>
-        <VersionInfo resourceName="hosted" version="79012646"/>
+        <VersionInfo resourceName="hosted" version=""/>
     </Resources>
     <SharedFlows/>
     <TargetEndpoints/>
