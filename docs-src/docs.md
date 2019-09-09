@@ -243,7 +243,7 @@ export CLIENT_TOKEN=xxx
 
 Create Account Access Consent:
 ```
-curl -H "x-fapi-financial-id: 123" -H "Authorization: Bearer $CLIENT_TOKEN" -d "@./test/fixtures/accountAccessConsent.json" -H "Content-Type: application/json" https://$APIGEE_ORG-$APIGEE_ENV.apigee.net/ais-sandbox/open-banking/v3.0/aisp/account-access-consents -v
+curl -H "x-fapi-financial-id: 123" -H "Authorization: Bearer $CLIENT_TOKEN" -d "@./test/fixtures/accountAccessConsent.json" -H "Content-Type: application/json" https://$APIGEE_ORG-$APIGEE_ENV.apigee.net/ais-sandbox/open-banking/v3.1/aisp/account-access-consents -v
 ```
 
 User Authorization:
@@ -266,7 +266,7 @@ export USER_TOKEN=xxx
 
 Access some Account information:
 ```
-curl -H "Authorization: Bearer $USER_TOKEN" -H "x-fapi-financial-id: 123" https://$APIGEE_ORG-$APIGEE_ENV.apigee.net/ais-sandbox/open-banking/v3.0/aisp/accounts -v
+curl -H "Authorization: Bearer $USER_TOKEN" -H "x-fapi-financial-id: 123" https://$APIGEE_ORG-$APIGEE_ENV.apigee.net/ais-sandbox/open-banking/v3.1/aisp/accounts -v
 ```
 
 ## Understanding the Flows
