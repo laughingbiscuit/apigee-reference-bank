@@ -8,14 +8,6 @@ swaggerTools.initializeMiddleware(specification, function(middleware) {
   app.use(middleware.swaggerMetadata())
   app.use(middleware.swaggerValidator())
 
-  //custom error handling
-  app.use((err, req, res) => {
-    res.statusCode = 400
-    res.end(JSON.stringify({
-      error: (err.type ? err.type : err.paramName + ': ' + err.code)
-    }))
-  })
-
   app.use(middleware.swaggerRouter({
     useStubs: true
   }))

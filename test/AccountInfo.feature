@@ -25,7 +25,7 @@ Feature:
     And I set Authorization header to Bearer `clientToken`
     And I pipe contents of file accountAccessConsent.json to body
     And I set Content-Type header to application/json
-    When I POST to /ais-sandbox/open-banking/v3.0/aisp/account-access-consents
+    When I POST to /ais-sandbox/open-banking/v3.1/aisp/account-access-consents
     Then response code should be 201
     And response body path $.Data.ConsentId should be (.+)
   
@@ -51,6 +51,6 @@ Feature:
   Scenario: TPP Accesses Account Information
     Given I set Authorization header to Bearer `userToken`
     And I set x-fapi-financial-id header to test
-    When I GET /ais-sandbox/open-banking/v3.0/aisp/accounts
+    When I GET /ais-sandbox/open-banking/v3.1/aisp/accounts
     Then response code should be 200
     And response body path $.Data.Account should be of type array

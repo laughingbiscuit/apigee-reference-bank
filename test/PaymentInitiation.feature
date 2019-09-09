@@ -10,7 +10,7 @@ Feature:
     When I POST to /identity/v1/connect/register
     Then response code should be 200
     And response body path $.client_id should be (.*)
-
+@Debug
   Scenario: Client Credentials Access Token
     Given I have basic authentication credentials `clientId` and `clientSecret`
     And I set form parameters to 
@@ -19,7 +19,7 @@ Feature:
     When I POST to /identity/v1/token
     Then response code should be 200
     And I store the value of body path $.access_token as clientToken in global scope
-
+@Debug
   Scenario: Create Domestic Payment Consent
     Given I set x-fapi-financial-id header to 123
     And I set x-idempotency-key header to 123
@@ -27,7 +27,7 @@ Feature:
     And I set Authorization header to Bearer `clientToken`
     And I set Content-Type header to application/json
     And I pipe contents of file paymentConsent.json to body
-    When I POST to /pis-sandbox/open-banking/v3.0/pisp/domestic-payment-consents
+    When I POST to /pis-sandbox/open-banking/v3.1/pisp/domestic-payment-consents
     Then response code should be 201
     And response body path $.Data.ConsentId should be (.+)
   
@@ -53,6 +53,6 @@ Feature:
   Scenario: TPP Accesses Account Information
     Given I set Authorization header to Bearer `userToken`
     And I set x-fapi-financial-id header to test
-    When I GET /pis-sandbox/open-banking/v3.0/pisp/domestic-payments/123
+    When I GET /pis-sandbox/open-banking/v3.1/pisp/domestic-payments/123
     Then response code should be 200
     And response body path $.Data.DomesticPaymentId should be (.+)
